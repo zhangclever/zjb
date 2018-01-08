@@ -1,0 +1,173 @@
+﻿{include file='public/link-css'}
+<!-- BEGIN BODY -->
+    <style type="text/css">
+.demo {display: inline-block;*display: inline;*zoom: 1;width: 140px;height: 20px;line-height: 20px;font-size: 12px;overflow: hidden;-ms-text-overflow: ellipsis;text-overflow: ellipsis;white-space: nowrap;}
+.demo:hover {height: auto;white-space: normal;}
+    </style>
+
+<body class="page-header-fixed">
+
+<!-- BEGIN HEADER -->
+
+{include file='public/header'}
+
+<!-- END HEADER -->
+
+<!-- BEGIN CONTAINER -->
+
+<div class="page-container row-fluid">
+
+    <!-- BEGIN SIDEBAR -->
+
+    {include file='public/left-menu'}
+
+    <!-- END SIDEBAR -->
+
+    <!-- BEGIN PAGE -->
+
+    <div class="page-content">
+
+        <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+        <div id="portlet-config" class="modal hide">
+
+            <div class="modal-header">
+
+                <button data-dismiss="modal" class="close" type="button"></button>
+
+                <h3>Widget Settings</h3>
+
+            </div>
+
+            <div class="modal-body">
+
+                <p>Here will be a configuration form</p>
+
+            </div>
+
+        </div>
+
+        <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+        <div class="container-fluid text-center">
+
+            <div class="row-fluid ">
+
+                <div class="" data-tablet="span12 fix-offset" data-desktop="span6">
+
+                    <!-- BEGIN EXAMPLE TABLE PORTLET-->
+
+                    <div class="portlet box grey ">
+                        <div class="portlet-title">
+                            <div class="caption"><i class="icon-user"></i>通知公告</div>
+                            <div class="actions">
+                                <a href="{:url('Notice/notice_add')}" class="btn blue"><i class="icon-pencil"></i>添加公告</a>
+                            </div>
+                        </div>
+                        <label>
+                            <form action="{:url('Notice/notice_search')}" enctype="multipart/form-data" method="post" class="form-horizontal">
+                                标 题 :
+                                <input name="title" type="text" aria-controls="sample_1">
+                                <button type="submit" class="btn blue">搜索</button>
+                            </form>
+                        </label>
+                        <div class="portlet-body">
+                            <table class="table table-striped table-bordered table-hover" id="sample_2">
+                                <thead>
+                                <tr>
+                                    <th class="hidden-480" style="text-align: center;">ID</th>
+                                    <th class="hidden-480" style="text-align: center;">标题</th>
+                                    <th class="hidden-480" style="text-align: center;">信息图片</th>
+                                    <th class="hidden-480" style="text-align: center;">点击量</th>
+                                    <th class="hidden-480" style="text-align: center;">信息联接地址</th>
+                                    <th class="hidden-480" style="text-align: center;">公告类型</th>
+                                    <th class="hidden-480" style="text-align: center;">发布时间</th>
+                                    <th class="hidden-480"  style="text-align: center;">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                    {volist name='$list->data' id='vo'}
+                                <tr class="odd gradeX ">
+                                    <td style="text-align: center;">{$vo.id}</td>
+                                    <td style="text-align: center;">{$vo.title}</td>
+                                    <td style="text-align: center;"><img src='__PUBLIC__/uploads/{$vo.images}' height="80" width="80" ></td>
+                                    <td style="text-align: center;">{$vo.clicks}</td>
+                                    <td style="text-align: center;">{$vo.url}</td>
+                                    <!-- <td style="text-align: center;">{$vo.status}</td> -->
+                                    <td style="text-align: center;">
+                                                                {switch name="$vo.state"}
+                                                                    {case value="0"}通知公告{/case}
+                                                                    {default /}default
+                                                                {/switch}
+                                    </td>
+                                    <td style="text-align: center;">{$vo.ctimes}</td>
+                                    <td style="text-align: center;">
+                                        <a href="{:url('Notice/notice_see','id='.$vo['id'])}"><i class="icon-ban-circle"></i>查看</a>
+                                        <a href="javascript:js_status({$vo['id']},{$vo['status']})"><i class="icon-ban-circle"></i>{$vo['status']==0?'禁用':'启用'}</a>
+                                        <a href="{:url('Notice/notice_edit','id='.$vo['id'])}"><i class="icon-pencil"></i>修改</a>
+                                        <a href="javascript:remove({$vo['id']})"><i class="icon-trash"></i>删除</a>
+                                     </td>
+                                </tr>
+                    {/volist}
+                                </tbody>
+                            </table>
+                    <div class="pagination pagination-right" style="margin-bottom: 0;">
+                                <ul>
+                                    <li class="active">{$list->render}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        </div>
+                    <!-- END EXAMPLE TABLE PORTLET-->
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE CONTAINER-->
+    </div>
+    <!-- BEGIN PAGE -->
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+{include file='public/footer'}
+<!-- END FOOTER -->
+{include file='public/script-js'}
+</body>
+<!-- END BODY -->
+<script>
+    function js_status (id,status) {
+        $.ajax({
+            type:"post",
+            url:'notice_status',
+            data:{"id":id,"status":status},
+            success:function (data) {
+                if (data.code===1){
+                    layer.msg(data.msg,{icon:6,time:2000},function () {
+                        location.reload();
+                    })
+                }else{
+                    layer.msg(data.msg,{icon:2,time:2000})
+                }
+            }
+        })
+    }
+    function remove(id){
+        layer.confirm('确定删除么？',{icon:3,title:'提示'},function (index) {
+                $.ajax({
+                    type:"post",
+                    url:'notice_delete',
+                    data:{"id":id},
+                    success:function (data) {
+                        if (data.code===1){
+                            layer.msg(data.msg,{icon:6,time:2000},function () {
+                                location.reload();
+                            })
+                        }else{
+                            layer.msg(data.msg,{icon:2,time:2000})
+                        }
+                    }
+                })
+            layer.close(index);
+        })
+    }
+</script>
+</html>

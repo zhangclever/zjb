@@ -1,0 +1,125 @@
+{include file='public/link-css'}
+<!-- BEGIN BODY -->
+<body class="page-header-fixed">
+<!-- BEGIN HEADER -->
+{include file='public/header'}
+<!-- END HEADER -->
+<!-- BEGIN CONTAINER -->
+<div class="page-container row-fluid">
+    <!-- BEGIN SIDEBAR -->
+    {include file='public/left-menu'}
+    <!-- END SIDEBAR -->
+    <!-- BEGIN PAGE -->
+    <div class="page-content">
+        <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+        <div id="portlet-config" class="modal hide">
+            <div class="modal-header">
+                <button data-dismiss="modal" class="close" type="button"></button>
+                <h3>Widget Settings</h3>
+            </div>
+            <div class="modal-body">
+                <p>Here will be a configuration form</p>
+            </div>
+        </div>
+        <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+                    <!-- BEGIN VALIDATION STATES-->
+                    <div class="portlet box blue">
+                        <div class="portlet-title">
+                            <div class="caption"><i class="icon-reorder"></i>健保修改</div>
+                            <div class="tools">
+                                <a href="javascript:;" class="collapse"></a>
+                                <a href="#portlet-config" data-toggle="modal" class="config"></a>
+                                <a href="javascript:;" class="reload"></a>
+                                <a href="javascript:;" class="remove"></a>
+                            </div>
+                        </div>
+                        <div class="portlet-body form ">
+                            <!-- BEGIN FORM-->
+                            <form action="{:url('Healthy/healthy_modify')}" enctype="multipart/form-data" method="post" class="form-horizontal">
+                                <div class="alert alert-error hide">
+                                    <button class="close" data-dismiss="alert"></button>
+                                    You have some form errors. Please check below.
+                                </div>
+                                <div class="alert alert-success hide">
+                                    <button class="close" data-dismiss="alert"></button>
+                                    Your form validation is successful!
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">标题<span class="required">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" name="title" value="{$healthys.title}" data-required="1" class="span6 m-wrap"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">信息联接地址<span class="required">*</span></label>
+                                    <div class="controls">
+                                        <input name="url" value="{$healthys.url}" type="text" class="span6 m-wrap"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">健保类型<span class="required">*</span></label>
+                                    <div class="controls">
+                                        <select class="span6 m-wrap" name="state">
+                                            <option disabled="disabled"></option>
+                                            <option value="0" {if condition="$healthys.state eq 0"} selected="selected"  {/if}>健康资讯</option>
+                                            <option value="1" {if condition="$healthys.state eq 1"} selected="selected"  {/if}>养生宝典</option>
+                                            <option value="2" {if condition="$healthys.state eq 2"} selected="selected"  {/if}>家庭医生</option>
+                                            <option value="3" {if condition="$healthys.state eq 3"} selected="selected"  {/if}>疾病筛查</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- <div class="control-group">
+                                    <label class="control-label">是否推荐</label>
+                                    <div class="controls">
+                                        <select class="small m-wrap" name="status">
+                                            <option value="0" {if condition="$healthys.status eq 0"} selected="selected"  {/if}>推荐</option>
+                                            <option value="1" {if condition="$healthys.status eq 1"} selected="selected"  {/if}>不推荐</option>
+                                        </select>
+                                    </div>
+                                </div> -->
+                                <div class="control-group">
+                                    <label class="control-label">原(信息图片)<span class="required">*</span></label>
+                                    <div class="controls">
+                                        <img src='__PUBLIC__/uploads/{$healthys.images}' height="100" width="100"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">信息图片<span class="required">*</span></label>
+                                    <div class="controls select2-wrapper">
+                                        <input name="images" type="file" class="span6 m-wrap"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">健保内容</label>
+                                    <div class="controls">
+                                        <textarea name="content" placeholder="请输入内容" class="medium m-wrap" rows="9">{$healthys.content}</textarea>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <input class="form-control" type="hidden" name="id" value="{$healthys.id}">
+                                    <button type="submit" class="btn blue">确认修改</button>
+                                    <!-- <button type="button" class="btn">Cancel</button> -->
+                                </div>
+                            </form>
+                            <!-- END FORM-->
+                        </div>
+                    </div>
+                    <!-- END VALIDATION STATES-->
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE CONTAINER-->
+    </div>
+    <!-- BEGIN PAGE -->
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+{include file='public/footer'}
+<!-- END FOOTER -->
+{include file='public/script-js'}
+</body>
+<!-- END BODY -->
+</html>

@@ -1,0 +1,117 @@
+{include file='public/link-css'}
+<!-- BEGIN BODY -->
+<body class="page-header-fixed">
+<!-- BEGIN HEADER -->
+{include file='public/header'}
+<!-- END HEADER -->
+<!-- BEGIN CONTAINER -->
+<div class="page-container row-fluid">
+    <!-- BEGIN SIDEBAR -->
+    {include file='public/left-menu'}
+    <!-- END SIDEBAR -->
+    <!-- BEGIN PAGE -->
+    <div class="page-content">
+        <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+        <div id="portlet-config" class="modal hide">
+            <div class="modal-header">
+                <button data-dismiss="modal" class="close" type="button"></button>
+                <h3>Widget Settings</h3>
+            </div>
+            <div class="modal-body">
+                <p>Here will be a configuration form</p>
+            </div>
+        </div>
+        <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+                    <!-- BEGIN VALIDATION STATES-->
+                    <div class="portlet box red">
+                        <div class="portlet-title">
+                            <div class="caption"><i class="icon-reorder"></i>理赔查看</div>
+                            <div class="tools">
+                                <a href="javascript:;" class="collapse"></a>
+                                <a href="#portlet-config" data-toggle="modal" class="config"></a>
+                                <a href="javascript:;" class="reload"></a>
+                                <a href="javascript:;" class="remove"></a>
+                            </div>
+                        </div>
+                        <div class="portlet-body form ">
+                            <!-- BEGIN FORM-->
+                            <form action="{:url('Article/article_modify')}" enctype="multipart/form-data" method="post" class="form-horizontal">
+                                <div class="alert alert-error hide">
+                                    <button class="close" data-dismiss="alert"></button>
+                                    You have some form errors. Please check below.
+                                </div>
+                                <div class="alert alert-success hide">
+                                    <button class="close" data-dismiss="alert"></button>
+                                    Your form validation is successful!
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">姓名 <span class="required">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" name="name" value="{$compensates.name}" data-required="1" readonly class="span6 m-wrap"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">标题<span class="required">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" name="title" value="{$compensates.title}" data-required="1" readonly class="span6 m-wrap"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">意外出险原因<span class="required">*</span></label>
+                                    <div class="controls">
+                                        <input name="accident" value="{$compensates.accident}" readonly type="text" class="span6 m-wrap"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">赔付比例<span class="required">*</span></label>
+                                    <div class="controls">
+                                        <input name="ratio" value="{$compensates.ratio}" readonly type="text" class="span6 m-wrap"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">赔付金额<span class="required">*</span></label>
+                                    <div class="controls">
+                                        <input name="sum" value="{$compensates.sum}" readonly type="text" class="span6 m-wrap"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">赔付时间<span class="required">*</span></label>
+                                    <div class="controls">
+                                        <input name="ptimes" value="{$compensates.ptimes}" readonly type="text" class="span6 m-wrap"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">信息图片<span class="required">*</span></label>
+                                    <div class="controls">
+                                        <img src='__PUBLIC__/uploads/{$compensates.images}' height="100" width="100"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">理赔内容</label>
+                                    <div class="controls">
+                                        <textarea name="content" disabled placeholder="请输入内容" class="medium m-wrap" rows="9">{$compensates.content}</textarea>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END FORM-->
+                        </div>
+                    </div>
+                    <!-- END VALIDATION STATES-->
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE CONTAINER-->
+    </div>
+    <!-- BEGIN PAGE -->
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+{include file='public/footer'}
+<!-- END FOOTER -->
+{include file='public/script-js'}
+</body>
+<!-- END BODY -->
+</html>
