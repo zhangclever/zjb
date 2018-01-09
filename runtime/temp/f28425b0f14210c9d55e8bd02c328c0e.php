@@ -1,5 +1,5 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:89:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\notice\notice_edit.html";i:1515410560;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1514959430;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515390145;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:99:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\advertise\advertise_type_add.html";i:1515467644;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1514959430;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515390145;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
+﻿<!DOCTYPE html>
 
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 
@@ -843,9 +843,9 @@
             <div class="row-fluid">
                 <div class="span12">
                     <!-- BEGIN VALIDATION STATES-->
-                    <div class="portlet box blue">
+                    <div class="portlet box green">
                         <div class="portlet-title">
-                            <div class="caption"><i class="icon-reorder"></i>公告修改</div>
+                            <div class="caption"><i class="icon-reorder"></i>分类添加</div>
                             <div class="tools">
                                 <a href="javascript:;" class="collapse"></a>
                                 <a href="#portlet-config" data-toggle="modal" class="config"></a>
@@ -855,7 +855,7 @@
                         </div>
                         <div class="portlet-body form ">
                             <!-- BEGIN FORM-->
-                            <form action="<?php echo url('Notice/notice_modify'); ?>" enctype="multipart/form-data" method="post" class="form-horizontal">
+                            <form action="<?php echo url('Advertise/advertise_type_insert'); ?>" id="form_sample_2" enctype="multipart/form-data" method="post" class="form-horizontal">
                                 <div class="alert alert-error hide">
                                     <button class="close" data-dismiss="alert"></button>
                                     You have some form errors. Please check below.
@@ -865,48 +865,23 @@
                                     Your form validation is successful!
                                 </div>
                                 <div class="control-group">
-                                    <label class="control-label">标题<span class="required">*</span></label>
+                                    <label class="control-label">父分类<span class="required">*</span></label>
                                     <div class="controls">
-                                        <input type="text" name="title" value="<?php echo $notices['title']; ?>" data-required="1" class="span6 m-wrap"/>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label class="control-label">信息联接地址<span class="required">*</span></label>
-                                    <div class="controls">
-                                        <input name="url" value="<?php echo $notices['url']; ?>" type="text" class="span6 m-wrap"/>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label class="control-label">公告类型<span class="required">*</span></label>
-                                    <div class="controls">
-                                        <select class="span6 m-wrap" name="state">
-                                            <option disabled="disabled"></option>
-                                            <option value="0" <?php if($notices['state'] == 0): ?> selected="selected"  <?php endif; ?>>通知公告</option>
+                                        <select class="span6 m-wrap" name="aid">
+                                            <option value="0">顶级分类</option>
+                                        <?php if(is_array($data) || $data instanceof \think\Collection || $data instanceof \think\Paginator): $k = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($k % 2 );++$k;?>
+                                            <option value="<?php echo $vo['id']; ?>"><?php echo $vo['typename']; endforeach; endif; else: echo "" ;endif; ?>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="control-group">
-                                    <label class="control-label">原(信息图片)<span class="required">*</span></label>
+                                    <label class="control-label">分类名称<span class="required">*</span></label>
                                     <div class="controls">
-                                        <img src='__PUBLIC__/uploads/<?php echo $notices['images']; ?>' height="100" width="100"/>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label class="control-label">信息图片<span class="required">*</span></label>
-                                    <div class="controls select2-wrapper">
-                                        <input name="images" type="file" class="span6 m-wrap"/>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label class="control-label">公告内容</label>
-                                    <div class="controls">
-                                        <textarea name="content" placeholder="请输入内容" class="medium m-wrap" rows="9"><?php echo $notices['content']; ?></textarea>
+                                        <input type="text" name="typename" data-required="1" class="span6 m-wrap"/>
                                     </div>
                                 </div>
                                 <div class="form-actions">
-                                    <input class="form-control" type="hidden" name="id" value="<?php echo $notices['id']; ?>">
-                                    <button type="submit" class="btn blue">确认修改</button>
-                                    <!-- <button type="button" class="btn">Cancel</button> -->
+                                    <button type="submit" class="btn green">确认添加</button>
                                 </div>
                             </form>
                             <!-- END FORM-->
@@ -1015,4 +990,21 @@
 </script>
 </body>
 <!-- END BODY -->
+<script>
+    $('#form_sample_2').submit(function() {         //使用ajax的submit提交方法进行表单提交
+        $(this).ajaxSubmit(function(res) {
+            if(res.code===1){
+                layer.msg(res.msg, {icon: 6, time: 2300}, function () {
+                    location.href = res.url;
+                })
+            }else{
+                layer.msg(res.msg, {icon: 2, time: 2300}, function () {
+                    location.href = res.url;
+                })
+            }
+
+        });
+        return false; //阻止表单默认提交
+    });
+</script>
 </html>

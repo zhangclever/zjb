@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:95:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\advertise\advertise_list.html";i:1515388433;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1514959430;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515390145;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:95:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\advertise\advertise_list.html";i:1515476709;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1514959430;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515390145;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
 ﻿<!DOCTYPE html>
 
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
@@ -876,9 +876,9 @@
 
                     <div class="portlet box grey ">
                         <div class="portlet-title">
-                            <div class="caption"><i class="icon-user"></i>轮播管理</div>
+                            <div class="caption"><i class="icon-user"></i>广告管理</div>
                             <div class="actions">
-                                <a href="<?php echo url('Advertise/advertise_add'); ?>" class="btn blue"><i class="icon-pencil"></i>添加轮播</a>
+                                <a href="<?php echo url('Advertise/advertise_add'); ?>" class="btn blue"><i class="icon-pencil"></i>添加广告</a>
                             </div>
                         </div>
                         <label>
@@ -902,25 +902,29 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                    <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                    <?php if(is_array($list->data) || $list->data instanceof \think\Collection || $list->data instanceof \think\Paginator): $i = 0; $__LIST__ = $list->data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
                                 <tr class="odd gradeX ">
                                     <td style="text-align: center;"><?php echo $vo['id']; ?></td>
                                     <td style="text-align: center;"><?php echo $vo['title']; ?></td>
-                                    <td style="text-align: center;" ><?php echo $vo['state']; ?></td>
+                                    <td style="text-align: center;" ><?php echo $vo['tid']; ?></td>
                                     <td style="text-align: center;"><img src='__PUBLIC__/uploads/<?php echo $vo['images']; ?>' height="80" width="80" ></td>
                                     <td style="text-align: center;"><?php echo $vo['url']; ?></td>
                                     <td style="text-align: center;"><?php echo $vo['ctimes']; ?></td>
                                     <td style="text-align: center;">
                                         <a href="<?php echo url('Advertise/advertise_see','id='.$vo['id']); ?>"><i class="icon-ban-circle"></i>查看</a>
-                                        <a href="<?php echo url('Advertise/advertise_status','id='.$vo['id']); ?>"><i class="icon-ban-circle"></i><?php if($vo['status'] == 0): ?> 禁用 <?php else: ?> 启用 <?php endif; ?></a>
+                                        <a href="javascript:js_status(<?php echo $vo['id']; ?>,<?php echo $vo['status']; ?>)"><i class="icon-ban-circle"></i><?php echo $vo['status']==0?'禁用':'启用'; ?></a>
                                         <a href="<?php echo url('Advertise/advertise_edit','id='.$vo['id']); ?>"><i class="icon-pencil"></i>修改</a>
-                                        <a onclick="return remove('<?php echo url('Advertise/advertise_delete','id='.$vo['id']); ?>')"><i class="icon-trash"></i>删除</a>
+                                        <a href="javascript:remove(<?php echo $vo['id']; ?>)"><i class="icon-trash"></i>删除</a>
                                      </td>
                                 </tr>
                     <?php endforeach; endif; else: echo "" ;endif; ?>
                                 </tbody>
                             </table>
-                    <?php echo $page; ?>
+                            <div class="pagination pagination-right" style="margin-bottom: 0;">
+                                <ul>
+                                    <li class="active"><?php echo $list->render; ?></li>
+                                </ul>
+                            </div>
                         </div>
                         </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
@@ -1027,12 +1031,40 @@
 </body>
 <!-- END BODY -->
 <script>
-    function remove(url){
-         var confrim=confirm("确定删除？");
-         if(confrim==true)
-         {
-            window.location.href=url;
-         }
+    function js_status (id,status) {
+        $.ajax({
+            type:"post",
+            url:'advertise_status',
+            data:{"id":id,"status":status},
+            success:function (data) {
+                if (data.code===1){
+                    layer.msg(data.msg,{icon:6,time:2000},function () {
+                        location.reload();
+                    })
+                }else{
+                    layer.msg(data.msg,{icon:2,time:2000})
+                }
+            }
+        })
+    }
+    function remove(id){
+        layer.confirm('确定删除么？',{icon:3,title:'提示'},function (index) {
+                $.ajax({
+                    type:"post",
+                    url:'advertise_delete',
+                    data:{"id":id},
+                    success:function (data) {
+                        if (data.code===1){
+                            layer.msg(data.msg,{icon:6,time:2000},function () {
+                                location.reload();
+                            })
+                        }else{
+                            layer.msg(data.msg,{icon:2,time:2000})
+                        }
+                    }
+                })
+            layer.close(index);
+        })
     }
 </script>
 </html>

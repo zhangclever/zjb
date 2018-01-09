@@ -2,22 +2,16 @@
 namespace app\admin\controller;
 
 use think\Controller;
-use think\Request;
+use think\lib\Page;
 use think\Db;
-use think\Paginator;
 
 class Advertise extends Controller{
 
     public function advertise_list(){
     	//广告列表
-        $list = Db::table('zjb_advertises')->paginate(10);
-        $page = $list->render();
-
-        $type = Db::table('zjb_advertise_type')->select();
-        // var_dump($type['id']);die;
-        $this->assign('type',$type);
-        $this->assign('page', $page);
-        $this->assign('list', $list);
+        $list = Db::table('zjb_advertises')->select();
+        $arr = new Page($list,10);
+        $this->assign(['list'=>$arr]);
 
         return view('advertise_list');
     }
@@ -26,13 +20,12 @@ class Advertise extends Controller{
         // 搜索框
         $title = input('title');
         if(!empty($title)){
-                $list = Db::table('zjb_advertises')->where('title','like','%'.$title.'%')->paginate(10);
-                $page = $list->render();
+            $list = Db::table('zjb_advertises')->where('title','like','%'.$title.'%')->select();
+            $arr = new Page($list,10);
         }else{
             die("<script>alert('请填写搜索信息');window.location.href='".url('Advertise/advertise_list')."';</script>");
         }
-        $this->assign('page', $page);
-        $this->assign('list', $list);
+        $this->assign(['list'=>$arr]);
 
         return view('advertise_list');
     }
@@ -68,11 +61,11 @@ class Advertise extends Controller{
             }
         }
         $res = Db::table('zjb_advertises')->insert($data);
-         if($res){
-            die("<script>alert('添加成功');window.location.href='".url('Advertise/advertise_list')."';</script>");
+        if($res){
+            $this->success('添加成功','Advertise/advertise_list');
         }else{
-            die("<script>alert('添加失败');window.location.href='".url('Advertise/advertise_list')."';</script>");
-         }
+             $this->error('添加失败','Advertise/advertise_list');
+        }
     }
 
     public function advertise_edit(){
@@ -115,10 +108,10 @@ class Advertise extends Controller{
         $id = input('id');
         $res = Db::table('zjb_advertises')->where('id',$id)->delete();
         if($res){
-            die("<script>alert('11');window.location.href='".url('Advertise/advertise_list')."';</script>");
+            $this->success('删除成功','Advertise/advertise_list');
         }else{
-            die("<script>alert('22');window.location.href='".url('Advertise/advertise_list')."';</script>");
-        } 
+            $this->error('删除失败','Advertise/advertise_list');
+        }
     }
 
     public function advertise_see(){
@@ -130,22 +123,18 @@ class Advertise extends Controller{
         return view('advertise_see');
     }
 
-    public function advertise_status(){
+    public function advertise_status($id,$status){
         //启用--
-        $id = input('id');
-        $data =  Db::table('zjb_advertises')->where('id', $id)->find();
-
-        if($data['status'] == 0){
+        if($status == 0){
             $res = Db::table('zjb_advertises')->where('id', $id)->update(['status' => '1']);
         }else{
             $res = Db::table('zjb_advertises')->where('id', $id)->update(['status' => '0']);
         }
-
         if($res){
-            die("<script>;window.location.href='".url('Advertise/advertise_list')."';</script>");
+            $this->success('修改成功');
         }else{
-            die("<script>alert('启用失败');window.location.href='".url('Advertise/advertise_list')."';</script>");
-        } 
+            $this->error('修改失败');
+        }
     }
 
     //-------------------------------------分类----------------------------------//
@@ -153,13 +142,19 @@ class Advertise extends Controller{
 
     public function advertise_type_list(){
         // 分类管理 列表
-        $list = Db::table('zjb_advertise_type')->paginate(10);
-        $page = $list->render();
-        // $arr = json_decode(json_encode($list),true);
-
-        $this->assign('page', $page);
-        $this->assign('list', $list);
-
+        $type = Db::table('zjb_advertise_type')->select();
+        foreach($type as $k=>$v){
+            if($v['aid']==0){
+                $v['aid'] = $v['typename'];
+                $arr[] = $v;
+            }else{
+                $str = db::table('zjb_advertise_type')->where('id',$v['aid'])->value('typename');
+                $v['aid'] = $str;
+                $arr[] = $v;
+            }
+        }
+        $arr1 = new Page($arr,10);
+        $this->assign(['name'=>$arr1]);
         return view('advertise_type_list');
     }
 
@@ -193,10 +188,10 @@ class Advertise extends Controller{
         $res = Db::table('zjb_advertise_type')->insert($data);
 
         if($res){
-            die("<script>alert('11');window.location.href='".url('Advertise/advertise_type_list')."';</script>");
+            $this->success('添加成功','Advertise/advertise_type_list');
         }else{
-            die("<script>alert('22');window.location.href='".url('Advertise/advertise_type_list')."';</script>");
-         }
+             $this->error('添加失败','Advertise/advertise_type_list');
+        }
     }
 
     public function advertise_type_see(){
@@ -243,9 +238,9 @@ class Advertise extends Controller{
         // 删除本身和其一级子分类
         $res = Db::table('zjb_advertise_type')->where('id',$id)->whereOr('aid',$id)->delete();
         if($res){
-            die("<script>alert('11');window.location.href='".url('Advertise/advertise_type_list')."';</script>");
+            $this->success('删除成功','Advertise/advertise_type_list');
         }else{
-            die("<script>alert('22');window.location.href='".url('Advertise/advertise_type_list')."';</script>");
+            $this->error('删除失败','Advertise/advertise_type_list');
         }
     }
 
@@ -253,13 +248,12 @@ class Advertise extends Controller{
         // 搜索框
         $typename = input('typename');
         if(!empty($typename)){
-                $list = Db::table('zjb_advertise_type')->where('typename','like','%'.$typename.'%')->paginate(10);
-                $page = $list->render();
+            $list = Db::table('zjb_advertise_type')->where('typename','like','%'.$typename.'%')->select();
+            $arr = new Page($list,10);
         }else{
             die("<script>alert('请填写搜索信息');window.location.href='".url('Advertise/advertise_type_list')."';</script>");
         }
-        $this->assign('page', $page);
-        $this->assign('list', $list);
+        $this->assign(['list'=>$arr]);
 
         return view('advertise_type_list');
     }

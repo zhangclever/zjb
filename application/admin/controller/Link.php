@@ -2,20 +2,16 @@
 namespace app\admin\controller;
 
 use think\Controller;
-use think\Request;
+use think\lib\Page;
 use think\Db;
-use think\Paginator;
 
 class Link extends Controller{
 
     public function link_list(){
     	//文章列表
-        // 查询状态为1的用户数据 并且每页显示10条数据
-        $list = Db::table('zjb_links')->paginate(10);
-        $page = $list->render();
-
-        $this->assign('page', $page);
-        $this->assign('list', $list);
+        $list = Db::table('zjb_links')->select();
+        $arr = new Page($list,10);
+        $this->assign(['list'=>$arr]);
 
         return view('link_list');
     }
@@ -24,13 +20,12 @@ class Link extends Controller{
         // 搜索框
         $name = input('name');
         if(!empty($name)){
-                $list = Db::table('zjb_links')->where('name','like','%'.$name.'%')->paginate(10);
-                $page = $list->render();
+            $list = Db::table('zjb_links')->where('name','like','%'.$name.'%')->select();
+            $arr = new Page($list,10);
         }else{
             die("<script>alert('请填写搜索信息');window.location.href='".url('Link/link_list')."';</script>");
         }
-        $this->assign('page', $page);
-        $this->assign('list', $list);
+        $this->assign(['list'=>$arr]);
 
         return view('link_list');
     }
@@ -57,11 +52,11 @@ class Link extends Controller{
             }
         }
         $res = Db::table('zjb_links')->insert($data);
-         if($res){
-            die("<script>alert('添加成功');window.location.href='".url('Link/link_list')."';</script>");
+        if($res){
+            $this->success('添加成功','Link/link_list');
         }else{
-            die("<script>alert('添加失败');window.location.href='".url('Link/link_list')."';</script>");
-         }
+             $this->error('添加失败','Link/link_list');
+        }
     }
 
     public function link_edit(){
@@ -104,9 +99,9 @@ class Link extends Controller{
         $id = input('id');
         $res = Db::table('zjb_links')->where('id',$id)->delete();
         if($res){
-            die("<script>alert('11');window.location.href='".url('Link/link_list')."';</script>");
+            $this->success('删除成功','Link/link_list');
         }else{
-            die("<script>alert('22');window.location.href='".url('Link/link_list')."';</script>");
+            $this->error('删除失败','Link/link_list');
         } 
     }
 
@@ -119,22 +114,18 @@ class Link extends Controller{
         return view('link_see');
     }
 
-    public function link_status(){
-        //启用--
-        $id = input('id');
-        $data =  Db::table('zjb_links')->where('id', $id)->find();
-
-        if($data['status'] == 0){
-            $res = Db::table('zjb_links')->where('id', $id)->update(['status' => '1']);
+    public function link_status($id,$status){
+        //启用禁用  
+        if($status == 0){
+            $res = Db::name('links')->where('id',$id)->setField('status',1);
         }else{
-            $res = Db::table('zjb_links')->where('id', $id)->update(['status' => '0']);
+            $res = Db::name('links')->where('id',$id)->setField('status',0);
         }
-
         if($res){
-            die("<script>;window.location.href='".url('Link/link_list')."';</script>");
+            $this->success('修改成功');
         }else{
-            die("<script>alert('启用失败');window.location.href='".url('Link/link_list')."';</script>");
-        } 
+            $this->error('修改失败');
+        }
     }
 
 

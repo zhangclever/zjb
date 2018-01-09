@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:100:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\advertise\advertise_type_list.html";i:1515203738;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1514959430;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515390145;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:100:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\advertise\advertise_type_list.html";i:1515477907;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1514959430;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515390145;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
 ﻿<!DOCTYPE html>
 
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
@@ -895,27 +895,31 @@
                                     <th class="hidden-480" style="text-align: center;">ID</th>
                                     <th class="hidden-480" style="text-align: center;">广告类型</th>
                                     <th class="hidden-480" style="text-align: center;">广告对应id</th>
-                                    <th class="hidden-480" style="text-align: center;">广告路径</th>
+                                    <!-- <th class="hidden-480" style="text-align: center;">广告路径</th> -->
                                     <th class="hidden-480"  style="text-align: center;">操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                    <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                    <?php if(is_array($name->data) || $name->data instanceof \think\Collection || $name->data instanceof \think\Paginator): $i = 0; $__LIST__ = $name->data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
                                 <tr class="odd gradeX ">
                                     <td style="text-align: center;"><?php echo $vo['id']; ?></td>
                                     <td style="text-align: center;"><?php echo $vo['typename']; ?></td>
                                     <td style="text-align: center;" ><?php echo $vo['aid']; ?></td>
-                                    <td style="text-align: center;"><?php echo $vo['path']; ?></td>
+                                    <!-- <td style="text-align: center;"><?php echo $vo['path']; ?></td> -->
                                     <td style="text-align: center;">
                                         <a href="<?php echo url('Advertise/advertise_type_see','id='.$vo['id']); ?>"><i class="icon-ban-circle"></i>查看</a>
                                         <a href="<?php echo url('Advertise/advertise_type_edit','id='.$vo['id']); ?>"><i class="icon-pencil"></i>修改</a>
-                                        <a onclick="return remove('<?php echo url('Advertise/advertise_type_delete','id='.$vo['id']); ?>')"><i class="icon-trash"></i>删除</a>
+                                        <a href="javascript:remove(<?php echo $vo['id']; ?>)"><i class="icon-trash"></i>删除</a>
                                      </td>
                                 </tr>
                     <?php endforeach; endif; else: echo "" ;endif; ?>
                                 </tbody>
                             </table>
-                    <?php echo $page; ?>
+                             <div class="pagination pagination-right" style="margin-bottom: 0;">
+                                <ul>
+                                    <li class="active"><?php echo $name->render; ?></li>
+                                </ul>
+                            </div>
                         </div>
                         </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
@@ -1022,12 +1026,24 @@
 </body>
 <!-- END BODY -->
 <script>
-    function remove(url){
-         var confrim=confirm("确定删除？");
-         if(confrim==true)
-         {
-            window.location.href=url;
-         }
+    function remove(id){
+        layer.confirm('确定删除么？',{icon:3,title:'提示'},function (index) {
+                $.ajax({
+                    type:"post",
+                    url:'advertise_type_delete',
+                    data:{"id":id},
+                    success:function (data) {
+                        if (data.code===1){
+                            layer.msg(data.msg,{icon:6,time:2000},function () {
+                                location.reload();
+                            })
+                        }else{
+                            layer.msg(data.msg,{icon:2,time:2000})
+                        }
+                    }
+                })
+            layer.close(index);
+        })
     }
 </script>
 </html>

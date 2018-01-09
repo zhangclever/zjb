@@ -59,9 +59,9 @@
 
                     <div class="portlet box grey ">
                         <div class="portlet-title">
-                            <div class="caption"><i class="icon-user"></i>轮播管理</div>
+                            <div class="caption"><i class="icon-user"></i>广告管理</div>
                             <div class="actions">
-                                <a href="{:url('Advertise/advertise_add')}" class="btn blue"><i class="icon-pencil"></i>添加轮播</a>
+                                <a href="{:url('Advertise/advertise_add')}" class="btn blue"><i class="icon-pencil"></i>添加广告</a>
                             </div>
                         </div>
                         <label>
@@ -85,25 +85,29 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                    {volist name='list' id='vo'}
+                    {volist name='$list->data' id='vo'}
                                 <tr class="odd gradeX ">
                                     <td style="text-align: center;">{$vo.id}</td>
                                     <td style="text-align: center;">{$vo.title}</td>
-                                    <td style="text-align: center;" >{$vo.state}</td>
+                                    <td style="text-align: center;" >{$vo.tid}</td>
                                     <td style="text-align: center;"><img src='__PUBLIC__/uploads/{$vo.images}' height="80" width="80" ></td>
                                     <td style="text-align: center;">{$vo.url}</td>
                                     <td style="text-align: center;">{$vo.ctimes}</td>
                                     <td style="text-align: center;">
                                         <a href="{:url('Advertise/advertise_see','id='.$vo['id'])}"><i class="icon-ban-circle"></i>查看</a>
-                                        <a href="{:url('Advertise/advertise_status','id='.$vo['id'])}"><i class="icon-ban-circle"></i>{if condition="$vo.status eq 0"} 禁用 {else} 启用 {/if}</a>
+                                        <a href="javascript:js_status({$vo['id']},{$vo['status']})"><i class="icon-ban-circle"></i>{$vo['status']==0?'禁用':'启用'}</a>
                                         <a href="{:url('Advertise/advertise_edit','id='.$vo['id'])}"><i class="icon-pencil"></i>修改</a>
-                                        <a onclick="return remove('{:url('Advertise/advertise_delete','id='.$vo['id'])}')"><i class="icon-trash"></i>删除</a>
+                                        <a href="javascript:remove({$vo['id']})"><i class="icon-trash"></i>删除</a>
                                      </td>
                                 </tr>
                     {/volist}
                                 </tbody>
                             </table>
-                    {$page}
+                            <div class="pagination pagination-right" style="margin-bottom: 0;">
+                                <ul>
+                                    <li class="active">{$list->render}</li>
+                                </ul>
+                            </div>
                         </div>
                         </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
@@ -122,12 +126,40 @@
 </body>
 <!-- END BODY -->
 <script>
-    function remove(url){
-         var confrim=confirm("确定删除？");
-         if(confrim==true)
-         {
-            window.location.href=url;
-         }
+    function js_status (id,status) {
+        $.ajax({
+            type:"post",
+            url:'advertise_status',
+            data:{"id":id,"status":status},
+            success:function (data) {
+                if (data.code===1){
+                    layer.msg(data.msg,{icon:6,time:2000},function () {
+                        location.reload();
+                    })
+                }else{
+                    layer.msg(data.msg,{icon:2,time:2000})
+                }
+            }
+        })
+    }
+    function remove(id){
+        layer.confirm('确定删除么？',{icon:3,title:'提示'},function (index) {
+                $.ajax({
+                    type:"post",
+                    url:'advertise_delete',
+                    data:{"id":id},
+                    success:function (data) {
+                        if (data.code===1){
+                            layer.msg(data.msg,{icon:6,time:2000},function () {
+                                location.reload();
+                            })
+                        }else{
+                            layer.msg(data.msg,{icon:2,time:2000})
+                        }
+                    }
+                })
+            layer.close(index);
+        })
     }
 </script>
 </html>

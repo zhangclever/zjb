@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:93:"F:\myphp_www\PHPTutorial\WWW\zjbwz\public/../application/admin\view\article\article_edit.html";i:1515398823;s:88:"F:\myphp_www\PHPTutorial\WWW\zjbwz\public/../application/admin\view\public\link-css.html";i:1514966966;s:86:"F:\myphp_www\PHPTutorial\WWW\zjbwz\public/../application/admin\view\public\header.html";i:1514959430;s:89:"F:\myphp_www\PHPTutorial\WWW\zjbwz\public/../application/admin\view\public\left-menu.html";i:1515390145;s:86:"F:\myphp_www\PHPTutorial\WWW\zjbwz\public/../application/admin\view\public\footer.html";i:1514459584;s:89:"F:\myphp_www\PHPTutorial\WWW\zjbwz\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:100:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\advertise\advertise_type_edit.html";i:1515380839;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1514959430;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515390145;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
 <!DOCTYPE html>
 
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
@@ -845,7 +845,7 @@
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet box blue">
                         <div class="portlet-title">
-                            <div class="caption"><i class="icon-reorder"></i>新闻修改</div>
+                            <div class="caption"><i class="icon-reorder"></i>分类修改</div>
                             <div class="tools">
                                 <a href="javascript:;" class="collapse"></a>
                                 <a href="#portlet-config" data-toggle="modal" class="config"></a>
@@ -855,61 +855,25 @@
                         </div>
                         <div class="portlet-body form ">
                             <!-- BEGIN FORM-->
-                            <form action="<?php echo url('Article/article_modify'); ?>" id="form_sample_2" enctype="multipart/form-data" method="post" class="form-horizontal">
-                                <div class="control-group">
-                                    <label class="control-label">标题<span class="required">*</span></label>
-                                    <div class="controls">
-                                        <input type="text" name="title" value="<?php echo $articles['title']; ?>" data-required="1" class="span6 m-wrap"/>
-                                    </div>
+                            <form action="<?php echo url('Advertise/advertise_type_modify'); ?>" enctype="multipart/form-data" method="post" class="form-horizontal">
+                                <div class="alert alert-error hide">
+                                    <button class="close" data-dismiss="alert"></button>
+                                    You have some form errors. Please check below.
                                 </div>
-                                <div class="control-group">
-                                    <label class="control-label">信息联接地址<span class="required">*</span></label>
-                                    <div class="controls">
-                                        <input name="url" value="<?php echo $articles['url']; ?>" type="text" class="span6 m-wrap"/>
-                                    </div>
+                                <div class="alert alert-success hide">
+                                    <button class="close" data-dismiss="alert"></button>
+                                    Your form validation is successful!
                                 </div>
+                                
                                 <div class="control-group">
-                                    <label class="control-label">新闻类型<span class="required">*</span></label>
+                                    <label class="control-label">分类名称<span class="required">*</span></label>
                                     <div class="controls">
-                                        <select class="span6 m-wrap" name="state">
-                                            <option disabled="disabled"></option>
-                                            <option value="0" <?php if($articles['state'] == 0): ?> selected="selected"  <?php endif; ?>>新闻资讯</option>
-                                            <option value="1" <?php if($articles['state'] == 1): ?> selected="selected"  <?php endif; ?>>热门新闻</option>
-                                            <option value="2" <?php if($articles['state'] == 2): ?> selected="selected"  <?php endif; ?>>每日新闻</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- <div class="control-group">
-                                    <label class="control-label">是否推荐</label>
-                                    <div class="controls">
-                                        <select class="small m-wrap" name="status">
-                                            <option value="0" <?php if($articles['status'] == 0): ?> selected="selected"  <?php endif; ?>>推荐</option>
-                                            <option value="1" <?php if($articles['status'] == 1): ?> selected="selected"  <?php endif; ?>>不推荐</option>
-                                        </select>
-                                    </div>
-                                </div> -->
-                                <div class="control-group">
-                                    <label class="control-label">原(信息图片)<span class="required">*</span></label>
-                                    <div class="controls">
-                                        <img src='__PUBLIC__/uploads/<?php echo $articles['images']; ?>' height="100" width="100"/>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label class="control-label">信息图片<span class="required">*</span></label>
-                                    <div class="controls select2-wrapper">
-                                        <input name="images" type="file" class="span6 m-wrap"/>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label class="control-label">新闻内容</label>
-                                    <div class="controls">
-                                        <textarea name="content" placeholder="请输入内容" class="medium m-wrap" rows="9"><?php echo $articles['content']; ?></textarea>
+                                        <input type="text" name="typename" value="<?php echo $type['typename']; ?>" data-required="1" class="span6 m-wrap"/>
                                     </div>
                                 </div>
                                 <div class="form-actions">
-                                    <input class="form-control" type="hidden" name="id" value="<?php echo $articles['id']; ?>">
+                                    <input class="form-control" type="hidden" name="id" value="<?php echo $type['id']; ?>">
                                     <button type="submit" class="btn blue">确认修改</button>
-                                    <!-- <button type="button" class="btn">Cancel</button> -->
                                 </div>
                             </form>
                             <!-- END FORM-->
@@ -1017,21 +981,5 @@
 
 </script>
 </body>
-<script>
-    $('#form_sample_2').submit(function() {         //使用ajax的submit提交方法进行表单提交
-        $(this).ajaxSubmit(function(res) {
-            if(res.code===1){
-                layer.msg(res.msg, {icon: 6, time: 2300}, function () {
-                    location.href = res.url;
-                })
-            }else{
-                layer.msg(res.msg, {icon: 2, time: 2300}, function () {
-                    location.href = res.url;
-                })
-            }
-        });
-        return false; //阻止表单默认提交
-    });
-</script>
 <!-- END BODY -->
 </html>

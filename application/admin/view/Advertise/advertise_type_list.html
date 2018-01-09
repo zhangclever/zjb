@@ -78,27 +78,31 @@
                                     <th class="hidden-480" style="text-align: center;">ID</th>
                                     <th class="hidden-480" style="text-align: center;">广告类型</th>
                                     <th class="hidden-480" style="text-align: center;">广告对应id</th>
-                                    <th class="hidden-480" style="text-align: center;">广告路径</th>
+                                    <!-- <th class="hidden-480" style="text-align: center;">广告路径</th> -->
                                     <th class="hidden-480"  style="text-align: center;">操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                    {volist name='list' id='vo'}
+                    {volist name='$name->data' id='vo'}
                                 <tr class="odd gradeX ">
                                     <td style="text-align: center;">{$vo.id}</td>
                                     <td style="text-align: center;">{$vo.typename}</td>
                                     <td style="text-align: center;" >{$vo.aid}</td>
-                                    <td style="text-align: center;">{$vo.path}</td>
+                                    <!-- <td style="text-align: center;">{$vo.path}</td> -->
                                     <td style="text-align: center;">
                                         <a href="{:url('Advertise/advertise_type_see','id='.$vo['id'])}"><i class="icon-ban-circle"></i>查看</a>
                                         <a href="{:url('Advertise/advertise_type_edit','id='.$vo['id'])}"><i class="icon-pencil"></i>修改</a>
-                                        <a onclick="return remove('{:url('Advertise/advertise_type_delete','id='.$vo['id'])}')"><i class="icon-trash"></i>删除</a>
+                                        <a href="javascript:remove({$vo['id']})"><i class="icon-trash"></i>删除</a>
                                      </td>
                                 </tr>
                     {/volist}
                                 </tbody>
                             </table>
-                    {$page}
+                             <div class="pagination pagination-right" style="margin-bottom: 0;">
+                                <ul>
+                                    <li class="active">{$name->render}</li>
+                                </ul>
+                            </div>
                         </div>
                         </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
@@ -117,12 +121,24 @@
 </body>
 <!-- END BODY -->
 <script>
-    function remove(url){
-         var confrim=confirm("确定删除？");
-         if(confrim==true)
-         {
-            window.location.href=url;
-         }
+    function remove(id){
+        layer.confirm('确定删除么？',{icon:3,title:'提示'},function (index) {
+                $.ajax({
+                    type:"post",
+                    url:'advertise_type_delete',
+                    data:{"id":id},
+                    success:function (data) {
+                        if (data.code===1){
+                            layer.msg(data.msg,{icon:6,time:2000},function () {
+                                location.reload();
+                            })
+                        }else{
+                            layer.msg(data.msg,{icon:2,time:2000})
+                        }
+                    }
+                })
+            layer.close(index);
+        })
     }
 </script>
 </html>
