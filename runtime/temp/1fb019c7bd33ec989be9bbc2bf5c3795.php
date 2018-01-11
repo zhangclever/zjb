@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\goods\goods_cate.html";i:1515477577;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1515574025;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515582903;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:94:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\advertise\advertise_see.html";i:1515483460;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1514959430;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515390145;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
 <!DOCTYPE html>
 
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
@@ -64,12 +64,8 @@
 </head>
 
 <!-- BEGIN BODY -->
-
-
 <body class="page-header-fixed">
-
 <!-- BEGIN HEADER -->
-
 
 <div class="header navbar navbar-inverse navbar-fixed-top">
 
@@ -521,7 +517,7 @@
 
                         <li><a href="extra_lock.html"><i class="icon-lock"></i> Lock Screen</a></li>
 
-                        <li><a href="<?php echo url('Login/logout'); ?>"><i class="icon-key"></i> 退出</a></li>
+                        <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
 
                     </ul>
 
@@ -540,15 +536,10 @@
     <!-- END TOP NAVIGATION BAR -->
 
 </div>
-
 <!-- END HEADER -->
-
 <!-- BEGIN CONTAINER -->
-
 <div class="page-container row-fluid">
-
     <!-- BEGIN SIDEBAR -->
-
     <div class="page-sidebar nav-collapse collapse">
 
     <!-- BEGIN SIDEBAR MENU -->
@@ -693,15 +684,9 @@
 
                 <li >
 
-                    <a href="<?php echo url('Index/errors'); ?>">
+                    <a href="extra_profile.html">
 
-                        404 error</a>
-                    <a href="<?php echo url('Index/prohibit'); ?>">
-
-                        403 prohibit</a>
-                    <a href="<?php echo url('Index/internal'); ?>">
-
-                        500 internal error</a>
+                        User Profile</a>
 
                 </li>
 
@@ -711,7 +696,7 @@
 
         <li>
 
-            <a href="javascript:;">
+            <a class="active" href="javascript:;">
 
                 <i class="icon-sitemap"></i>
 
@@ -723,14 +708,57 @@
 
             <ul class="sub-menu">
 
-                <li >
+                <li>
 
-                    <a href="<?php echo url('Admins/admin_list'); ?>">
+                    <a href="javascript:;">
 
-                        管理员列表</a>
+                        Item 1
+
+                        <span class="arrow"></span>
+
+                    </a>
+
+                    <ul class="sub-menu">
+
+                        <li><a href="#">Sample Link 1</a></li>
+
+                        <li><a href="#">Sample Link 2</a></li>
+
+                        <li><a href="#">Sample Link 3</a></li>
+
+                    </ul>
+
+                </li>
+
+                <li>
+
+                    <a href="javascript:;">
+
+                        Item 1
+
+                        <span class="arrow"></span>
+
+                    </a>
+
+                    <ul class="sub-menu">
+
+                        <li><a href="#">Sample Link 1</a></li>
+
+                        <li><a href="#">Sample Link 1</a></li>
+
+                        <li><a href="#">Sample Link 1</a></li>
+
+                    </ul>
+
+                </li>
+
+                <li>
+
                     <a href="#">
 
-                        管理员设置</a>
+                        Item 3
+
+                    </a>
 
                 </li>
 
@@ -797,82 +825,81 @@
     <!-- END SIDEBAR MENU -->
 
 </div>
-
     <!-- END SIDEBAR -->
-
     <!-- BEGIN PAGE -->
-
     <div class="page-content">
-
         <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-
         <div id="portlet-config" class="modal hide">
-
             <div class="modal-header">
-
                 <button data-dismiss="modal" class="close" type="button"></button>
-
                 <h3>Widget Settings</h3>
-
             </div>
-
             <div class="modal-body">
-
                 <p>Here will be a configuration form</p>
-
             </div>
-
         </div>
-
         <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-
-        <div class="container-fluid text-center">
-
-            <div class="row-fluid ">
-
-                <div class="" data-tablet="span12 fix-offset" data-desktop="span6">
-
-                    <!-- BEGIN EXAMPLE TABLE PORTLET-->
-
-                    <div class="portlet box grey ">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+                    <!-- BEGIN VALIDATION STATES-->
+                    <div class="portlet box red">
                         <div class="portlet-title">
-                            <div class="caption"><i class="icon-user"></i>商品列表</div>
-                            <div class="actions">
-                                <a href="<?php echo url('Goods/goods_cate_add'); ?>" class="btn blue"><i class="icon-pencil"></i>添加分类</a>
+                            <div class="caption"><i class="icon-reorder"></i>广告查看</div>
+                            <div class="tools">
+                                <a href="javascript:;" class="collapse"></a>
+                                <a href="#portlet-config" data-toggle="modal" class="config"></a>
+                                <a href="javascript:;" class="reload"></a>
+                                <a href="javascript:;" class="remove"></a>
                             </div>
                         </div>
-                        <div class="portlet-body">
-                            <table class="table table-striped table-bordered table-hover table-responsive" id="sample_2">
-                                <thead>
-                                <tr>
-                                    <th class="hidden-480" style="text-align: center;">分类编号</th>
-                                    <th class="hidden-480" style="text-align: center;">分类名称</th>
-                                    <th class="hidden-480" style="text-align: center;">上级分类</th>
-                                    <th class="hidden-480" style="text-align: center;">操作</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <?php if(is_array($cate->data) || $cate->data instanceof \think\Collection || $cate->data instanceof \think\Paginator): $i = 0; $__LIST__ = $cate->data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$goods_cate): $mod = ($i % 2 );++$i;?>
-                                <tr class="odd gradeX ">
-                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $goods_cate['id']; ?></td>
-                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $goods_cate['catename']; ?></td>
-                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $goods_cate['pid']; ?></td>
-                                    <td style="vertical-align: middle !important;text-align: center;">
-                                        <a href="javascript:read('');"><i class="icon-trash"></i>编辑</a>
-                                        <a href="#"><i class="icon-trash"></i>删除</a>
-                                    </td>
-                                </tr>
-                                <?php endforeach; endif; else: echo "" ;endif; ?>
-                                </tbody>
-                            </table>
-                            <div class="pagination pagination-right" style="margin-bottom: 0;">
-                                <ul class="pagination">
-                                    <li><?php echo $cate->render; ?></li>
-                                </ul>
-                            </div>
+                        <div class="portlet-body form ">
+                            <!-- BEGIN FORM-->
+                            <form action="<?php echo url('Article/article_modify'); ?>" enctype="multipart/form-data" method="post" class="form-horizontal">
+                                <div class="alert alert-error hide">
+                                    <button class="close" data-dismiss="alert"></button>
+                                    You have some form errors. Please check below.
+                                </div>
+                                <div class="alert alert-success hide">
+                                    <button class="close" data-dismiss="alert"></button>
+                                    Your form validation is successful!
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">标题<span class="required">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" name="title" value="<?php echo $advertises['title']; ?>" data-required="1" readonly class="span6 m-wrap"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">广告类型<span class="required">*</span></label>
+                                    <div class="controls">
+                                        <input name="url" value="<?php echo $typename['typename']; ?>" readonly type="text" class="span6 m-wrap"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">信息联接地址<span class="required">*</span></label>
+                                    <div class="controls">
+                                        <input name="url" value="<?php echo $advertises['url']; ?>" readonly type="text" class="span6 m-wrap"/>
+                                    </div>
+                                </div>
+    
+                                <div class="control-group">
+                                    <label class="control-label">信息图片<span class="required">*</span></label>
+                                    <div class="controls">
+                                        <img src='__PUBLIC__/uploads/<?php echo $advertises['images']; ?>' height="100" width="100"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">广告内容</label>
+                                    <div class="controls">
+                                        <textarea name="content" disabled placeholder="请输入内容" class="medium m-wrap" rows="9"><?php echo $advertises['content']; ?></textarea>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END FORM-->
                         </div>
                     </div>
-                    <!-- END EXAMPLE TABLE PORTLET-->
+                    <!-- END VALIDATION STATES-->
                 </div>
             </div>
         </div>
@@ -975,9 +1002,4 @@
 </script>
 </body>
 <!-- END BODY -->
-<script>
-    function read(id){
-        $.input()
-    }
-</script>
 </html>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\goods\goods_cate.html";i:1515477577;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1515574025;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515582903;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\admins\admin_add.html";i:1515584038;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1515574025;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515582903;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
 <!DOCTYPE html>
 
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
@@ -64,12 +64,8 @@
 </head>
 
 <!-- BEGIN BODY -->
-
-
 <body class="page-header-fixed">
-
 <!-- BEGIN HEADER -->
-
 
 <div class="header navbar navbar-inverse navbar-fixed-top">
 
@@ -540,15 +536,10 @@
     <!-- END TOP NAVIGATION BAR -->
 
 </div>
-
 <!-- END HEADER -->
-
 <!-- BEGIN CONTAINER -->
-
 <div class="page-container row-fluid">
-
     <!-- BEGIN SIDEBAR -->
-
     <div class="page-sidebar nav-collapse collapse">
 
     <!-- BEGIN SIDEBAR MENU -->
@@ -797,82 +788,70 @@
     <!-- END SIDEBAR MENU -->
 
 </div>
-
     <!-- END SIDEBAR -->
-
     <!-- BEGIN PAGE -->
-
     <div class="page-content">
-
         <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-
         <div id="portlet-config" class="modal hide">
-
             <div class="modal-header">
-
                 <button data-dismiss="modal" class="close" type="button"></button>
-
                 <h3>Widget Settings</h3>
-
             </div>
-
             <div class="modal-body">
-
                 <p>Here will be a configuration form</p>
-
             </div>
-
         </div>
-
         <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-
-        <div class="container-fluid text-center">
-
-            <div class="row-fluid ">
-
-                <div class="" data-tablet="span12 fix-offset" data-desktop="span6">
-
-                    <!-- BEGIN EXAMPLE TABLE PORTLET-->
-
-                    <div class="portlet box grey ">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+                    <!-- BEGIN VALIDATION STATES-->
+                    <div class="portlet box green">
                         <div class="portlet-title">
-                            <div class="caption"><i class="icon-user"></i>商品列表</div>
-                            <div class="actions">
-                                <a href="<?php echo url('Goods/goods_cate_add'); ?>" class="btn blue"><i class="icon-pencil"></i>添加分类</a>
+                            <div class="caption"><i class="icon-reorder"></i>管理员添加</div>
+                            <div class="tools">
+                                <a href="javascript:;" class="collapse"></a>
+                                <a href="#portlet-config" data-toggle="modal" class="config"></a>
+                                <a href="javascript:;" class="reload"></a>
+                                <a href="javascript:;" class="remove"></a>
                             </div>
                         </div>
-                        <div class="portlet-body">
-                            <table class="table table-striped table-bordered table-hover table-responsive" id="sample_2">
-                                <thead>
-                                <tr>
-                                    <th class="hidden-480" style="text-align: center;">分类编号</th>
-                                    <th class="hidden-480" style="text-align: center;">分类名称</th>
-                                    <th class="hidden-480" style="text-align: center;">上级分类</th>
-                                    <th class="hidden-480" style="text-align: center;">操作</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <?php if(is_array($cate->data) || $cate->data instanceof \think\Collection || $cate->data instanceof \think\Paginator): $i = 0; $__LIST__ = $cate->data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$goods_cate): $mod = ($i % 2 );++$i;?>
-                                <tr class="odd gradeX ">
-                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $goods_cate['id']; ?></td>
-                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $goods_cate['catename']; ?></td>
-                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $goods_cate['pid']; ?></td>
-                                    <td style="vertical-align: middle !important;text-align: center;">
-                                        <a href="javascript:read('');"><i class="icon-trash"></i>编辑</a>
-                                        <a href="#"><i class="icon-trash"></i>删除</a>
-                                    </td>
-                                </tr>
-                                <?php endforeach; endif; else: echo "" ;endif; ?>
-                                </tbody>
-                            </table>
-                            <div class="pagination pagination-right" style="margin-bottom: 0;">
-                                <ul class="pagination">
-                                    <li><?php echo $cate->render; ?></li>
-                                </ul>
-                            </div>
+                        <div class="portlet-body form ">
+                            <!-- BEGIN FORM-->
+                            <form action="<?php echo url('Admins/admin_insert'); ?>" id="form_sample_2" enctype="multipart/form-data" method="post" class="form-horizontal">
+                                <div class="control-group">
+                                    <label class="control-label">账号<span class="required">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" name="username" data-required="1" class="span6 m-wrap"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">密码<span class="required">*</span></label>
+                                    <div class="controls">
+                                        <input name="userpassword" type="password" data-required="1" class="span6 m-wrap"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">手机<span class="required">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" name="phone" data-required="1" class="span6 m-wrap"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">真实姓名<span class="required">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" name="name" data-required="1" class="span6 m-wrap"/>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn green">确认添加</button>
+                                    <!-- <button type="button" class="btn">Cancel</button> -->
+                                </div>
+                            </form>
+                            <!-- END FORM-->
                         </div>
                     </div>
-                    <!-- END EXAMPLE TABLE PORTLET-->
+                    <!-- END VALIDATION STATES-->
                 </div>
             </div>
         </div>
@@ -976,8 +955,20 @@
 </body>
 <!-- END BODY -->
 <script>
-    function read(id){
-        $.input()
-    }
+    $('#form_sample_2').submit(function() {         //使用ajax的submit提交方法进行表单提交
+        $(this).ajaxSubmit(function(res) {
+            if(res.code===1){
+                layer.msg(res.msg, {icon: 6, time: 2300}, function () {
+                    location.href = res.url;
+                })
+            }else{
+                layer.msg(res.msg, {icon: 2, time: 2300}, function () {
+                    location.href = res.url;
+                })
+            }
+
+        });
+        return false; //阻止表单默认提交
+    });
 </script>
 </html>

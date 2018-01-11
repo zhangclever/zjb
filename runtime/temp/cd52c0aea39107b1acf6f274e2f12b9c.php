@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\goods\goods_cate.html";i:1515477577;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1515574025;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515582903;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\goods\goods_list.html";i:1515402645;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1515574025;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515582903;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
 <!DOCTYPE html>
 
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
@@ -838,36 +838,40 @@
                         <div class="portlet-title">
                             <div class="caption"><i class="icon-user"></i>商品列表</div>
                             <div class="actions">
-                                <a href="<?php echo url('Goods/goods_cate_add'); ?>" class="btn blue"><i class="icon-pencil"></i>添加分类</a>
+                                <a href="<?php echo url('Goods/goods_add'); ?>" class="btn blue"><i class="icon-pencil"></i>添加商品</a>
                             </div>
                         </div>
                         <div class="portlet-body">
                             <table class="table table-striped table-bordered table-hover table-responsive" id="sample_2">
                                 <thead>
                                 <tr>
-                                    <th class="hidden-480" style="text-align: center;">分类编号</th>
-                                    <th class="hidden-480" style="text-align: center;">分类名称</th>
-                                    <th class="hidden-480" style="text-align: center;">上级分类</th>
+                                    <th class="hidden-480" style="text-align: center;">商品名称</th>
+                                    <th class="hidden-480" style="text-align: center;">商品图片</th>
+                                    <th class="hidden-480" style="text-align: center;">商品类型</th>
+                                    <th class="hidden-480" style="text-align: center;">积分</th>
                                     <th class="hidden-480" style="text-align: center;">操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php if(is_array($cate->data) || $cate->data instanceof \think\Collection || $cate->data instanceof \think\Paginator): $i = 0; $__LIST__ = $cate->data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$goods_cate): $mod = ($i % 2 );++$i;?>
+                                <?php if(is_array($glist->data) || $glist->data instanceof \think\Collection || $glist->data instanceof \think\Paginator): $i = 0; $__LIST__ = $glist->data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$zjb_sp): $mod = ($i % 2 );++$i;?>
                                 <tr class="odd gradeX ">
-                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $goods_cate['id']; ?></td>
-                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $goods_cate['catename']; ?></td>
-                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $goods_cate['pid']; ?></td>
+                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $zjb_sp['name']; ?></td>
+                                    <td style="vertical-align: middle !important;text-align: center;"><img src="__PUBLIC__/uploads/<?php echo $zjb_sp['imgpath']; ?>/<?php echo $zjb_sp['imgname']; ?>" alt="" width="80"></td>
+                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $zjb_sp['catename']; ?></td>
+                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $zjb_sp['integral']; ?></td>
                                     <td style="vertical-align: middle !important;text-align: center;">
-                                        <a href="javascript:read('');"><i class="icon-trash"></i>编辑</a>
-                                        <a href="#"><i class="icon-trash"></i>删除</a>
-                                    </td>
+                                        <a href="<?php echo url('Goods/goods_read',array('id'=>$zjb_sp['id'])); ?>"><i class="icon-ban-circle"></i>查看</a>
+                                        <a href="javascript:js_status(<?php echo $zjb_sp['id']; ?>,<?php echo $zjb_sp['goods_status']; ?>)"><i class="icon-ban-circle"></i><?php echo $zjb_sp['goods_status']==0?'上架':'下架'; ?></a>
+                                        <a href="<?php echo url('Goods/goods_edit',array('id'=>$zjb_sp['id'])); ?>"><i class="icon-pencil"></i>修改</a>
+                                        <a href="javascript:del(<?php echo $zjb_sp['id']; ?>)"><i class="icon-trash"></i>删除</a>
+                                     </td>
                                 </tr>
                                 <?php endforeach; endif; else: echo "" ;endif; ?>
                                 </tbody>
                             </table>
                             <div class="pagination pagination-right" style="margin-bottom: 0;">
-                                <ul class="pagination">
-                                    <li><?php echo $cate->render; ?></li>
+                                <ul>
+                                    <li class="active"><?php echo $glist->render; ?></li>
                                 </ul>
                             </div>
                         </div>
@@ -976,8 +980,40 @@
 </body>
 <!-- END BODY -->
 <script>
-    function read(id){
-        $.input()
-    }
+function js_status (id,status) {
+    $.ajax({
+        type:"post",
+        url:'goods_status_edit',
+        data:{"id":id,"status":status},
+        success:function (data) {
+            if (data.code===1){
+                layer.msg(data.msg,{icon:6,time:2000},function () {
+                    location.reload();
+                })
+            }else{
+                layer.msg(data.msg,{icon:2,time:2000})
+            }
+        }
+    })
+}
+function del(id){
+    layer.confirm('确定删除么？',{icon:3,title:'提示'},function (index) {
+        $.ajax({
+            type:"post",
+            url:'goods_del',
+            data:{"id":id},
+            success:function (data) {
+                if (data.code===1){
+                    layer.msg(data.msg,{icon:6,time:2000},function () {
+                        location.reload();
+                    })
+                }else{
+                    layer.msg(data.msg,{icon:2,time:2000})
+                }
+            }
+        })
+        layer.close(index);
+    })
+}
 </script>
 </html>

@@ -5,7 +5,7 @@ use think\Controller;
 use think\lib\Page;
 use think\Db;
 
-class Article extends Controller{
+class Article extends Basic{
 
     public function article_list(){
     	//文章列表

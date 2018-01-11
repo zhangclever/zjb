@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:100:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\advertise\advertise_type_list.html";i:1515477907;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1514959430;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515390145;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:100:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\advertise\advertise_type_list.html";i:1515477907;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1515574025;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515582903;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
 ﻿<!DOCTYPE html>
 
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
@@ -524,7 +524,7 @@
 
                         <li><a href="extra_lock.html"><i class="icon-lock"></i> Lock Screen</a></li>
 
-                        <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+                        <li><a href="<?php echo url('Login/logout'); ?>"><i class="icon-key"></i> 退出</a></li>
 
                     </ul>
 
@@ -696,9 +696,15 @@
 
                 <li >
 
-                    <a href="extra_profile.html">
+                    <a href="<?php echo url('Index/errors'); ?>">
 
-                        User Profile</a>
+                        404 error</a>
+                    <a href="<?php echo url('Index/prohibit'); ?>">
+
+                        403 prohibit</a>
+                    <a href="<?php echo url('Index/internal'); ?>">
+
+                        500 internal error</a>
 
                 </li>
 
@@ -708,7 +714,7 @@
 
         <li>
 
-            <a class="active" href="javascript:;">
+            <a href="javascript:;">
 
                 <i class="icon-sitemap"></i>
 
@@ -720,57 +726,14 @@
 
             <ul class="sub-menu">
 
-                <li>
+                <li >
 
-                    <a href="javascript:;">
+                    <a href="<?php echo url('Admins/admin_list'); ?>">
 
-                        Item 1
-
-                        <span class="arrow"></span>
-
-                    </a>
-
-                    <ul class="sub-menu">
-
-                        <li><a href="#">Sample Link 1</a></li>
-
-                        <li><a href="#">Sample Link 2</a></li>
-
-                        <li><a href="#">Sample Link 3</a></li>
-
-                    </ul>
-
-                </li>
-
-                <li>
-
-                    <a href="javascript:;">
-
-                        Item 1
-
-                        <span class="arrow"></span>
-
-                    </a>
-
-                    <ul class="sub-menu">
-
-                        <li><a href="#">Sample Link 1</a></li>
-
-                        <li><a href="#">Sample Link 1</a></li>
-
-                        <li><a href="#">Sample Link 1</a></li>
-
-                    </ul>
-
-                </li>
-
-                <li>
-
+                        管理员列表</a>
                     <a href="#">
 
-                        Item 3
-
-                    </a>
+                        管理员设置</a>
 
                 </li>
 

@@ -5,11 +5,11 @@ use think\Controller;
 use think\lib\Page;
 use think\Db;
 
-class Advertise extends Controller{
+class Advertise extends Basic{
 
     public function advertise_list(){
     	//广告列表
-        $list = Db::table('zjb_advertises')->select();
+        $list = Db::query('select g.*,c.typename from zjb_advertises as g , zjb_advertise_type as c WHERE g.tid=c.id');
         $arr = new Page($list,10);
         $this->assign(['list'=>$arr]);
 
@@ -40,7 +40,7 @@ class Advertise extends Controller{
             $num = count($arr)-2;
             $data[$k]['typename'] = str_repeat('|----',$num).$v['typename'];
         }
-        $this->assign('data',$data); //
+        $this->assign('data',$data); 
         return view('advertise_add');
     }
 
@@ -73,6 +73,16 @@ class Advertise extends Controller{
         $id = input('id');
         $res = Db::table('zjb_advertises')->where('id',$id)->find();
 
+        //查询 显示赋值  按照path id 
+        $data = Db::query("select *,concat(path,',',id) as paths FROM zjb_advertise_type order by paths;");
+        //处理数据
+        foreach($data as $k=>$v){
+            $arr = explode(',',$v['paths']);
+            $num = count($arr)-2;
+            $data[$k]['typename'] = str_repeat('|----',$num).$v['typename'];
+        }
+        
+        $this->assign('data',$data); 
         $this->assign('advertises',$res);
         return view('advertise_edit');
     }
@@ -118,7 +128,9 @@ class Advertise extends Controller{
         //查看页面  
         $id = input('id');
         $res = Db::table('zjb_advertises')->where('id',$id)->find();
+        $typename = Db::table('zjb_advertise_type')->where('id',$res['tid'])->find();
 
+        $this->assign('typename',$typename);
         $this->assign('advertises',$res);
         return view('advertise_see');
     }

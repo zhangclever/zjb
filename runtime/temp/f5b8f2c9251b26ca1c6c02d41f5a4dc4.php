@@ -1,5 +1,5 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\goods\goods_cate.html";i:1515477577;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1515574025;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515582903;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:88:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\admins\admin_list.html";i:1515585990;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1515574025;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515582903;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
+﻿<!DOCTYPE html>
 
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 
@@ -64,7 +64,10 @@
 </head>
 
 <!-- BEGIN BODY -->
-
+    <style type="text/css">
+.demo {display: inline-block;*display: inline;*zoom: 1;width: 140px;height: 20px;line-height: 20px;font-size: 12px;overflow: hidden;-ms-text-overflow: ellipsis;text-overflow: ellipsis;white-space: nowrap;}
+.demo:hover {height: auto;white-space: normal;}
+    </style>
 
 <body class="page-header-fixed">
 
@@ -836,42 +839,52 @@
 
                     <div class="portlet box grey ">
                         <div class="portlet-title">
-                            <div class="caption"><i class="icon-user"></i>商品列表</div>
+                            <div class="caption"><i class="icon-user"></i>管理员列表</div>
                             <div class="actions">
-                                <a href="<?php echo url('Goods/goods_cate_add'); ?>" class="btn blue"><i class="icon-pencil"></i>添加分类</a>
+                                <a href="<?php echo url('Admins/admin_add'); ?>" class="btn blue"><i class="icon-pencil"></i>添加管理员</a>
                             </div>
                         </div>
+                        <label>
+                            <form action="<?php echo url('Admins/admin_search'); ?>" enctype="multipart/form-data" method="post" class="form-horizontal">
+                                姓 名 :
+                                <input name="name" type="text" aria-controls="sample_1">
+                                <button type="submit" class="btn blue">搜索</button>
+                            </form>
+                        </label>
                         <div class="portlet-body">
-                            <table class="table table-striped table-bordered table-hover table-responsive" id="sample_2">
+                            <table class="table table-striped table-bordered table-hover" id="sample_2">
                                 <thead>
                                 <tr>
-                                    <th class="hidden-480" style="text-align: center;">分类编号</th>
-                                    <th class="hidden-480" style="text-align: center;">分类名称</th>
-                                    <th class="hidden-480" style="text-align: center;">上级分类</th>
-                                    <th class="hidden-480" style="text-align: center;">操作</th>
+                                    <th class="hidden-480" style="text-align: center;">ID</th>
+                                    <th class="hidden-480" style="text-align: center;">账号</th>
+                                    <th class="hidden-480" style="text-align: center;">手机号</th>
+                                    <th class="hidden-480" style="text-align: center;">姓名</th>
+                                    <th class="hidden-480"  style="text-align: center;">操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php if(is_array($cate->data) || $cate->data instanceof \think\Collection || $cate->data instanceof \think\Paginator): $i = 0; $__LIST__ = $cate->data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$goods_cate): $mod = ($i % 2 );++$i;?>
+                    <?php if(is_array($list->data) || $list->data instanceof \think\Collection || $list->data instanceof \think\Paginator): $i = 0; $__LIST__ = $list->data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
                                 <tr class="odd gradeX ">
-                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $goods_cate['id']; ?></td>
-                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $goods_cate['catename']; ?></td>
-                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $goods_cate['pid']; ?></td>
-                                    <td style="vertical-align: middle !important;text-align: center;">
-                                        <a href="javascript:read('');"><i class="icon-trash"></i>编辑</a>
-                                        <a href="#"><i class="icon-trash"></i>删除</a>
-                                    </td>
+                                    <td style="text-align: center;"><?php echo $vo['id']; ?></td>
+                                    <td style="text-align: center;"><?php echo $vo['username']; ?></td>
+                                    <td style="text-align: center;"><?php echo $vo['phone']; ?></td>
+                                    <td style="text-align: center;"><?php echo $vo['name']; ?></td>
+                                    <td style="text-align: center;">
+                                        <a href="<?php echo url('Admins/admin_see','id='.$vo['id']); ?>"><i class="icon-ban-circle"></i>查看</a>
+                                        <a href="<?php echo url('Admins/admin_edit','id='.$vo['id']); ?>"><i class="icon-pencil"></i>修改</a>
+                                        <a href="javascript:remove(<?php echo $vo['id']; ?>)"><i class="icon-trash"></i>删除</a>
+                                     </td>
                                 </tr>
-                                <?php endforeach; endif; else: echo "" ;endif; ?>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
                                 </tbody>
                             </table>
                             <div class="pagination pagination-right" style="margin-bottom: 0;">
-                                <ul class="pagination">
-                                    <li><?php echo $cate->render; ?></li>
+                                <ul>
+                                    <li class="active"><?php echo $list->render; ?></li>
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                        </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
                 </div>
             </div>
@@ -976,8 +989,24 @@
 </body>
 <!-- END BODY -->
 <script>
-    function read(id){
-        $.input()
+    function remove(id){
+        layer.confirm('确定删除么？',{icon:3,title:'提示'},function (index) {
+                $.ajax({
+                    type:"post",
+                    url:'admin_delete',
+                    data:{"id":id},
+                    success:function (data) {
+                        if (data.code===1){
+                            layer.msg(data.msg,{icon:6,time:2000},function () {
+                                location.reload();
+                            })
+                        }else{
+                            layer.msg(data.msg,{icon:2,time:2000})
+                        }
+                    }
+                })
+            layer.close(index);
+        })
     }
 </script>
 </html>

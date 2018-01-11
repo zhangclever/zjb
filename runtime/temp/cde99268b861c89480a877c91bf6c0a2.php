@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:94:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\advertise\advertise_add.html";i:1515476747;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1514959430;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515390145;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:94:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\advertise\advertise_add.html";i:1515484184;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1514959430;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515487707;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
 <!DOCTYPE html>
 
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
@@ -684,9 +684,9 @@
 
                 <li >
 
-                    <a href="extra_profile.html">
+                    <a href="<?php echo url('Index/error'); ?>">
 
-                        User Profile</a>
+                        404 error</a>
 
                 </li>
 
@@ -871,7 +871,7 @@
                                     </div>
                                 </div>
                                 <div class="control-group">
-                                    <label class="control-label">显示位置<span class="required">*</span></label>
+                                    <label class="control-label">广告类型<span class="required">*</span></label>
                                     <div class="controls">
                                         <select class="span6 m-wrap" name="tid">
                                             <option value="0">顶级分类</option>

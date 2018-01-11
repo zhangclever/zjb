@@ -5,7 +5,7 @@ use think\Controller;
 use think\lib\Page;
 use think\Db;
 
-class Notice extends Controller{
+class Notice extends Basic{
 
     public function notice_list(){
     	//文章列表

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\goods\goods_cate.html";i:1515477577;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1515574025;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515582903;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\goods\goods_edit.html";i:1515390145;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1514959430;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515390145;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\Public\script-js.html";i:1514964784;}*/ ?>
 <!DOCTYPE html>
 
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
@@ -63,13 +63,10 @@
 
 </head>
 
+
 <!-- BEGIN BODY -->
-
-
 <body class="page-header-fixed">
-
 <!-- BEGIN HEADER -->
-
 
 <div class="header navbar navbar-inverse navbar-fixed-top">
 
@@ -521,7 +518,7 @@
 
                         <li><a href="extra_lock.html"><i class="icon-lock"></i> Lock Screen</a></li>
 
-                        <li><a href="<?php echo url('Login/logout'); ?>"><i class="icon-key"></i> 退出</a></li>
+                        <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
 
                     </ul>
 
@@ -540,15 +537,10 @@
     <!-- END TOP NAVIGATION BAR -->
 
 </div>
-
 <!-- END HEADER -->
-
 <!-- BEGIN CONTAINER -->
-
 <div class="page-container row-fluid">
-
     <!-- BEGIN SIDEBAR -->
-
     <div class="page-sidebar nav-collapse collapse">
 
     <!-- BEGIN SIDEBAR MENU -->
@@ -693,15 +685,9 @@
 
                 <li >
 
-                    <a href="<?php echo url('Index/errors'); ?>">
+                    <a href="extra_profile.html">
 
-                        404 error</a>
-                    <a href="<?php echo url('Index/prohibit'); ?>">
-
-                        403 prohibit</a>
-                    <a href="<?php echo url('Index/internal'); ?>">
-
-                        500 internal error</a>
+                        User Profile</a>
 
                 </li>
 
@@ -711,7 +697,7 @@
 
         <li>
 
-            <a href="javascript:;">
+            <a class="active" href="javascript:;">
 
                 <i class="icon-sitemap"></i>
 
@@ -723,14 +709,57 @@
 
             <ul class="sub-menu">
 
-                <li >
+                <li>
 
-                    <a href="<?php echo url('Admins/admin_list'); ?>">
+                    <a href="javascript:;">
 
-                        管理员列表</a>
+                        Item 1
+
+                        <span class="arrow"></span>
+
+                    </a>
+
+                    <ul class="sub-menu">
+
+                        <li><a href="#">Sample Link 1</a></li>
+
+                        <li><a href="#">Sample Link 2</a></li>
+
+                        <li><a href="#">Sample Link 3</a></li>
+
+                    </ul>
+
+                </li>
+
+                <li>
+
+                    <a href="javascript:;">
+
+                        Item 1
+
+                        <span class="arrow"></span>
+
+                    </a>
+
+                    <ul class="sub-menu">
+
+                        <li><a href="#">Sample Link 1</a></li>
+
+                        <li><a href="#">Sample Link 1</a></li>
+
+                        <li><a href="#">Sample Link 1</a></li>
+
+                    </ul>
+
+                </li>
+
+                <li>
+
                     <a href="#">
 
-                        管理员设置</a>
+                        Item 3
+
+                    </a>
 
                 </li>
 
@@ -797,82 +826,129 @@
     <!-- END SIDEBAR MENU -->
 
 </div>
-
     <!-- END SIDEBAR -->
-
     <!-- BEGIN PAGE -->
-
     <div class="page-content">
-
         <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-
         <div id="portlet-config" class="modal hide">
-
             <div class="modal-header">
-
                 <button data-dismiss="modal" class="close" type="button"></button>
-
                 <h3>Widget Settings</h3>
-
             </div>
-
             <div class="modal-body">
-
                 <p>Here will be a configuration form</p>
-
             </div>
-
         </div>
-
         <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-
-        <div class="container-fluid text-center">
-
-            <div class="row-fluid ">
-
-                <div class="" data-tablet="span12 fix-offset" data-desktop="span6">
-
-                    <!-- BEGIN EXAMPLE TABLE PORTLET-->
-
-                    <div class="portlet box grey ">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+                    <!-- BEGIN VALIDATION STATES-->
+                    <div class="portlet box green">
                         <div class="portlet-title">
-                            <div class="caption"><i class="icon-user"></i>商品列表</div>
-                            <div class="actions">
-                                <a href="<?php echo url('Goods/goods_cate_add'); ?>" class="btn blue"><i class="icon-pencil"></i>添加分类</a>
+                            <div class="caption"><i class="icon-reorder"></i>商品添加</div>
+                            <div class="tools">
+                                <a href="javascript:;" class="collapse"></a>
+                                <a href="javascript:;" class="reload"></a>
                             </div>
                         </div>
-                        <div class="portlet-body">
-                            <table class="table table-striped table-bordered table-hover table-responsive" id="sample_2">
-                                <thead>
-                                <tr>
-                                    <th class="hidden-480" style="text-align: center;">分类编号</th>
-                                    <th class="hidden-480" style="text-align: center;">分类名称</th>
-                                    <th class="hidden-480" style="text-align: center;">上级分类</th>
-                                    <th class="hidden-480" style="text-align: center;">操作</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <?php if(is_array($cate->data) || $cate->data instanceof \think\Collection || $cate->data instanceof \think\Paginator): $i = 0; $__LIST__ = $cate->data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$goods_cate): $mod = ($i % 2 );++$i;?>
-                                <tr class="odd gradeX ">
-                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $goods_cate['id']; ?></td>
-                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $goods_cate['catename']; ?></td>
-                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $goods_cate['pid']; ?></td>
-                                    <td style="vertical-align: middle !important;text-align: center;">
-                                        <a href="javascript:read('');"><i class="icon-trash"></i>编辑</a>
-                                        <a href="#"><i class="icon-trash"></i>删除</a>
-                                    </td>
-                                </tr>
+                        <div class="portlet-body form ">
+                            <!-- BEGIN FORM-->
+                            <form action="<?php echo url('Goods/goods_info_edit'); ?>" id="form_sample_2" method="post" class="form-horizontal" enctype="multipart/form-data" >
+                                <?php if(is_array($goods_info) || $goods_info instanceof \think\Collection || $goods_info instanceof \think\Paginator): $i = 0; $__LIST__ = $goods_info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$gi): $mod = ($i % 2 );++$i;?>
+                                <div class="control-group">
+                                    <div class="controls" data-toggle="tooltip" id="goodsName">
+                                        <label class="control-label">商品名称<span class="required">*</span></label>
+                                        <input type="text" name="name" data-required="1" class="span6 m-wrap"  value="<?php echo $gi['name']; ?>"/>
+                                        <input type="hidden" name="id"  value="<?php echo $gi['id']; ?>"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label">商品价格<span class="required">*</span></label>
+                                        <input name="price" type="text" class="span6 m-wrap" value="<?php echo $gi['price']; ?>"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label">商品图片<span class="required">*</span></label>
+                                        <input type="hidden" name="imgid" value="<?php echo $gi['imgid']; ?>">
+                                        <div class="fileupload fileupload-new" data-provides="fileupload">
+                                            <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                                                <img src="__PUBLIC__/uploads/<?php echo $gi['imgpath']; ?>/<?php echo $gi['imgname']; ?>" alt="" />
+                                            </div>
+                                            <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                                            <div class="text-center">
+													<span class="btn btn-file"><span class="fileupload-new">添加图片</span>
+													<span class="fileupload-exists">重选</span>
+													<input type="file" class="default" name="img"/></span>
+                                                <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">移除</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label">报销比例<span class="required">*</span></label>
+                                        <input name="sales" type="text" class="span6 m-wrap" value="<?php echo $gi['sales']; ?>"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label">实结<span class="required">*</span></label>
+                                        <input name="setlment" type="text" class="span6 m-wrap" value="<?php echo $gi['setlment']; ?>"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label">积分<span class="required">*</span></label>
+                                        <input name="integral" type="text" class="span6 m-wrap" value="<?php echo $gi['integral']; ?>"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label">关键字<span class="required">*</span></label>
+                                        <input name="keyword" type="text" class="span6 m-wrap" value="<?php echo $gi['keyword']; ?>"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label">商品类型<span class="required">*</span></label>
+                                        <select class="span6 m-wrap" name="cid">
+                                            <option value="<?php echo $gi['id']; ?>"><?php echo $gi['catename']; ?></option>
+                                            <?php if(is_array($goods_cate) || $goods_cate instanceof \think\Collection || $goods_cate instanceof \think\Paginator): $i = 0; $__LIST__ = $goods_cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$gc): $mod = ($i % 2 );++$i;?>
+                                            <option value="<?php echo $gc['id']; ?>">|-<?php echo $gc['catename']; ?></option>
+                                            <?php endforeach; endif; else: echo "" ;endif; ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label">推荐位置<span class="required">*</span></label>
+                                        <select class="small m-wrap" name="goods_state">
+                                            <option value="Category 1">Category 1</option>
+                                            <option value="Category 2">Category 2</option>
+                                            <option value="Category 3">Category 5</option>
+                                            <option value="Category 4">Category 4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label">商品说明<span class="required">*</span></label>
+                                        <textarea class="medium m-wrap" rows="3" name="descript" ><?php echo $gi['descript']; ?></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-actions text-center">
+                                    <button type="submit" class="btn green">提交</button>
+                                    <button type="button" class="btn default" id="back">取消</button>
+                                </div>
                                 <?php endforeach; endif; else: echo "" ;endif; ?>
-                                </tbody>
-                            </table>
-                            <div class="pagination pagination-right" style="margin-bottom: 0;">
-                                <ul class="pagination">
-                                    <li><?php echo $cate->render; ?></li>
-                                </ul>
-                            </div>
+                            </form>
+                            <!-- END FORM-->
                         </div>
                     </div>
-                    <!-- END EXAMPLE TABLE PORTLET-->
+                    <!-- END VALIDATION STATES-->
                 </div>
             </div>
         </div>
@@ -902,6 +978,7 @@
 
 </div>
 <!-- END FOOTER -->
+</body>
 <script src="__PUBLIC__/js/jquery-3.2.1.min.js" type="text/javascript"></script>
 <script src="__PUBLIC__/layer/layer.js" type="text/javascript"></script>
 <script src="__PUBLIC__/layer/layer-jquery.js" type="text/javascript"></script>
@@ -973,11 +1050,23 @@
     });
 
 </script>
-</body>
-<!-- END BODY -->
 <script>
-    function read(id){
-        $.input()
-    }
+    $('#form_sample_2').submit(function() {         //使用ajax的submit提交方法进行表单提交
+        $(this).ajaxSubmit(function(res) {
+            if(res.code ===1){
+                layer.msg(res.msg, {icon: 6, time: 2300}, function () {
+                    location.href = res.url;
+                })
+            }else{
+                layer.msg(res.msg, {icon: 2, time: 800}, function () {
+                     location.href = res.url;
+                })
+            }
+        });
+        return false; //阻止表单默认提交
+    });
+    $('#back').on('click',function () {
+         location.href="<?php echo url('Goods/goods_list'); ?>";
+    })
 </script>
 </html>

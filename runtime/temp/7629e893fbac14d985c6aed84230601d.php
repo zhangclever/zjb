@@ -1,5 +1,5 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\goods\goods_cate.html";i:1515477577;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1515574025;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515582903;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:91:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\dynamic\dynamic_list.html";i:1515403495;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1515574025;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515582903;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
+﻿<!DOCTYPE html>
 
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 
@@ -64,7 +64,10 @@
 </head>
 
 <!-- BEGIN BODY -->
-
+    <style type="text/css">
+.demo {display: inline-block;*display: inline;*zoom: 1;width: 140px;height: 20px;line-height: 20px;font-size: 12px;overflow: hidden;-ms-text-overflow: ellipsis;text-overflow: ellipsis;white-space: nowrap;}
+.demo:hover {height: auto;white-space: normal;}
+    </style>
 
 <body class="page-header-fixed">
 
@@ -836,42 +839,65 @@
 
                     <div class="portlet box grey ">
                         <div class="portlet-title">
-                            <div class="caption"><i class="icon-user"></i>商品列表</div>
+                            <div class="caption"><i class="icon-user"></i>最新动态</div>
                             <div class="actions">
-                                <a href="<?php echo url('Goods/goods_cate_add'); ?>" class="btn blue"><i class="icon-pencil"></i>添加分类</a>
+                                <a href="<?php echo url('Dynamic/dynamic_add'); ?>" class="btn blue"><i class="icon-pencil"></i>添加动态</a>
                             </div>
                         </div>
+                        <label>
+                            <form action="<?php echo url('Dynamic/dynamic_search'); ?>" enctype="multipart/form-data" method="post" class="form-horizontal">
+                                标 题 :
+                                <input name="title" type="text" aria-controls="sample_1">
+                                <button type="submit" class="btn blue">搜索</button>
+                            </form>
+                        </label>
                         <div class="portlet-body">
-                            <table class="table table-striped table-bordered table-hover table-responsive" id="sample_2">
+                            <table class="table table-striped table-bordered table-hover" id="sample_2">
                                 <thead>
                                 <tr>
-                                    <th class="hidden-480" style="text-align: center;">分类编号</th>
-                                    <th class="hidden-480" style="text-align: center;">分类名称</th>
-                                    <th class="hidden-480" style="text-align: center;">上级分类</th>
-                                    <th class="hidden-480" style="text-align: center;">操作</th>
+                                    <th class="hidden-480" style="text-align: center;">ID</th>
+                                    <th class="hidden-480" style="text-align: center;">标题</th>
+                                    <th class="hidden-480" style="text-align: center;">信息图片</th>
+                                    <th class="hidden-480" style="text-align: center;">点击量</th>
+                                    <th class="hidden-480" style="text-align: center;">信息联接地址</th>
+                                    <!-- <th class="hidden-480" style="text-align: center;">是否推荐</th> -->
+                                    <th class="hidden-480" style="text-align: center;">动态类型</th>
+                                    <th class="hidden-480" style="text-align: center;">发布时间</th>
+                                    <th class="hidden-480"  style="text-align: center;">操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php if(is_array($cate->data) || $cate->data instanceof \think\Collection || $cate->data instanceof \think\Paginator): $i = 0; $__LIST__ = $cate->data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$goods_cate): $mod = ($i % 2 );++$i;?>
+                    <?php if(is_array($list->data) || $list->data instanceof \think\Collection || $list->data instanceof \think\Paginator): $i = 0; $__LIST__ = $list->data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
                                 <tr class="odd gradeX ">
-                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $goods_cate['id']; ?></td>
-                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $goods_cate['catename']; ?></td>
-                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $goods_cate['pid']; ?></td>
-                                    <td style="vertical-align: middle !important;text-align: center;">
-                                        <a href="javascript:read('');"><i class="icon-trash"></i>编辑</a>
-                                        <a href="#"><i class="icon-trash"></i>删除</a>
+                                    <td style="text-align: center;"><?php echo $vo['id']; ?></td>
+                                    <td style="text-align: center;"><?php echo $vo['title']; ?></td>
+                                    <td style="text-align: center;"><img src='__PUBLIC__/uploads/<?php echo $vo['images']; ?>' height="80" width="80" ></td>
+                                    <td style="text-align: center;"><?php echo $vo['clicks']; ?></td>
+                                    <td style="text-align: center;"><?php echo $vo['url']; ?></td>
+                                    <!-- <td style="text-align: center;"><?php echo $vo['status']; ?></td> -->
+                                    <td style="text-align: center;">
+                                                                <?php switch($vo['state']): case "0": ?>最新活动<?php break; case "1": ?>行业动态<?php break; case "2": ?>公告通知<?php break; case "3": ?>公益活动<?php break; case "4": ?>视频播放<?php break; default: ?>default
+                                                                <?php endswitch; ?>
                                     </td>
+                                    <td style="text-align: center;"><?php echo $vo['ctimes']; ?></td>
+                                    <td style="text-align: center;">
+                                        <a href="<?php echo url('Dynamic/dynamic_see','id='.$vo['id']); ?>"><i class="icon-ban-circle"></i>查看</a>
+                                        <a href="javascript:js_status(<?php echo $vo['id']; ?>,<?php echo $vo['status']; ?>)"><i class="icon-ban-circle"></i><?php echo $vo['status']==0?'禁用':'启用'; ?></a>
+                                        <a href="<?php echo url('Dynamic/dynamic_edit','id='.$vo['id']); ?>"><i class="icon-pencil"></i>修改</a>
+                                        <!-- <a onclick="return remove('<?php echo url('Dynamic/dynamic_delete','id='.$vo['id']); ?>')"><i class="icon-trash"></i>删除</a> -->
+                                        <a href="javascript:remove(<?php echo $vo['id']; ?>)"><i class="icon-trash"></i>删除</a>
+                                     </td>
                                 </tr>
-                                <?php endforeach; endif; else: echo "" ;endif; ?>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
                                 </tbody>
                             </table>
                             <div class="pagination pagination-right" style="margin-bottom: 0;">
-                                <ul class="pagination">
-                                    <li><?php echo $cate->render; ?></li>
+                                <ul>
+                                    <li class="active"><?php echo $list->render; ?></li>
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                        </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
                 </div>
             </div>
@@ -976,8 +1002,40 @@
 </body>
 <!-- END BODY -->
 <script>
-    function read(id){
-        $.input()
+    function js_status (id,status) {
+        $.ajax({
+            type:"post",
+            url:'dynamic_status',
+            data:{"id":id,"status":status},
+            success:function (data) {
+                if (data.code===1){
+                    layer.msg(data.msg,{icon:6,time:2000},function () {
+                        location.reload();
+                    })
+                }else{
+                    layer.msg(data.msg,{icon:2,time:2000})
+                }
+            }
+        })
+    }
+    function remove(id){
+        layer.confirm('确定删除么？',{icon:3,title:'提示'},function (index) {
+                $.ajax({
+                    type:"post",
+                    url:'dynamic_delete',
+                    data:{"id":id},
+                    success:function (data) {
+                        if (data.code===1){
+                            layer.msg(data.msg,{icon:6,time:2000},function () {
+                                location.reload();
+                            })
+                        }else{
+                            layer.msg(data.msg,{icon:2,time:2000})
+                        }
+                    }
+                })
+            layer.close(index);
+        })
     }
 </script>
 </html>

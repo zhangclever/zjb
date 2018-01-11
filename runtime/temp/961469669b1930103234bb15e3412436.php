@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:95:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\advertise\advertise_list.html";i:1515476709;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1514959430;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515390145;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:95:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\advertise\advertise_list.html";i:1515485893;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1515574025;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515582903;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
 ﻿<!DOCTYPE html>
 
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
@@ -524,7 +524,7 @@
 
                         <li><a href="extra_lock.html"><i class="icon-lock"></i> Lock Screen</a></li>
 
-                        <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+                        <li><a href="<?php echo url('Login/logout'); ?>"><i class="icon-key"></i> 退出</a></li>
 
                     </ul>
 
@@ -696,9 +696,15 @@
 
                 <li >
 
-                    <a href="extra_profile.html">
+                    <a href="<?php echo url('Index/errors'); ?>">
 
-                        User Profile</a>
+                        404 error</a>
+                    <a href="<?php echo url('Index/prohibit'); ?>">
+
+                        403 prohibit</a>
+                    <a href="<?php echo url('Index/internal'); ?>">
+
+                        500 internal error</a>
 
                 </li>
 
@@ -708,7 +714,7 @@
 
         <li>
 
-            <a class="active" href="javascript:;">
+            <a href="javascript:;">
 
                 <i class="icon-sitemap"></i>
 
@@ -720,57 +726,14 @@
 
             <ul class="sub-menu">
 
-                <li>
+                <li >
 
-                    <a href="javascript:;">
+                    <a href="<?php echo url('Admins/admin_list'); ?>">
 
-                        Item 1
-
-                        <span class="arrow"></span>
-
-                    </a>
-
-                    <ul class="sub-menu">
-
-                        <li><a href="#">Sample Link 1</a></li>
-
-                        <li><a href="#">Sample Link 2</a></li>
-
-                        <li><a href="#">Sample Link 3</a></li>
-
-                    </ul>
-
-                </li>
-
-                <li>
-
-                    <a href="javascript:;">
-
-                        Item 1
-
-                        <span class="arrow"></span>
-
-                    </a>
-
-                    <ul class="sub-menu">
-
-                        <li><a href="#">Sample Link 1</a></li>
-
-                        <li><a href="#">Sample Link 1</a></li>
-
-                        <li><a href="#">Sample Link 1</a></li>
-
-                    </ul>
-
-                </li>
-
-                <li>
-
+                        管理员列表</a>
                     <a href="#">
 
-                        Item 3
-
-                    </a>
+                        管理员设置</a>
 
                 </li>
 
@@ -881,20 +844,20 @@
                                 <a href="<?php echo url('Advertise/advertise_add'); ?>" class="btn blue"><i class="icon-pencil"></i>添加广告</a>
                             </div>
                         </div>
-                        <label>
+                        <!-- <label>
                             <form action="<?php echo url('Advertise/advertise_search'); ?>" enctype="multipart/form-data" method="post" class="form-horizontal">
                                 标 题 :
                                 <input name="title" type="text" aria-controls="sample_1">
                                 <button type="submit" class="btn blue">搜索</button>
                             </form>
-                        </label>
+                        </label> -->
                         <div class="portlet-body">
                             <table class="table table-striped table-bordered table-hover" id="sample_2">
                                 <thead>
                                 <tr>
                                     <th class="hidden-480" style="text-align: center;">ID</th>
                                     <th class="hidden-480" style="text-align: center;">标题</th>
-                                    <th class="hidden-480" style="text-align: center;">显示位置</th>
+                                    <th class="hidden-480" style="text-align: center;">广告类型</th>
                                     <th class="hidden-480" style="text-align: center;">信息图片</th>
                                     <th class="hidden-480" style="text-align: center;">信息联接地址</th>
                                     <th class="hidden-480" style="text-align: center;">发布时间</th>
@@ -906,7 +869,7 @@
                                 <tr class="odd gradeX ">
                                     <td style="text-align: center;"><?php echo $vo['id']; ?></td>
                                     <td style="text-align: center;"><?php echo $vo['title']; ?></td>
-                                    <td style="text-align: center;" ><?php echo $vo['tid']; ?></td>
+                                    <td style="text-align: center;" ><?php echo $vo['typename']; ?></td>
                                     <td style="text-align: center;"><img src='__PUBLIC__/uploads/<?php echo $vo['images']; ?>' height="80" width="80" ></td>
                                     <td style="text-align: center;"><?php echo $vo['url']; ?></td>
                                     <td style="text-align: center;"><?php echo $vo['ctimes']; ?></td>
