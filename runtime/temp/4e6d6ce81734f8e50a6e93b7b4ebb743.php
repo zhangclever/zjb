@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\goods\goods_cate.html";i:1515477577;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1514959430;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515390145;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:82:"F:\myphp_www\PHPTutorial\WWW\zjb\public/../application/admin\view\index\index.html";i:1515478919;s:76:"F:\myphp_www\PHPTutorial\WWW\zjb\application\admin\view\Public\link-css.html";i:1515478919;s:74:"F:\myphp_www\PHPTutorial\WWW\zjb\application\admin\view\Public\header.html";i:1515478919;s:77:"F:\myphp_www\PHPTutorial\WWW\zjb\application\admin\view\Public\left-menu.html";i:1515481828;s:74:"F:\myphp_www\PHPTutorial\WWW\zjb\application\admin\view\Public\footer.html";i:1515478919;s:77:"F:\myphp_www\PHPTutorial\WWW\zjb\application\admin\view\Public\script-js.html";i:1515478919;}*/ ?>
 <!DOCTYPE html>
 
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
@@ -23,54 +23,50 @@
 
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
 
-    <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/static/admin/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 
-    <!--<link href="__PUBLIC__/layer/layer.css" rel="stylesheet" type="text/css"/>-->
+    <!--<link href="/public/static/admin/layer/layer.css" rel="stylesheet" type="text/css"/>-->
 
-    <link href="__PUBLIC__/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap-fileupload.css" />
+    <link href="/public/static/admin/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="/public/static/admin/css/bootstrap-fileupload.css" />
 
-    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/static/admin/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 
-    <link href="__PUBLIC__/css/style-metro.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/static/admin/css/style-metro.css" rel="stylesheet" type="text/css"/>
 
-    <link href="__PUBLIC__/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/static/admin/css/style.css" rel="stylesheet" type="text/css"/>
 
-    <link href="__PUBLIC__/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/static/admin/css/style-responsive.css" rel="stylesheet" type="text/css"/>
 
-    <link href="__PUBLIC__/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+    <link href="/public/static/admin/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
 
-    <link href="__PUBLIC__/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/static/admin/css/uniform.default.css" rel="stylesheet" type="text/css"/>
 
 
     <!-- END GLOBAL MANDATORY STYLES -->
 
     <!-- BEGIN PAGE LEVEL STYLES -->
 
-    <link href="__PUBLIC__/css/jquery.gritter.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/static/admin/css/jquery.gritter.css" rel="stylesheet" type="text/css"/>
 
-    <link href="__PUBLIC__/css/daterangepicker.css" rel="stylesheet" type="text/css" />
+    <link href="/public/static/admin/css/daterangepicker.css" rel="stylesheet" type="text/css" />
 
-    <link href="__PUBLIC__/css/fullcalendar.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/static/admin/css/fullcalendar.css" rel="stylesheet" type="text/css"/>
 
-    <link href="__PUBLIC__/css/jqvmap.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="/public/static/admin/css/jqvmap.css" rel="stylesheet" type="text/css" media="screen"/>
 
-    <link href="__PUBLIC__/css/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="/public/static/admin/css/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
 
     <!-- END PAGE LEVEL STYLES -->
 
-    <link rel="shortcut icon" href="__PUBLIC__/image/favicon.ico" />
+    <link rel="shortcut icon" href="/public/static/admin/image/favicon.ico" />
 
 </head>
 
 <!-- BEGIN BODY -->
-
-
 <body class="page-header-fixed">
-
-<!-- BEGIN HEADER -->
-
-
+	<!-- BEGIN HEADER -->
+	
 <div class="header navbar navbar-inverse navbar-fixed-top">
 
     <!-- BEGIN TOP NAVIGATION BAR -->
@@ -83,7 +79,7 @@
 
             <a class="brand" href="index.html">
 
-                <img src="__PUBLIC__/image/logo.png" alt="logo"/>
+                <img src="/public/static/admin/image/logo.png" alt="logo"/>
 
             </a>
 
@@ -93,7 +89,7 @@
 
             <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
 
-                <img src="__PUBLIC__/image/menu-toggler.png" alt="" />
+                <img src="/public/static/admin/image/menu-toggler.png" alt="" />
 
             </a>
 
@@ -243,7 +239,7 @@
 
                             <!--<a href="inbox.html?a=view">-->
 
-                                <!--<span class="photo"><img src="__PUBLIC__/image/avatar2.jpg" alt="" /></span>-->
+                                <!--<span class="photo"><img src="/public/static/admin/image/avatar2.jpg" alt="" /></span>-->
 
                                 <!--<span class="subject">-->
 
@@ -269,7 +265,7 @@
 
                             <!--<a href="inbox.html?a=view">-->
 
-                                <!--<span class="photo"><img src="__PUBLIC__/image/avatar3.jpg" alt="" /></span>-->
+                                <!--<span class="photo"><img src="/public/static/admin/image/avatar3.jpg" alt="" /></span>-->
 
                                 <!--<span class="subject">-->
 
@@ -295,7 +291,7 @@
 
                             <!--<a href="inbox.html?a=view">-->
 
-                                <!--<span class="photo"><img src="__PUBLIC__/image/avatar1.jpg" alt="" /></span>-->
+                                <!--<span class="photo"><img src="/public/static/admin/image/avatar1.jpg" alt="" /></span>-->
 
                                 <!--<span class="subject">-->
 
@@ -499,7 +495,7 @@
 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
-                        <img alt="" src="__PUBLIC__/image/avatar1_small.jpg" />
+                        <img alt="" src="/public/static/admin/image/avatar1_small.jpg" />
 
                         <span class="username">Bob Nilson</span>
 
@@ -540,16 +536,12 @@
     <!-- END TOP NAVIGATION BAR -->
 
 </div>
-
-<!-- END HEADER -->
-
-<!-- BEGIN CONTAINER -->
-
-<div class="page-container row-fluid">
-
-    <!-- BEGIN SIDEBAR -->
-
-    <div class="page-sidebar nav-collapse collapse">
+	<!-- END HEADER -->
+    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >网页模板</a></div>
+	<!-- BEGIN CONTAINER -->
+	<div class="page-container">
+		<!-- BEGIN SIDEBAR -->
+		<div class="page-sidebar nav-collapse collapse">
 
     <!-- BEGIN SIDEBAR MENU -->
 
@@ -670,9 +662,14 @@
 
             <ul class="sub-menu">
                 <li >
-                    <a href="page_timeline.html">
+                    <a href="<?php echo url('Video/video_list'); ?>">
                         <i class="icon-time"></i>
-                        Timeline</a>
+                        视频列表</a>
+                </li>
+                <li >
+                    <a href="<?php echo url('Video/video_cate'); ?>">
+                        <i class="icon-time"></i>
+                        视频管理</a>
                 </li>
             </ul>
         </li>
@@ -834,92 +831,178 @@
     <!-- END SIDEBAR MENU -->
 
 </div>
+		<!-- END SIDEBAR -->
+		<!-- BEGIN PAGE -->
+		<div class="page-content">
+			<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+			<div id="portlet-config" class="modal hide">
 
-    <!-- END SIDEBAR -->
+				<div class="modal-header">
 
-    <!-- BEGIN PAGE -->
+					<button data-dismiss="modal" class="close" type="button"></button>
 
-    <div class="page-content">
+					<h3>Widget Settings</h3>
 
-        <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+				</div>
 
-        <div id="portlet-config" class="modal hide">
+				<div class="modal-body">
 
-            <div class="modal-header">
+					Widget settings form goes here
 
-                <button data-dismiss="modal" class="close" type="button"></button>
+				</div>
 
-                <h3>Widget Settings</h3>
+			</div>
+			<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+			<!-- BEGIN PAGE CONTAINER-->
+			<div class="container-fluid">
+				<!-- BEGIN PAGE HEADER-->
+				<div class="row-fluid">
 
-            </div>
+					<div class="span12">
 
-            <div class="modal-body">
+						<!-- BEGIN STYLE CUSTOMIZER -->
 
-                <p>Here will be a configuration form</p>
+						<!--<div class="color-panel hidden-phone">-->
 
-            </div>
+							<!--<div class="color-mode-icons icon-color"></div>-->
 
-        </div>
+							<!--<div class="color-mode-icons icon-color-close"></div>-->
 
-        <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+							<!--<div class="color-mode">-->
 
-        <div class="container-fluid text-center">
+								<!--<p>THEME COLOR</p>-->
 
-            <div class="row-fluid ">
+								<!--<ul class="inline">-->
 
-                <div class="" data-tablet="span12 fix-offset" data-desktop="span6">
+									<!--<li class="color-black current color-default" data-style="default"></li>-->
 
-                    <!-- BEGIN EXAMPLE TABLE PORTLET-->
+									<!--<li class="color-blue" data-style="blue"></li>-->
 
-                    <div class="portlet box grey ">
-                        <div class="portlet-title">
-                            <div class="caption"><i class="icon-user"></i>商品列表</div>
-                            <div class="actions">
-                                <a href="<?php echo url('Goods/goods_cate_add'); ?>" class="btn blue"><i class="icon-pencil"></i>添加分类</a>
-                            </div>
-                        </div>
-                        <div class="portlet-body">
-                            <table class="table table-striped table-bordered table-hover table-responsive" id="sample_2">
-                                <thead>
-                                <tr>
-                                    <th class="hidden-480" style="text-align: center;">分类编号</th>
-                                    <th class="hidden-480" style="text-align: center;">分类名称</th>
-                                    <th class="hidden-480" style="text-align: center;">上级分类</th>
-                                    <th class="hidden-480" style="text-align: center;">操作</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <?php if(is_array($cate->data) || $cate->data instanceof \think\Collection || $cate->data instanceof \think\Paginator): $i = 0; $__LIST__ = $cate->data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$goods_cate): $mod = ($i % 2 );++$i;?>
-                                <tr class="odd gradeX ">
-                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $goods_cate['id']; ?></td>
-                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $goods_cate['catename']; ?></td>
-                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $goods_cate['pid']; ?></td>
-                                    <td style="vertical-align: middle !important;text-align: center;">
-                                        <a href="javascript:read('');"><i class="icon-trash"></i>编辑</a>
-                                        <a href="#"><i class="icon-trash"></i>删除</a>
-                                    </td>
-                                </tr>
-                                <?php endforeach; endif; else: echo "" ;endif; ?>
-                                </tbody>
-                            </table>
-                            <div class="pagination pagination-right" style="margin-bottom: 0;">
-                                <ul class="pagination">
-                                    <li><?php echo $cate->render; ?></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END EXAMPLE TABLE PORTLET-->
-                </div>
-            </div>
-        </div>
-        <!-- END PAGE CONTAINER-->
-    </div>
-    <!-- BEGIN PAGE -->
-</div>
-<!-- END CONTAINER -->
-<!-- BEGIN FOOTER -->
-<<div class="footer">
+									<!--<li class="color-brown" data-style="brown"></li>-->
+
+									<!--<li class="color-purple" data-style="purple"></li>-->
+
+									<!--<li class="color-grey" data-style="grey"></li>-->
+
+									<!--<li class="color-white color-light" data-style="light"></li>-->
+
+								<!--</ul>-->
+
+								<!--<label>-->
+
+									<!--<span>Layout</span>-->
+
+									<!--<select class="layout-option m-wrap small">-->
+
+										<!--<option value="fluid" selected>Fluid</option>-->
+
+										<!--<option value="boxed">Boxed</option>-->
+
+									<!--</select>-->
+
+								<!--</label>-->
+
+								<!--<label>-->
+
+									<!--<span>Header</span>-->
+
+									<!--<select class="header-option m-wrap small">-->
+
+										<!--<option value="fixed" selected>Fixed</option>-->
+
+										<!--<option value="default">Default</option>-->
+
+									<!--</select>-->
+
+								<!--</label>-->
+
+								<!--<label>-->
+
+									<!--<span>Sidebar</span>-->
+
+									<!--<select class="sidebar-option m-wrap small">-->
+
+										<!--<option value="fixed">Fixed</option>-->
+
+										<!--<option value="default" selected>Default</option>-->
+
+									<!--</select>-->
+
+								<!--</label>-->
+
+								<!--<label>-->
+
+									<!--<span>Footer</span>-->
+
+									<!--<select class="footer-option m-wrap small">-->
+
+										<!--<option value="fixed">Fixed</option>-->
+
+										<!--<option value="default" selected>Default</option>-->
+
+									<!--</select>-->
+
+								<!--</label>-->
+
+							<!--</div>-->
+
+						<!--</div>-->
+
+						<!-- END BEGIN STYLE CUSTOMIZER -->    
+
+						<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+
+						<h3 class="page-title">
+
+							Dashboard <small>statistics and more</small>
+
+						</h3>
+
+						<ul class="breadcrumb">
+
+							<li>
+
+								<i class="icon-home"></i>
+
+								<a href="index.html">Home</a> 
+
+								<i class="icon-angle-right"></i>
+
+							</li>
+
+							<li><a href="#">Dashboard</a></li>
+
+							<li class="pull-right no-text-shadow">
+
+								<div id="dashboard-report-range" class="dashboard-date-range tooltips no-tooltip-on-touch-device responsive" data-tablet="" data-desktop="tooltips" data-placement="top" data-original-title="Change dashboard date range">
+
+									<i class="icon-calendar"></i>
+
+									<span></span>
+
+									<i class="icon-angle-down"></i>
+
+								</div>
+
+							</li>
+
+						</ul>
+
+						<!-- END PAGE TITLE & BREADCRUMB-->
+
+					</div>
+
+				</div>
+				<!-- END PAGE HEADER-->
+				<div id="dashboard"></div>
+			</div>
+			<!-- END PAGE CONTAINER-->
+		</div>
+		<!-- END PAGE -->
+	</div>
+	<!-- END CONTAINER -->
+	<!-- BEGIN FOOTER -->
+	<<div class="footer">
 
     <div class="footer-inner">
 
@@ -938,60 +1021,63 @@
     </div>
 
 </div>
-<!-- END FOOTER -->
-<script src="__PUBLIC__/js/jquery-3.2.1.min.js" type="text/javascript"></script>
-<script src="__PUBLIC__/layer/layer.js" type="text/javascript"></script>
-<script src="__PUBLIC__/layer/layer-jquery.js" type="text/javascript"></script>
-<script type="text/javascript" src="__PUBLIC__/js/bootstrap-fileupload.js"></script>
-<script type="text/javascript" src="__PUBLIC__/js/jquery.form.js"></script>
+	<!-- END FOOTER -->
+</body>
+<!-- END BODY -->
 
-<!--<script src="__PUBLIC__/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>-->
+	<script src="/public/static/admin/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="/public/static/admin/layer/layer.js" type="text/javascript"></script>
+<script src="/public/static/admin/layer/layer-jquery.js" type="text/javascript"></script>
+<script type="text/javascript" src="/public/static/admin/js/bootstrap-fileupload.js"></script>
+<script type="text/javascript" src="/public/static/admin/js/jquery.form.js"></script>
+
+<!--<script src="/public/static/admin/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>-->
 
 <!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
 
-<script src="__PUBLIC__/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/bootstrap.min.js" type="text/javascript"></script>
 
 <!--[if lt IE 9]>
 
-<script src="__PUBLIC__/js/excanvas.min.js"></script>
+<script src="/public/static/admin/js/excanvas.min.js"></script>
 
-<script src="__PUBLIC__/js/respond.min.js"></script>
+<script src="/public/static/admin/js/respond.min.js"></script>
 
 <![endif]-->
 
-<script src="__PUBLIC__/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/jquery.slimscroll.min.js" type="text/javascript"></script>
 
-<!--<script src="__PUBLIC__/js/jquery.blockui.min.js" type="text/javascript"></script>-->
+<!--<script src="/public/static/admin/js/jquery.blockui.min.js" type="text/javascript"></script>-->
 
-<script src="__PUBLIC__/js/jquery.cookie.min.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/jquery.cookie.min.js" type="text/javascript"></script>
 
-<script src="__PUBLIC__/js/jquery.uniform.min.js" type="text/javascript" ></script>
+<script src="/public/static/admin/js/jquery.uniform.min.js" type="text/javascript" ></script>
 
 <!-- END CORE PLUGINS -->
 
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 
-<script src="__PUBLIC__/js/jquery.flot.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/jquery.flot.js" type="text/javascript"></script>
 
-<script src="__PUBLIC__/js/jquery.flot.resize.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/jquery.flot.resize.js" type="text/javascript"></script>
 
-<script src="__PUBLIC__/js/jquery.pulsate.min.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/jquery.pulsate.min.js" type="text/javascript"></script>
 
-<script src="__PUBLIC__/js/date.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/date.js" type="text/javascript"></script>
 
 
-<!--<script type="text/javascript" src="__PUBLIC__/js/ajaxfileupload.js"></script>-->
+<!--<script type="text/javascript" src="/public/static/admin/js/ajaxfileupload.js"></script>-->
 
 
 <!-- END PAGE LEVEL PLUGINS -->
 
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 
-<script src="__PUBLIC__/js/app.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/app.js" type="text/javascript"></script>
 
-<script src="__PUBLIC__/js/index.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/index.js" type="text/javascript"></script>
 
-<script src="__PUBLIC__/js/form-components.js"></script>
+<script src="/public/static/admin/js/form-components.js"></script>
 
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
@@ -1009,12 +1095,5 @@
         FormComponents.init();
     });
 
-</script>
-</body>
-<!-- END BODY -->
-<script>
-    function read(id){
-        $.input()
-    }
 </script>
 </html>

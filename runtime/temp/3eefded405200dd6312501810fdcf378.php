@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:94:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\advertise\advertise_add.html";i:1515476747;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1514959430;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515390145;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:86:"F:\myphp_www\PHPTutorial\WWW\zjb\public/../application/admin\view\Video\video_add.html";i:1515586079;s:76:"F:\myphp_www\PHPTutorial\WWW\zjb\application\admin\view\Public\link-css.html";i:1515478919;s:74:"F:\myphp_www\PHPTutorial\WWW\zjb\application\admin\view\Public\header.html";i:1515478919;s:77:"F:\myphp_www\PHPTutorial\WWW\zjb\application\admin\view\Public\left-menu.html";i:1515481828;s:74:"F:\myphp_www\PHPTutorial\WWW\zjb\application\admin\view\Public\footer.html";i:1515478919;s:77:"F:\myphp_www\PHPTutorial\WWW\zjb\application\admin\view\Public\script-js.html";i:1515478919;}*/ ?>
 <!DOCTYPE html>
 
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
@@ -23,43 +23,43 @@
 
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
 
-    <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/static/admin/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 
-    <!--<link href="__PUBLIC__/layer/layer.css" rel="stylesheet" type="text/css"/>-->
+    <!--<link href="/public/static/admin/layer/layer.css" rel="stylesheet" type="text/css"/>-->
 
-    <link href="__PUBLIC__/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap-fileupload.css" />
+    <link href="/public/static/admin/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="/public/static/admin/css/bootstrap-fileupload.css" />
 
-    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/static/admin/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 
-    <link href="__PUBLIC__/css/style-metro.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/static/admin/css/style-metro.css" rel="stylesheet" type="text/css"/>
 
-    <link href="__PUBLIC__/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/static/admin/css/style.css" rel="stylesheet" type="text/css"/>
 
-    <link href="__PUBLIC__/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/static/admin/css/style-responsive.css" rel="stylesheet" type="text/css"/>
 
-    <link href="__PUBLIC__/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+    <link href="/public/static/admin/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
 
-    <link href="__PUBLIC__/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/static/admin/css/uniform.default.css" rel="stylesheet" type="text/css"/>
 
 
     <!-- END GLOBAL MANDATORY STYLES -->
 
     <!-- BEGIN PAGE LEVEL STYLES -->
 
-    <link href="__PUBLIC__/css/jquery.gritter.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/static/admin/css/jquery.gritter.css" rel="stylesheet" type="text/css"/>
 
-    <link href="__PUBLIC__/css/daterangepicker.css" rel="stylesheet" type="text/css" />
+    <link href="/public/static/admin/css/daterangepicker.css" rel="stylesheet" type="text/css" />
 
-    <link href="__PUBLIC__/css/fullcalendar.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/static/admin/css/fullcalendar.css" rel="stylesheet" type="text/css"/>
 
-    <link href="__PUBLIC__/css/jqvmap.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="/public/static/admin/css/jqvmap.css" rel="stylesheet" type="text/css" media="screen"/>
 
-    <link href="__PUBLIC__/css/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="/public/static/admin/css/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
 
     <!-- END PAGE LEVEL STYLES -->
 
-    <link rel="shortcut icon" href="__PUBLIC__/image/favicon.ico" />
+    <link rel="shortcut icon" href="/public/static/admin/image/favicon.ico" />
 
 </head>
 
@@ -79,7 +79,7 @@
 
             <a class="brand" href="index.html">
 
-                <img src="__PUBLIC__/image/logo.png" alt="logo"/>
+                <img src="/public/static/admin/image/logo.png" alt="logo"/>
 
             </a>
 
@@ -89,7 +89,7 @@
 
             <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
 
-                <img src="__PUBLIC__/image/menu-toggler.png" alt="" />
+                <img src="/public/static/admin/image/menu-toggler.png" alt="" />
 
             </a>
 
@@ -239,7 +239,7 @@
 
                             <!--<a href="inbox.html?a=view">-->
 
-                                <!--<span class="photo"><img src="__PUBLIC__/image/avatar2.jpg" alt="" /></span>-->
+                                <!--<span class="photo"><img src="/public/static/admin/image/avatar2.jpg" alt="" /></span>-->
 
                                 <!--<span class="subject">-->
 
@@ -265,7 +265,7 @@
 
                             <!--<a href="inbox.html?a=view">-->
 
-                                <!--<span class="photo"><img src="__PUBLIC__/image/avatar3.jpg" alt="" /></span>-->
+                                <!--<span class="photo"><img src="/public/static/admin/image/avatar3.jpg" alt="" /></span>-->
 
                                 <!--<span class="subject">-->
 
@@ -291,7 +291,7 @@
 
                             <!--<a href="inbox.html?a=view">-->
 
-                                <!--<span class="photo"><img src="__PUBLIC__/image/avatar1.jpg" alt="" /></span>-->
+                                <!--<span class="photo"><img src="/public/static/admin/image/avatar1.jpg" alt="" /></span>-->
 
                                 <!--<span class="subject">-->
 
@@ -495,7 +495,7 @@
 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
-                        <img alt="" src="__PUBLIC__/image/avatar1_small.jpg" />
+                        <img alt="" src="/public/static/admin/image/avatar1_small.jpg" />
 
                         <span class="username">Bob Nilson</span>
 
@@ -661,9 +661,14 @@
 
             <ul class="sub-menu">
                 <li >
-                    <a href="page_timeline.html">
+                    <a href="<?php echo url('Video/video_list'); ?>">
                         <i class="icon-time"></i>
-                        Timeline</a>
+                        视频列表</a>
+                </li>
+                <li >
+                    <a href="<?php echo url('Video/video_cate'); ?>">
+                        <i class="icon-time"></i>
+                        视频管理</a>
                 </li>
             </ul>
         </li>
@@ -845,62 +850,69 @@
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet box green">
                         <div class="portlet-title">
-                            <div class="caption"><i class="icon-reorder"></i>广告添加</div>
+                            <div class="caption"><i class="icon-reorder"></i>视频添加</div>
                             <div class="tools">
                                 <a href="javascript:;" class="collapse"></a>
-                                <a href="#portlet-config" data-toggle="modal" class="config"></a>
                                 <a href="javascript:;" class="reload"></a>
-                                <a href="javascript:;" class="remove"></a>
                             </div>
                         </div>
                         <div class="portlet-body form ">
                             <!-- BEGIN FORM-->
-                            <form action="<?php echo url('Advertise/advertise_insert'); ?>" id="form_sample_2" enctype="multipart/form-data" method="post" class="form-horizontal">
-                                <div class="alert alert-error hide">
-                                    <button class="close" data-dismiss="alert"></button>
-                                    You have some form errors. Please check below.
-                                </div>
-                                <div class="alert alert-success hide">
-                                    <button class="close" data-dismiss="alert"></button>
-                                    Your form validation is successful!
-                                </div>
+                            <form action="<?php echo url('Video/video_info_add'); ?>" id="form_sample_2" method="post" class="form-horizontal" enctype="multipart/form-data" >
                                 <div class="control-group">
-                                    <label class="control-label">标题<span class="required">*</span></label>
-                                    <div class="controls">
-                                        <input type="text" name="title" data-required="1" class="span6 m-wrap"/>
+                                    <div class="controls" data-toggle="tooltip" id="goodsName">
+                                        <label class="control-label">视频名称<span class="required">*</span></label>
+                                        <input type="text" name="vname" data-required="1" class="span6 m-wrap"  value=""/>
                                     </div>
                                 </div>
                                 <div class="control-group">
-                                    <label class="control-label">显示位置<span class="required">*</span></label>
                                     <div class="controls">
-                                        <select class="span6 m-wrap" name="tid">
-                                            <option value="0">顶级分类</option>
-                                        <?php if(is_array($data) || $data instanceof \think\Collection || $data instanceof \think\Paginator): $k = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($k % 2 );++$k;?>
-                                            <option value="<?php echo $vo['id']; ?>"><?php echo $vo['typename']; endforeach; endif; else: echo "" ;endif; ?>
+                                        <label class="control-label">视频主图<span class="required">*</span></label>
+                                        <div class="fileupload fileupload-new" data-provides="fileupload">
+                                            <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                                                <img src="" alt="" />
+                                            </div>
+                                            <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                                            <div class="text-center">
+													<span class="btn btn-file"><span class="fileupload-new">添加图片</span>
+													<span class="fileupload-exists">重选</span>
+													<input type="file" class="default" name="vimg"/></span>
+                                                <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">移除</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label">视频文件<span class="required">*</span></label>
+                                        <input name="vd" type="file" class="span6 m-wrap" />
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label">关键字<span class="required">*</span></label>
+                                        <input name="keyword" type="text" class="span6 m-wrap"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label">视频类型<span class="required">*</span></label>
+                                        <select class="span6 m-wrap" name="cid">
+                                            <?php if(is_array($vclist) || $vclist instanceof \think\Collection || $vclist instanceof \think\Paginator): $i = 0; $__LIST__ = $vclist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$videoc): $mod = ($i % 2 );++$i;?>
+                                            <option value="<?php echo $videoc['id']; ?>"><?php echo $videoc['typename']; ?></option>
+                                            <?php endforeach; endif; else: echo "" ;endif; ?>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="control-group">
-                                    <label class="control-label">信息联接地址<span class="required">*</span></label>
                                     <div class="controls">
-                                        <input name="url" type="text" class="span6 m-wrap"/>
+                                        <label class="control-label">视频说明<span class="required">*</span></label>
+                                        <textarea class="medium m-wrap" rows="3" name="descript"></textarea>
                                     </div>
                                 </div>
-                                <div class="control-group">
-                                    <label class="control-label">信息图片<span class="required">*</span></label>
-                                    <div class="controls select2-wrapper">
-                                        <input name="images" type="file" class="span6 m-wrap"/>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label class="control-label">广告内容</label>
-                                    <div class="controls">
-                                        <textarea name="content" placeholder="请输入内容" class="medium m-wrap" rows="9"></textarea>
-                                    </div>
-                                </div>
-                                <div class="form-actions">
-                                    <button type="submit" class="btn green">确认添加</button>
-                                    <!-- <button type="button" class="btn">Cancel</button> -->
+                                <div class="form-actions text-center">
+                                    <button type="submit" class="btn green">提交</button>
+                                    <button type="button" class="btn default" id="back">取消</button>
                                 </div>
                             </form>
                             <!-- END FORM-->
@@ -936,59 +948,60 @@
 
 </div>
 <!-- END FOOTER -->
-<script src="__PUBLIC__/js/jquery-3.2.1.min.js" type="text/javascript"></script>
-<script src="__PUBLIC__/layer/layer.js" type="text/javascript"></script>
-<script src="__PUBLIC__/layer/layer-jquery.js" type="text/javascript"></script>
-<script type="text/javascript" src="__PUBLIC__/js/bootstrap-fileupload.js"></script>
-<script type="text/javascript" src="__PUBLIC__/js/jquery.form.js"></script>
+</body>
+<script src="/public/static/admin/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="/public/static/admin/layer/layer.js" type="text/javascript"></script>
+<script src="/public/static/admin/layer/layer-jquery.js" type="text/javascript"></script>
+<script type="text/javascript" src="/public/static/admin/js/bootstrap-fileupload.js"></script>
+<script type="text/javascript" src="/public/static/admin/js/jquery.form.js"></script>
 
-<!--<script src="__PUBLIC__/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>-->
+<!--<script src="/public/static/admin/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>-->
 
 <!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
 
-<script src="__PUBLIC__/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/bootstrap.min.js" type="text/javascript"></script>
 
 <!--[if lt IE 9]>
 
-<script src="__PUBLIC__/js/excanvas.min.js"></script>
+<script src="/public/static/admin/js/excanvas.min.js"></script>
 
-<script src="__PUBLIC__/js/respond.min.js"></script>
+<script src="/public/static/admin/js/respond.min.js"></script>
 
 <![endif]-->
 
-<script src="__PUBLIC__/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/jquery.slimscroll.min.js" type="text/javascript"></script>
 
-<!--<script src="__PUBLIC__/js/jquery.blockui.min.js" type="text/javascript"></script>-->
+<!--<script src="/public/static/admin/js/jquery.blockui.min.js" type="text/javascript"></script>-->
 
-<script src="__PUBLIC__/js/jquery.cookie.min.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/jquery.cookie.min.js" type="text/javascript"></script>
 
-<script src="__PUBLIC__/js/jquery.uniform.min.js" type="text/javascript" ></script>
+<script src="/public/static/admin/js/jquery.uniform.min.js" type="text/javascript" ></script>
 
 <!-- END CORE PLUGINS -->
 
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 
-<script src="__PUBLIC__/js/jquery.flot.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/jquery.flot.js" type="text/javascript"></script>
 
-<script src="__PUBLIC__/js/jquery.flot.resize.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/jquery.flot.resize.js" type="text/javascript"></script>
 
-<script src="__PUBLIC__/js/jquery.pulsate.min.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/jquery.pulsate.min.js" type="text/javascript"></script>
 
-<script src="__PUBLIC__/js/date.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/date.js" type="text/javascript"></script>
 
 
-<!--<script type="text/javascript" src="__PUBLIC__/js/ajaxfileupload.js"></script>-->
+<!--<script type="text/javascript" src="/public/static/admin/js/ajaxfileupload.js"></script>-->
 
 
 <!-- END PAGE LEVEL PLUGINS -->
 
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 
-<script src="__PUBLIC__/js/app.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/app.js" type="text/javascript"></script>
 
-<script src="__PUBLIC__/js/index.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/index.js" type="text/javascript"></script>
 
-<script src="__PUBLIC__/js/form-components.js"></script>
+<script src="/public/static/admin/js/form-components.js"></script>
 
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
@@ -1007,23 +1020,24 @@
     });
 
 </script>
-</body>
-<!-- END BODY -->
 <script>
     $('#form_sample_2').submit(function() {         //使用ajax的submit提交方法进行表单提交
         $(this).ajaxSubmit(function(res) {
-            if(res.code===1){
+            if(res.code ===1){
                 layer.msg(res.msg, {icon: 6, time: 2300}, function () {
-                    location.href = res.url;
+                    // location.href = res.url;
                 })
             }else{
                 layer.msg(res.msg, {icon: 2, time: 2300}, function () {
-                    location.href = res.url;
+                    // location.href = res.url;
                 })
             }
 
         });
         return false; //阻止表单默认提交
     });
+    $('#back').on('click',function () {
+        location.assign('goods_list');
+    })
 </script>
 </html>

@@ -1,5 +1,5 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:95:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\advertise\advertise_list.html";i:1515476709;s:86:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\link-css.html";i:1514966966;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\header.html";i:1514959430;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\left-menu.html";i:1515390145;s:84:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\footer.html";i:1514459584;s:87:"E:\myphp_www\PHPTutorial\WWW\tp5\public/../application/admin\view\public\script-js.html";i:1514964784;}*/ ?>
-﻿<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:87:"F:\myphp_www\PHPTutorial\WWW\zjb\public/../application/admin\view\goods\goods_cate.html";i:1515478919;s:76:"F:\myphp_www\PHPTutorial\WWW\zjb\application\admin\view\Public\link-css.html";i:1515478919;s:74:"F:\myphp_www\PHPTutorial\WWW\zjb\application\admin\view\Public\header.html";i:1515478919;s:77:"F:\myphp_www\PHPTutorial\WWW\zjb\application\admin\view\Public\left-menu.html";i:1515481828;s:74:"F:\myphp_www\PHPTutorial\WWW\zjb\application\admin\view\Public\footer.html";i:1515478919;s:77:"F:\myphp_www\PHPTutorial\WWW\zjb\application\admin\view\Public\script-js.html";i:1515478919;}*/ ?>
+<!DOCTYPE html>
 
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 
@@ -23,51 +23,48 @@
 
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
 
-    <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/static/admin/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 
-    <!--<link href="__PUBLIC__/layer/layer.css" rel="stylesheet" type="text/css"/>-->
+    <!--<link href="/public/static/admin/layer/layer.css" rel="stylesheet" type="text/css"/>-->
 
-    <link href="__PUBLIC__/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap-fileupload.css" />
+    <link href="/public/static/admin/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="/public/static/admin/css/bootstrap-fileupload.css" />
 
-    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/static/admin/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 
-    <link href="__PUBLIC__/css/style-metro.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/static/admin/css/style-metro.css" rel="stylesheet" type="text/css"/>
 
-    <link href="__PUBLIC__/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/static/admin/css/style.css" rel="stylesheet" type="text/css"/>
 
-    <link href="__PUBLIC__/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/static/admin/css/style-responsive.css" rel="stylesheet" type="text/css"/>
 
-    <link href="__PUBLIC__/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+    <link href="/public/static/admin/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
 
-    <link href="__PUBLIC__/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/static/admin/css/uniform.default.css" rel="stylesheet" type="text/css"/>
 
 
     <!-- END GLOBAL MANDATORY STYLES -->
 
     <!-- BEGIN PAGE LEVEL STYLES -->
 
-    <link href="__PUBLIC__/css/jquery.gritter.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/static/admin/css/jquery.gritter.css" rel="stylesheet" type="text/css"/>
 
-    <link href="__PUBLIC__/css/daterangepicker.css" rel="stylesheet" type="text/css" />
+    <link href="/public/static/admin/css/daterangepicker.css" rel="stylesheet" type="text/css" />
 
-    <link href="__PUBLIC__/css/fullcalendar.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/static/admin/css/fullcalendar.css" rel="stylesheet" type="text/css"/>
 
-    <link href="__PUBLIC__/css/jqvmap.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="/public/static/admin/css/jqvmap.css" rel="stylesheet" type="text/css" media="screen"/>
 
-    <link href="__PUBLIC__/css/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="/public/static/admin/css/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
 
     <!-- END PAGE LEVEL STYLES -->
 
-    <link rel="shortcut icon" href="__PUBLIC__/image/favicon.ico" />
+    <link rel="shortcut icon" href="/public/static/admin/image/favicon.ico" />
 
 </head>
 
 <!-- BEGIN BODY -->
-    <style type="text/css">
-.demo {display: inline-block;*display: inline;*zoom: 1;width: 140px;height: 20px;line-height: 20px;font-size: 12px;overflow: hidden;-ms-text-overflow: ellipsis;text-overflow: ellipsis;white-space: nowrap;}
-.demo:hover {height: auto;white-space: normal;}
-    </style>
+
 
 <body class="page-header-fixed">
 
@@ -86,7 +83,7 @@
 
             <a class="brand" href="index.html">
 
-                <img src="__PUBLIC__/image/logo.png" alt="logo"/>
+                <img src="/public/static/admin/image/logo.png" alt="logo"/>
 
             </a>
 
@@ -96,7 +93,7 @@
 
             <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
 
-                <img src="__PUBLIC__/image/menu-toggler.png" alt="" />
+                <img src="/public/static/admin/image/menu-toggler.png" alt="" />
 
             </a>
 
@@ -246,7 +243,7 @@
 
                             <!--<a href="inbox.html?a=view">-->
 
-                                <!--<span class="photo"><img src="__PUBLIC__/image/avatar2.jpg" alt="" /></span>-->
+                                <!--<span class="photo"><img src="/public/static/admin/image/avatar2.jpg" alt="" /></span>-->
 
                                 <!--<span class="subject">-->
 
@@ -272,7 +269,7 @@
 
                             <!--<a href="inbox.html?a=view">-->
 
-                                <!--<span class="photo"><img src="__PUBLIC__/image/avatar3.jpg" alt="" /></span>-->
+                                <!--<span class="photo"><img src="/public/static/admin/image/avatar3.jpg" alt="" /></span>-->
 
                                 <!--<span class="subject">-->
 
@@ -298,7 +295,7 @@
 
                             <!--<a href="inbox.html?a=view">-->
 
-                                <!--<span class="photo"><img src="__PUBLIC__/image/avatar1.jpg" alt="" /></span>-->
+                                <!--<span class="photo"><img src="/public/static/admin/image/avatar1.jpg" alt="" /></span>-->
 
                                 <!--<span class="subject">-->
 
@@ -502,7 +499,7 @@
 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
-                        <img alt="" src="__PUBLIC__/image/avatar1_small.jpg" />
+                        <img alt="" src="/public/static/admin/image/avatar1_small.jpg" />
 
                         <span class="username">Bob Nilson</span>
 
@@ -673,9 +670,14 @@
 
             <ul class="sub-menu">
                 <li >
-                    <a href="page_timeline.html">
+                    <a href="<?php echo url('Video/video_list'); ?>">
                         <i class="icon-time"></i>
-                        Timeline</a>
+                        视频列表</a>
+                </li>
+                <li >
+                    <a href="<?php echo url('Video/video_cate'); ?>">
+                        <i class="icon-time"></i>
+                        视频管理</a>
                 </li>
             </ul>
         </li>
@@ -876,57 +878,42 @@
 
                     <div class="portlet box grey ">
                         <div class="portlet-title">
-                            <div class="caption"><i class="icon-user"></i>广告管理</div>
+                            <div class="caption"><i class="icon-user"></i>商品列表</div>
                             <div class="actions">
-                                <a href="<?php echo url('Advertise/advertise_add'); ?>" class="btn blue"><i class="icon-pencil"></i>添加广告</a>
+                                <a href="<?php echo url('Goods/goods_cate_add'); ?>" class="btn blue"><i class="icon-pencil"></i>添加分类</a>
                             </div>
                         </div>
-                        <label>
-                            <form action="<?php echo url('Advertise/advertise_search'); ?>" enctype="multipart/form-data" method="post" class="form-horizontal">
-                                标 题 :
-                                <input name="title" type="text" aria-controls="sample_1">
-                                <button type="submit" class="btn blue">搜索</button>
-                            </form>
-                        </label>
                         <div class="portlet-body">
-                            <table class="table table-striped table-bordered table-hover" id="sample_2">
+                            <table class="table table-striped table-bordered table-hover table-responsive" id="sample_2">
                                 <thead>
                                 <tr>
-                                    <th class="hidden-480" style="text-align: center;">ID</th>
-                                    <th class="hidden-480" style="text-align: center;">标题</th>
-                                    <th class="hidden-480" style="text-align: center;">显示位置</th>
-                                    <th class="hidden-480" style="text-align: center;">信息图片</th>
-                                    <th class="hidden-480" style="text-align: center;">信息联接地址</th>
-                                    <th class="hidden-480" style="text-align: center;">发布时间</th>
-                                    <th class="hidden-480"  style="text-align: center;">操作</th>
+                                    <th class="hidden-480" style="text-align: center;">分类编号</th>
+                                    <th class="hidden-480" style="text-align: center;">分类名称</th>
+                                    <th class="hidden-480" style="text-align: center;">上级分类</th>
+                                    <th class="hidden-480" style="text-align: center;">操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                    <?php if(is_array($list->data) || $list->data instanceof \think\Collection || $list->data instanceof \think\Paginator): $i = 0; $__LIST__ = $list->data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                                <?php if(is_array($cate->data) || $cate->data instanceof \think\Collection || $cate->data instanceof \think\Paginator): $i = 0; $__LIST__ = $cate->data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$goods_cate): $mod = ($i % 2 );++$i;?>
                                 <tr class="odd gradeX ">
-                                    <td style="text-align: center;"><?php echo $vo['id']; ?></td>
-                                    <td style="text-align: center;"><?php echo $vo['title']; ?></td>
-                                    <td style="text-align: center;" ><?php echo $vo['tid']; ?></td>
-                                    <td style="text-align: center;"><img src='__PUBLIC__/uploads/<?php echo $vo['images']; ?>' height="80" width="80" ></td>
-                                    <td style="text-align: center;"><?php echo $vo['url']; ?></td>
-                                    <td style="text-align: center;"><?php echo $vo['ctimes']; ?></td>
-                                    <td style="text-align: center;">
-                                        <a href="<?php echo url('Advertise/advertise_see','id='.$vo['id']); ?>"><i class="icon-ban-circle"></i>查看</a>
-                                        <a href="javascript:js_status(<?php echo $vo['id']; ?>,<?php echo $vo['status']; ?>)"><i class="icon-ban-circle"></i><?php echo $vo['status']==0?'禁用':'启用'; ?></a>
-                                        <a href="<?php echo url('Advertise/advertise_edit','id='.$vo['id']); ?>"><i class="icon-pencil"></i>修改</a>
-                                        <a href="javascript:remove(<?php echo $vo['id']; ?>)"><i class="icon-trash"></i>删除</a>
-                                     </td>
+                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $goods_cate['id']; ?></td>
+                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $goods_cate['catename']; ?></td>
+                                    <td style="vertical-align: middle !important;text-align: center;"><?php echo $goods_cate['pid']; ?></td>
+                                    <td style="vertical-align: middle !important;text-align: center;">
+                                        <a href="javascript:read('');"><i class="icon-trash"></i>编辑</a>
+                                        <a href="#"><i class="icon-trash"></i>删除</a>
+                                    </td>
                                 </tr>
-                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                                <?php endforeach; endif; else: echo "" ;endif; ?>
                                 </tbody>
                             </table>
                             <div class="pagination pagination-right" style="margin-bottom: 0;">
-                                <ul>
-                                    <li class="active"><?php echo $list->render; ?></li>
+                                <ul class="pagination">
+                                    <li><?php echo $cate->render; ?></li>
                                 </ul>
                             </div>
                         </div>
-                        </div>
+                    </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
                 </div>
             </div>
@@ -957,59 +944,59 @@
 
 </div>
 <!-- END FOOTER -->
-<script src="__PUBLIC__/js/jquery-3.2.1.min.js" type="text/javascript"></script>
-<script src="__PUBLIC__/layer/layer.js" type="text/javascript"></script>
-<script src="__PUBLIC__/layer/layer-jquery.js" type="text/javascript"></script>
-<script type="text/javascript" src="__PUBLIC__/js/bootstrap-fileupload.js"></script>
-<script type="text/javascript" src="__PUBLIC__/js/jquery.form.js"></script>
+<script src="/public/static/admin/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="/public/static/admin/layer/layer.js" type="text/javascript"></script>
+<script src="/public/static/admin/layer/layer-jquery.js" type="text/javascript"></script>
+<script type="text/javascript" src="/public/static/admin/js/bootstrap-fileupload.js"></script>
+<script type="text/javascript" src="/public/static/admin/js/jquery.form.js"></script>
 
-<!--<script src="__PUBLIC__/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>-->
+<!--<script src="/public/static/admin/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>-->
 
 <!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
 
-<script src="__PUBLIC__/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/bootstrap.min.js" type="text/javascript"></script>
 
 <!--[if lt IE 9]>
 
-<script src="__PUBLIC__/js/excanvas.min.js"></script>
+<script src="/public/static/admin/js/excanvas.min.js"></script>
 
-<script src="__PUBLIC__/js/respond.min.js"></script>
+<script src="/public/static/admin/js/respond.min.js"></script>
 
 <![endif]-->
 
-<script src="__PUBLIC__/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/jquery.slimscroll.min.js" type="text/javascript"></script>
 
-<!--<script src="__PUBLIC__/js/jquery.blockui.min.js" type="text/javascript"></script>-->
+<!--<script src="/public/static/admin/js/jquery.blockui.min.js" type="text/javascript"></script>-->
 
-<script src="__PUBLIC__/js/jquery.cookie.min.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/jquery.cookie.min.js" type="text/javascript"></script>
 
-<script src="__PUBLIC__/js/jquery.uniform.min.js" type="text/javascript" ></script>
+<script src="/public/static/admin/js/jquery.uniform.min.js" type="text/javascript" ></script>
 
 <!-- END CORE PLUGINS -->
 
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 
-<script src="__PUBLIC__/js/jquery.flot.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/jquery.flot.js" type="text/javascript"></script>
 
-<script src="__PUBLIC__/js/jquery.flot.resize.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/jquery.flot.resize.js" type="text/javascript"></script>
 
-<script src="__PUBLIC__/js/jquery.pulsate.min.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/jquery.pulsate.min.js" type="text/javascript"></script>
 
-<script src="__PUBLIC__/js/date.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/date.js" type="text/javascript"></script>
 
 
-<!--<script type="text/javascript" src="__PUBLIC__/js/ajaxfileupload.js"></script>-->
+<!--<script type="text/javascript" src="/public/static/admin/js/ajaxfileupload.js"></script>-->
 
 
 <!-- END PAGE LEVEL PLUGINS -->
 
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 
-<script src="__PUBLIC__/js/app.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/app.js" type="text/javascript"></script>
 
-<script src="__PUBLIC__/js/index.js" type="text/javascript"></script>
+<script src="/public/static/admin/js/index.js" type="text/javascript"></script>
 
-<script src="__PUBLIC__/js/form-components.js"></script>
+<script src="/public/static/admin/js/form-components.js"></script>
 
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
@@ -1031,40 +1018,8 @@
 </body>
 <!-- END BODY -->
 <script>
-    function js_status (id,status) {
-        $.ajax({
-            type:"post",
-            url:'advertise_status',
-            data:{"id":id,"status":status},
-            success:function (data) {
-                if (data.code===1){
-                    layer.msg(data.msg,{icon:6,time:2000},function () {
-                        location.reload();
-                    })
-                }else{
-                    layer.msg(data.msg,{icon:2,time:2000})
-                }
-            }
-        })
-    }
-    function remove(id){
-        layer.confirm('确定删除么？',{icon:3,title:'提示'},function (index) {
-                $.ajax({
-                    type:"post",
-                    url:'advertise_delete',
-                    data:{"id":id},
-                    success:function (data) {
-                        if (data.code===1){
-                            layer.msg(data.msg,{icon:6,time:2000},function () {
-                                location.reload();
-                            })
-                        }else{
-                            layer.msg(data.msg,{icon:2,time:2000})
-                        }
-                    }
-                })
-            layer.close(index);
-        })
+    function read(id){
+        $.input()
     }
 </script>
 </html>

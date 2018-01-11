@@ -9,7 +9,7 @@ namespace app\admin\controller;
 
 use think\Controller;
 use think\Db;
-use think\lib\Page;
+use lib\Page;
 
 class Goods extends Controller
 {
@@ -17,6 +17,8 @@ class Goods extends Controller
     {
         $goods_list = Db::query('select g.*,c.catename,i.* from zjb_goods as g , zjb_goods_cate as c , zjb_img as i WHERE g.cid=c.id AND g.imgid=i.id');
         $arr1 =new Page($goods_list,10);
+//        echo "<pre>";
+//        var_dump($arr1);exit;
         $this->assign(['glist'=>$arr1]);
         return view('goods_list');
     }
@@ -47,7 +49,7 @@ class Goods extends Controller
             }else{
                 // 上传失败获取错误信息
                 echo $file->getError();
-                }
+            }
         }
         $data['number'] = $data['cid'].date('Ymd').rand(001,100);
         $res = Db::name('goods')->insert($data);
@@ -114,14 +116,13 @@ class Goods extends Controller
                 }
             }/*若未更新图片，直接进行商品信息的更新*/
 //                var_dump(111);exit;
-                $res = Db::name('goods')->where('id',$data['id'])->update($data);
-                if ($res) {
-                    $this->success('修改成功', 'Goods/goods_list');
-                } else {
-                    $this->error('修改失败', url('Goods/goods_edit', 'id=' . $data['id']));
-                }
+            $res = Db::name('goods')->where('id',$data['id'])->update($data);
+            if ($res) {
+                $this->success('修改成功', 'Goods/goods_list');
+            } else {
+                $this->error('修改失败', url('Goods/goods_edit', 'id=' . $data['id']));
             }
-
+        }
     }
 
     public function goods_del()
@@ -131,8 +132,9 @@ class Goods extends Controller
         $url = ROOT_PATH . 'public/static/admin/uploads/' . $img[0]['imgpath'] . '/' . $img[0]['imgname'];
         /*图片删除*/
         unlink($url);
-        $res = Db::query('delete g.*,i.* from zjb_goods as g,zjb_img as i WHERE g.imgid=i.id and g.id='.$id);
-        if($res){
+        $res = Db::name('img')->delete($img[0]['id']);
+        $res1 = Db::name('goods')->delete($id);
+        if($res && $res1){
             $this->success('删除成功','Goods/goods_list');
         }else{
             $this->error('删除失败','Goods/goods_list');
