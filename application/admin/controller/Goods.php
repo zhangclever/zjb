@@ -7,11 +7,10 @@
  */
 namespace app\admin\controller;
 
-use think\Controller;
 use think\Db;
 use lib\Page;
 
-class Goods extends Controller
+class Goods extends Basic
 {
     public function goods_list()
     {

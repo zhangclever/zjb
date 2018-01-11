@@ -5,7 +5,7 @@ use think\Controller;
 use think\lib\Page;
 use think\Db;
 
-class Dynamic extends Controller{
+class Dynamic extends Basic{
 
     public function dynamic_list(){
     	//文章列表

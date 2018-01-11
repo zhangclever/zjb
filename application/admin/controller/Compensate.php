@@ -5,7 +5,7 @@ use think\Controller;
 use think\lib\Page;
 use think\Db;
 
-class Compensate extends Controller{
+class Compensate extends Basic{
 
     public function compensate_list(){
     	//文章列表

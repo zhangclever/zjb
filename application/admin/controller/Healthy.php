@@ -5,7 +5,7 @@ use think\Controller;
 use think\lib\Page;
 use think\Db;
 
-class Healthy extends Controller{
+class Healthy extends Basic{
 
     public function healthy_list(){
     	//文章列表
