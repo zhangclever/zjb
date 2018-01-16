@@ -1,0 +1,193 @@
+{include file='public/link-css'}
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap-fileupload.css"/>
+<!--<link href="__PUBLIC__/css/main.css" rel="stylesheet">-->
+<!-- BEGIN BODY -->
+<body class="page-header-fixed">
+<!-- BEGIN HEADER -->
+{include file='public/header'}
+<!-- END HEADER -->
+<!-- BEGIN CONTAINER -->
+<div class="page-container row-fluid">
+    <!-- BEGIN SIDEBAR -->
+    {include file='public/left-menu'}
+    <!-- END SIDEBAR -->
+    <!-- BEGIN PAGE -->
+    <div class="page-content">
+        <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+        <div id="portlet-config" class="modal hide">
+            <div class="modal-header">
+                <button data-dismiss="modal" class="close" type="button"></button>
+                <h3>Widget Settings</h3>
+            </div>
+            <div class="modal-body">
+                <p>Here will be a configuration form</p>
+            </div>
+        </div>
+        <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+                    <!-- BEGIN VALIDATION STATES-->
+                    <div class="portlet box green">
+                        <div class="portlet-title">
+                            <div class="caption"><i class="icon-reorder"></i>会员添加</div>
+                            <div class="tools">
+                                <a href="javascript:;" class="collapse"></a>
+                            </div>
+                        </div>
+                        <div class="portlet-body form ">
+                            <!-- BEGIN FORM-->
+                            <form action="{:url('Member/member_info_add')}" id="form_sample_2" method="post"
+                                  class="form-horizontal" enctype="multipart/form-data">
+                                <div class="control-group">
+                                    <div class="controls" data-toggle="tooltip">
+                                        <label class="control-label">会员姓名<span class="required">*</span></label>
+                                        <input type="text" name="username" data-required="1" class="span6 m-wrap"
+                                               value=""/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                    <label class="control-label">性别<span class="required">*</span></label>
+                                    <div class="controls controls-row" style="margin-left: 250px;">
+                                        <label class="radio">
+                                            <input type="radio" name="sex" value="0" checked />
+                                            男
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="sex" value="1" style="margin-left: 50px"/>
+                                            女
+                                        </label>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label">正面照片<span class="required">*</span></label>
+                                        <div class="fileupload fileupload-new" data-provides="fileupload">
+                                            <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                                                <img src="" alt=""/>
+                                            </div>
+                                            <div class="fileupload-preview fileupload-exists thumbnail"
+                                                 style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                                            <div style="margin-left: 210px;">
+													<span class="btn btn-file"><span class="fileupload-new">添加图片</span>
+													<span class="fileupload-exists">重选</span>
+													<input type="file" class="default" name="userimg"/></span>
+                                                <a href="#" class="btn fileupload-exists"
+                                                   data-dismiss="fileupload">移除</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls" data-toggle="tooltip">
+                                        <label class="control-label">身份证号<span class="required">*</span></label>
+                                        <input type="text" name="cardnum" data-required="1" class="span6 m-wrap"
+                                               value=""/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label">身份证<span class="required">*</span></label>
+                                        <div class="fileupload fileupload-new" data-provides="fileupload">
+                                            <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                                                <img src="" alt=""/>
+                                            </div>
+                                            <div class="fileupload-preview fileupload-exists thumbnail"
+                                                 style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                                            <div style="margin-left: 210px;">
+													<span class="btn btn-file"><span class="fileupload-new">添加图片</span>
+													<span class="fileupload-exists">重选</span>
+													<input type="file" class="default" name="usercardimg"/></span>
+                                                <a href="#" class="btn fileupload-exists"
+                                                   data-dismiss="fileupload">移除</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label">手机号<span class="required">*</span></label>
+                                        <input name="mobel" type="text" class="span6 m-wrap"/>
+                                    </div>
+                                </div>
+                                <div class="control-group ">
+                                    <div class="controls">
+                                            <div id="distpicker">
+                                                <label class="control-label">所属地区<span class="required">*</span></label>
+                                                <select class="span3 m-wrap" id="province" name="province"
+                                                    data-province="—— 省 ——"></select>
+                                                <select class="span3 m-wrap" id="city" data-city="—— 市 ——" name="city"></select>
+                                                <select class="span3 m-wrap" id="district"
+                                                        data-district="—— 区 ——" name="district"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label">所属经销商<span class="required">*</span></label>
+                                        <select class="span6 m-wrap" name="did">
+                                            {volist name='mclist' id='videoc'}
+                                            <option value="{$videoc.id}">{$videoc.typename}</option>
+                                            {/volist}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label">会员等级<span class="required">*</span></label>
+                                        <select class="span6 m-wrap" name="mleve">
+                                            {volist name='mclist' id='videoc'}
+                                            <option value="{$videoc.id}">{$videoc.typename}</option>
+                                            {/volist}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-actions text-center">
+                                    <button type="submit" class="btn green">提交</button>
+                                    <button type="button" class="btn default" id="back">取消</button>
+                                </div>
+                            </form>
+                            <!-- END FORM-->
+                        </div>
+                    </div>
+                    <!-- END VALIDATION STATES-->
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE CONTAINER-->
+    </div>
+    <!-- BEGIN PAGE -->
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+{include file='public/footer'}
+<!-- END FOOTER -->
+</body>
+{include file='public/script-js'}
+<script type="text/javascript" src="__PUBLIC__/js/bootstrap-fileupload.js"></script>
+<script src="__PUBLIC__/js/distpicker.data.min.js"></script>
+<script src="__PUBLIC__/js/distpicker.min.js"></script>
+<script src="__PUBLIC__/js/main.js"></script>
+<script>
+    $('#form_sample_2').submit(function () {         //使用ajax的submit提交方法进行表单提交
+        $(this).ajaxSubmit(function (res) {
+            if (res.code === 1) {
+                layer.msg(res.msg, {icon: 6, time: 2300}, function () {
+                    location.href = res.url;
+                })
+            } else {
+                layer.msg(res.msg, {icon: 2, time: 2300}, function () {
+                    location.href = res.url;
+                })
+            }
+
+        });
+        return false; //阻止表单默认提交
+    });
+    $('#back').on('click', function () {
+        location.assign('member_list');
+    })
+</script>
+</html>

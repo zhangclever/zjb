@@ -1,18 +1,18 @@
 {include file='public/link-css'}
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap-fileupload.css" />
-<!-- BEGIN BODY -->
+<!-- BEvoN BODY -->
 <body class="page-header-fixed">
-<!-- BEGIN HEADER -->
+<!-- BEvoN HEADER -->
 {include file='public/header'}
 <!-- END HEADER -->
-<!-- BEGIN CONTAINER -->
+<!-- BEvoN CONTAINER -->
 <div class="page-container row-fluid">
-    <!-- BEGIN SIDEBAR -->
+    <!-- BEvoN SIDEBAR -->
     {include file='public/left-menu'}
     <!-- END SIDEBAR -->
-    <!-- BEGIN PAGE -->
+    <!-- BEvoN PAGE -->
     <div class="page-content">
-        <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+        <!-- BEvoN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
         <div id="portlet-config" class="modal hide">
             <div class="modal-header">
                 <button data-dismiss="modal" class="close" type="button"></button>
@@ -24,32 +24,33 @@
         </div>
         <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
         <div class="container-fluid">
-            <div class="row-fluid">
-                <div class="span12">
-                    <!-- BEGIN VALIDATION STATES-->
-                    <div class="portlet box green">
-                        <div class="portlet-title">
-                            <div class="caption"><i class="icon-reorder"></i>视频添加</div>
+            <div class="row-fluid ">
+                <div class="span12 ">
+                    <!-- BEvoN VALIDATION STATES-->
+                    <div class="portlet box green ">
+                        <div class="portlet-title ">
+                            <div class="caption"><i class="icon-reorder"></i>视频编辑</div>
                             <div class="tools">
                                 <a href="javascript:;" class="collapse"></a>
-                                <a href="javascript:;" class="reload"></a>
                             </div>
                         </div>
                         <div class="portlet-body form ">
-                            <!-- BEGIN FORM-->
-                            <form action="{:url('Video/video_info_add')}" id="form_sample_2" method="post" class="form-horizontal" enctype="multipart/form-data" >
+                            <!-- BEvoN FORM-->
+                            <form action="{:url('Video/video_info_edit')}" id="form_sample_2" method="post" class="form-horizontal" enctype="multipart/form-data" >
+                                {volist name="video_info" id="vo" }
                                 <div class="control-group">
-                                    <div class="controls" data-toggle="tooltip" id="goodsName">
+                                    <div class="controls" data-toggle="tooltip" id="videosName">
                                         <label class="control-label">视频名称<span class="required">*</span></label>
-                                        <input type="text" name="vname" data-required="1" class="span6 m-wrap"  value=""/>
+                                        <input type="text" name="vname" data-required="1" class="span6 m-wrap"  value="{$vo.vname}"/>
+                                        <input type="hidden" name="id"  value="{$vo.id}"/>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <div class="controls">
-                                        <label class="control-label">视频主图<span class="required">*</span></label>
+                                        <label class="control-label">视频图片<span class="required">*</span></label>
                                         <div class="fileupload fileupload-new" data-provides="fileupload">
                                             <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-                                                <img src="" alt="" />
+                                                <img src="__PUBLIC__/videos/{$vo.vimgpath}/{$vo.vimgname}" alt="" />
                                             </div>
                                             <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
                                             <div style="margin-left: 210px;">
@@ -63,22 +64,17 @@
                                 </div>
                                 <div class="control-group">
                                     <div class="controls">
-                                        <label class="control-label">视频文件<span class="required">*</span></label>
-                                        <input name="vd" type="file" class="span6 m-wrap" />
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <div class="controls">
                                         <label class="control-label">关键字<span class="required">*</span></label>
-                                        <input name="keyword" type="text" class="span6 m-wrap"/>
+                                        <input name="keyword" type="text" class="span6 m-wrap" value="{$vo.keyword}"/>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <div class="controls">
                                         <label class="control-label">视频类型<span class="required">*</span></label>
                                         <select class="span6 m-wrap" name="states">
-                                            {volist name='vclist' id='videoc'}
-                                            <option value="{$videoc.id}">{$videoc.typename}</option>
+                                            <option value="{$vo.states}">{$vo.typename}</option>
+                                            {volist name='video_cate' id='vc'}
+                                            <option value="{$vc.id}">|-{$vc.typename}</option>
                                             {/volist}
                                         </select>
                                     </div>
@@ -86,13 +82,14 @@
                                 <div class="control-group">
                                     <div class="controls">
                                         <label class="control-label">视频说明<span class="required">*</span></label>
-                                        <textarea class="medium m-wrap" rows="3" name="descript"></textarea>
+                                        <textarea class="medium m-wrap" rows="3" name="descript" >{$vo.descript}</textarea>
                                     </div>
                                 </div>
                                 <div class="form-actions text-center">
                                     <button type="submit" class="btn green">提交</button>
                                     <button type="button" class="btn default" id="back">取消</button>
                                 </div>
+                                {/volist}
                             </form>
                             <!-- END FORM-->
                         </div>
@@ -103,14 +100,14 @@
         </div>
         <!-- END PAGE CONTAINER-->
     </div>
-    <!-- BEGIN PAGE -->
+    <!-- BEvoN PAGE -->
 </div>
 <!-- END CONTAINER -->
-<!-- BEGIN FOOTER -->
+<!-- BEvoN FOOTER -->
 {include file='public/footer'}
 <!-- END FOOTER -->
 </body>
-{include file='public/script-js'}
+{include file='Public/script-js'}
 <script type="text/javascript" src="__PUBLIC__/js/bootstrap-fileupload.js"></script>
 <script>
     $('#form_sample_2').submit(function() {         //使用ajax的submit提交方法进行表单提交
@@ -120,16 +117,15 @@
                     location.href = res.url;
                 })
             }else{
-                layer.msg(res.msg, {icon: 2, time: 2300}, function () {
+                layer.msg(res.msg, {icon: 2, time: 800}, function () {
                     location.href = res.url;
                 })
             }
-
         });
         return false; //阻止表单默认提交
     });
     $('#back').on('click',function () {
-        location.assign('video_list');
+         location.href="{:url('Video/video_list')}";
     })
 </script>
 </html>

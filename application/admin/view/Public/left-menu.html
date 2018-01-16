@@ -1,253 +1,144 @@
 <div class="page-sidebar nav-collapse collapse">
-
-    <!-- BEGIN SIDEBAR MENU -->
-
     <ul class="page-sidebar-menu">
-
-        <!--<li>-->
-
-            <!--&lt;!&ndash; BEGIN SIDEBAR TOGGLER BUTTON &ndash;&gt;-->
-
-            <!--<div class="sidebar-toggler hidden-phone"></div>-->
-
-            <!--&lt;!&ndash; BEGIN SIDEBAR TOGGLER BUTTON &ndash;&gt;-->
-
-        <!--</li>-->
-        <!--active-->
-        <li class="start  ">
-
-            <a href="{:url('Index/index')}">
-
-                <i class="icon-home"></i>
-
-                <span class="title">后台首页</span>
-
-                <span class="selected"></span>
-
-            </a>
-
+        <li>
+            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+            <div class="sidebar-toggler hidden-phone"></div>
+            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
         </li>
-
-
-        <li class="">
-
-            <a href="javascript:;">
-
-                <i class="icon-bookmark-empty"></i>
-
-                <span class="title">文章</span>
-
-                <span class="arrow "></span>
-
+        <li class="start  ">
+            <a href="{:url('Index/index')}">
+                <i class="icon-home"></i>
+                <span class="title">后台首页</span>
+                <span class="selected"></span>
             </a>
-
+        </li>
+        <li class="">
+            <a href="javascript:;">
+                <i class="icon-archive"></i>
+                <span class="title">产品</span>
+                <span class="arrow "></span>
+            </a>
             <ul class="sub-menu">
-
-                <li >
-
+                <li>
+                    <a href="{:url('Goods/goods_list')}">
+                        <i class="icon-list"></i>
+                        产品列表</a>
+                    <a href="{:url('Goods/goods_cate')}">
+                        分类管理</a>
+                </li>
+            </ul>
+        </li>
+        <li class="">
+            <a href="javascript:;">
+                <i class="icon-user"></i>
+                <span class="title">会员</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="{:url('Member/member_list')}">
+                        <i class="icon-list"></i>
+                        会员列表</a>
+                    <!--<a href="{:url('Goods/goods_cate')}">-->
+                        <!--分类管理</a>-->
+                </li>
+            </ul>
+        </li>
+        <li class="">
+            <a href="javascript:;">
+                <i class="icon-file"></i>
+                <span class="title">文章</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+                <li>
                     <a href="{:url('Article/article_list')}">
-
                         新闻列表</a>
                     <a href="{:url('Dynamic/dynamic_list')}">
-
                         最新动态</a>
                     <a href="{:url('Healthy/healthy_list')}">
-
                         健保专栏</a>
                     <a href="{:url('Notice/notice_list')}">
-
                         通知公告</a>
                     <a href="{:url('Compensate/compensate_list')}">
-
                         理赔通知</a>
-
                 </li>
-
             </ul>
-
         </li>
-
         <li class="">
-
             <a href="javascript:;">
-
-                <i class="icon-table"></i>
-
-                <span class="title">产品</span>
-
-                <span class="arrow "></span>
-
-            </a>
-
-            <ul class="sub-menu">
-
-                <li >
-
-                    <a href="{:url('Goods/goods_list')}">
-
-                        产品列表</a>
-
-                    <a href="{:url('Goods/goods_cate')}">
-
-                        分类管理</a>
-
-                </li>
-                <!--<li >-->
-
-                    <!--<a href="{:url('Goods/goods_list')}">-->
-
-                        <!--产品列表</a>-->
-
-                <!--</li>-->
-
-
-            </ul>
-
-        </li>
-
-        <li class="">
-
-            <a href="javascript:;">
-
-                <i class="icon-briefcase"></i>
-
+                <i class=" icon-film"></i>
                 <span class="title">视频</span>
-
                 <span class="arrow "></span>
-
             </a>
-
             <ul class="sub-menu">
-                <li >
+                <li>
                     <a href="{:url('Video/video_list')}">
-                        <i class="icon-time"></i>
-                        视频列表</a>
-                </li>
-                <li >
-                    <a href="{:url('Video/video_cate')}">
-                        <i class="icon-time"></i>
+                        <i class="icon-list"></i>
                         视频管理</a>
                 </li>
             </ul>
         </li>
-
         <li class="">
-
             <a href="javascript:;">
-
                 <i class="icon-gift"></i>
-
                 <span class="title">错误</span>
-
                 <span class="arrow "></span>
-
             </a>
-
             <ul class="sub-menu">
-
-                <li >
-
+                <li>
                     <a href="{:url('Index/errors')}">
-
                         404 error</a>
                     <a href="{:url('Index/prohibit')}">
-
                         403 prohibit</a>
                     <a href="{:url('Index/internal')}">
-
                         500 internal error</a>
-
                 </li>
-
             </ul>
-
         </li>
-
         <li>
-
             <a href="javascript:;">
-
-                <i class="icon-sitemap"></i>
-
+                <i class="icon-group"></i>
                 <span class="title">管理员</span>
-
                 <span class="arrow "></span>
-
             </a>
-
             <ul class="sub-menu">
-
-                <li >
-
+                <li>
                     <a href="{:url('Admins/admin_list')}">
-
+                        <i class="icon-list"></i>
                         管理员列表</a>
                     <a href="#">
-
                         管理员设置</a>
-
                 </li>
-
             </ul>
-
         </li>
         <li class="">
-
             <a href="javascript:;">
-
                 <i class="icon-sitemap"></i>
-
                 <span class="title">广告</span>
-
                 <span class="arrow "></span>
-
             </a>
-
             <ul class="sub-menu">
-
-                <li >
-
+                <li>
                     <a href="{:url('Advertise/advertise_list')}">
-
                         广告管理</a>
                     <a href="{:url('Advertise/advertise_type_list')}">
-
                         广告分类</a>
-
                 </li>
-
             </ul>
-
         </li>
-
         <li class="">
-
             <a href="javascript:;">
-
-                <i class="icon-bookmark-empty"></i>
-
+                <i class=" icon-cog"></i>
                 <span class="title">设置</span>
-
                 <span class="arrow "></span>
-
             </a>
-
             <ul class="sub-menu">
-
-                <li >
-
+                <li>
                     <a href="{:url('Link/link_list')}">
-
                         友情链接</a>
-
                 </li>
-
             </ul>
-
         </li>
-
     </ul>
-
-    <!-- END SIDEBAR MENU -->
-
 </div>

@@ -1,8 +1,8 @@
 <?php
 namespace app\admin\controller;
 
-use think\Controller;
-use think\lib\Page;
+
+use lib\Page;
 use think\Db;
 
 class Dynamic extends Basic{

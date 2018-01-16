@@ -1,5 +1,5 @@
 {include file='public/link-css'}
-
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap-fileupload.css" />
 <!-- BEGIN BODY -->
 <body class="page-header-fixed">
 <!-- BEGIN HEADER -->
@@ -49,17 +49,16 @@
                                         <label class="control-label">商品价格<span class="required">*</span></label>
                                         <input name="price" type="text" class="span6 m-wrap"/>
                                     </div>
-
                                 </div>
-                                <div class="control-group">
+                                <div class="control-group ">
                                     <div class="controls">
-                                        <label class="control-label">商品图片<span class="required">*</span></label>
                                         <div class="fileupload fileupload-new" data-provides="fileupload">
+                                            <label class="control-label">商品图片<span class="required">*</span></label>
                                             <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
                                                 <img src="" alt="" />
                                             </div>
                                             <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-                                            <div class="text-center">
+                                            <div style="margin-left: 210px;">
 													<span class="btn btn-file"><span class="fileupload-new">添加图片</span>
 													<span class="fileupload-exists">重选</span>
 													<input type="file" class="default" name="img"/></span>
@@ -106,10 +105,9 @@
                                     <div class="controls">
                                         <label class="control-label">推荐位置<span class="required">*</span></label>
                                         <select class="small m-wrap" name="goods_state">
-                                            <option value="Category 1">Category 1</option>
-                                            <option value="Category 2">Category 2</option>
-                                            <option value="Category 3">Category 5</option>
-                                            <option value="Category 4">Category 4</option>
+                                            {volist name='ad_type' id='at'}
+                                            <option value="{$at.id}">{$at.typename}</option>
+                                            {/volist}
                                         </select>
                                     </div>
                                 </div>
@@ -141,6 +139,7 @@
 <!-- END FOOTER -->
 </body>
 {include file='public/script-js'}
+<script type="text/javascript" src="__PUBLIC__/js/bootstrap-fileupload.js"></script>
 <script>
     $('#form_sample_2').submit(function() {         //使用ajax的submit提交方法进行表单提交
        $(this).ajaxSubmit(function(res) {

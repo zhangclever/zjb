@@ -1,8 +1,7 @@
 <?php
 namespace app\admin\controller;
 
-use think\Controller;
-use think\lib\Page;
+use lib\Page;
 use think\Db;
 
 class Admins extends Basic{
@@ -26,7 +25,6 @@ class Admins extends Basic{
             die("<script>alert('请填写搜索信息');window.location.href='".url('Admin/admin_list')."';</script>");
         }
         $this->assign(['list'=>$arr]);
-
         return view('admin_list');
     }
 
@@ -84,10 +82,7 @@ class Admins extends Basic{
         //查看页面  
         $id = input('id');
         $res = Db::table('zjb_admins')->where('id',$id)->find();
-
         $this->assign('admins',$res);
         return view('admin_see');
     }
-
-
 }

@@ -1,25 +1,30 @@
 <?php
+
 namespace app\admin\controller;
 
-use think\Controller;
 
-class Index extends Basic{
+class Index extends Basic
+{
 
-    public function index(){
+    public function index()
+    {
         return view('index');
     }
 
-    public function errors(){
+    public function errors()
+    {
         //404
         return view('errors');
     }
 
-    public function prohibit(){
+    public function prohibit()
+    {
         //403
         return view('prohibit');
     }
 
-    public function internal(){
+    public function internal()
+    {
         //500
         return view('internal');
     }

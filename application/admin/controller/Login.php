@@ -2,7 +2,6 @@
 namespace app\admin\controller;
 
 use think\Controller;
-use think\lib\Page;
 use think\Db;
 
 class Login extends Controller{
@@ -20,8 +19,7 @@ class Login extends Controller{
     public function login_inspect(){
     	//执行登录
     	$data = input();
-    	$admin = Db::name('admins')->where('username','=',$data['username'])->find();  
-    	// var_dump($admin);die;
+    	$admin = Db::name('admins')->where('username','=',$data['username'])->find();
         if($admin){  
             if($admin['userpassword'] === sha1($data['userpassword'])){  
                 //将登录id和名称存入session  
