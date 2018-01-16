@@ -8,7 +8,7 @@ class Admins extends Basic{
 
     public function admin_list(){
     	//管理员列表
-        $list = Db::table('zjb_admins')->select();
+        $list = Db::table('zjb_admins')->where("id != 1")->select();
         $arr = new Page($list,10);
         $this->assign(['list'=>$arr]);
 
