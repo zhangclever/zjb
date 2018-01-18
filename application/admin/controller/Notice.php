@@ -8,24 +8,13 @@ class Notice extends Basic{
 
     public function notice_list(){
     	//文章列表
-        $list = Db::table('zjb_notices')->select();
-        $arr = new Page($list,10);
-        $this->assign(['list'=>$arr]);
-
-        return view('notice_list');
-    }
-
-    public function notice_search(){
-        // 搜索框
         $title = input('title');
-        if(!empty($title)){
-            $list = Db::table('zjb_notices')->where('title','like','%'.$title.'%')->select();
-            $arr = new Page($list,10);
-        }else{
-            die("<script>alert('请填写搜索信息');window.location.href='".url('Notice/notice_list')."';</script>");
-        }
-        $this->assign(['list'=>$arr]);
-
+        $search = ['query'=>[]];
+        $search['query']['title'] = $title;
+        $list = Db::table('zjb_notices')->where('title','like','%'.$title.'%')->order('id desc')->paginate(10,false,$search);
+        
+        $this->assign('list',$list);
+        $this->assign('title',$title);
         return view('notice_list');
     }
 

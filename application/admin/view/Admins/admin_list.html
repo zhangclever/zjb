@@ -65,9 +65,9 @@
                             </div>
                         </div>
                         <label>
-                            <form action="{:url('Admins/admin_search')}" enctype="multipart/form-data" method="post" class="form-horizontal">
+                            <form action="{:url('Admins/admin_list')}" enctype="multipart/form-data" method="post" class="form-horizontal">
                                 姓 名 :
-                                <input name="name" type="text" aria-controls="sample_1">
+                                <input name="name" type="text" value="{$name}" aria-controls="sample_1">
                                 <button type="submit" class="btn blue">搜索</button>
                             </form>
                         </label>
@@ -83,7 +83,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                    {volist name='$list->data' id='vo'}
+                    {volist name='$list' id='vo'}
                                 <tr class="odd gradeX ">
                                     <td style="text-align: center;">{$vo.id}</td>
                                     <td style="text-align: center;">{$vo.username}</td>
@@ -93,6 +93,7 @@
                                         <a href="{:url('Admins/admin_see','id='.$vo['id'])}"><i class="icon-ban-circle"></i>查看</a>
                                         <a href="{:url('Admins/admin_edit','id='.$vo['id'])}"><i class="icon-pencil"></i>修改</a>
                                         <a href="javascript:remove({$vo['id']})"><i class="icon-trash"></i>删除</a>
+                                        <a href="javascript:accredit({$vo['id']})"><i class="icon-trash"></i>授权</a>
                                      </td>
                                 </tr>
                     {/volist}
@@ -100,7 +101,7 @@
                             </table>
                             <div class="pagination pagination-right" style="margin-bottom: 0;">
                                 <ul>
-                                    <li class="active">{$list->render}</li>
+                                    <li class="active">{$list}</li>
                                 </ul>
                             </div>
                         </div>
@@ -139,6 +140,21 @@
                 })
             layer.close(index);
         })
+    }
+
+    function accredit(id){
+        layer.open({
+              type: 2,
+              shade: false,
+              area: ['60%' , '90%'],
+              maxmin: true,
+              content: ['{:url("Admins/admin_accredit")}'+"?id="+id],
+              zIndex: layer.zIndex, //重点1
+              success: function(res){
+                   
+                   
+              }
+            });
     }
 </script>
 </html>
