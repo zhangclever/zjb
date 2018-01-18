@@ -8,24 +8,13 @@ class Compensate extends Basic{
 
     public function compensate_list(){
     	//文章列表
-        $list = Db::table('zjb_compensates')->select();
-        $arr = new Page($list,10);
-        $this->assign(['list'=>$arr]);
-
-        return view('compensate_list');
-    }
-
-    public function compensate_search(){
-        // 搜索框
         $name = input('name');
-        if(!empty($name)){
-            $list = Db::table('zjb_compensates')->where('name','like','%'.$name.'%')->select();
-            $arr = new Page($list,10);
-        }else{
-            die("<script>alert('请填写搜索信息');window.location.href='".url('Compensate/compensate_list')."';</script>");
-        }
-        $this->assign(['list'=>$arr]);
-
+        $search = ['query'=>[]];
+        $search['query']['name'] = $name;
+        $list = Db::table('zjb_compensates')->where('name','like','%'.$name.'%')->order('id desc')->paginate(10,false,$search);
+        
+        $this->assign('list',$list);
+        $this->assign('name',$name);
         return view('compensate_list');
     }
 

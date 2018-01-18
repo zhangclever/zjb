@@ -65,9 +65,9 @@
                             </div>
                         </div>
                         <label>
-                            <form action="{:url('Notice/notice_search')}" enctype="multipart/form-data" method="post" class="form-horizontal">
+                            <form action="{:url('Notice/notice_list')}" enctype="multipart/form-data" method="post" class="form-horizontal">
                                 标 题 :
-                                <input name="title" type="text" aria-controls="sample_1">
+                                <input name="title" value="{$title}" type="text" aria-controls="sample_1">
                                 <button type="submit" class="btn blue">搜索</button>
                             </form>
                         </label>
@@ -86,7 +86,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                    {volist name='$list->data' id='vo'}
+                    {volist name='$list' id='vo'}
                                 <tr class="odd gradeX ">
                                     <td style="text-align: center;">{$vo.id}</td>
                                     <td style="text-align: center;">{$vo.title}</td>
@@ -113,7 +113,7 @@
                             </table>
                     <div class="pagination pagination-right" style="margin-bottom: 0;">
                                 <ul>
-                                    <li class="active">{$list->render}</li>
+                                    <li class="active">{$list}</li>
                                 </ul>
                             </div>
                         </div>

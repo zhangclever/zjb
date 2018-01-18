@@ -7,23 +7,14 @@ use think\Db;
 class Article extends Basic{
 
     public function article_list(){
-    	//文章列表
-        $list = Db::table('zjb_news')->select();
-        $arr = new Page($list,10);
-        $this->assign(['list'=>$arr]);
-        return view('article_list');
-    }
-
-    public function article_search(){
-        // 搜索框
+    	//文章列表 加搜索
         $title = input('title');
-        if(!empty($title)){
-            $list = Db::table('zjb_news')->where('title','like','%'.$title.'%')->select();
-            $arr = new Page($list,10);
-        }else{
-            die("<script>alert('请填写搜索信息');window.location.href='".url('Article/article_list')."';</script>");
-        }
-        $this->assign(['list'=>$arr]);
+        $search = ['query'=>[]];
+        $search['query']['title'] = $title;
+        $list = Db::table('zjb_news')->where('title','like','%'.$title.'%')->order('id desc')->paginate(10,false,$search);
+        
+        $this->assign('list',$list);
+        $this->assign('title',$title);
         return view('article_list');
     }
 
