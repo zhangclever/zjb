@@ -91,6 +91,8 @@
                                     <!-- <td style="text-align: center;">{$vo.path}</td> -->
                                     <td style="text-align: center;">
                                         <a href="{:url('Advertise/advertise_type_see','id='.$vo['id'])}"><i class="icon-ban-circle"></i>查看</a>
+                                        <a href="javascript:js_status({$vo['id']},{$vo['status']})"><i
+                                                class="{$vo['status']==0 ? 'icon-ban-circle' : 'icon-off'}"></i>{$vo['status']==0?'禁用':'启用'}</a>
                                         <a href="{:url('Advertise/advertise_type_edit','id='.$vo['id'])}"><i class="icon-pencil"></i>修改</a>
                                         <a href="javascript:remove({$vo['id']})"><i class="icon-trash"></i>删除</a>
                                      </td>
@@ -121,6 +123,22 @@
 </body>
 <!-- END BODY -->
 <script>
+    function js_status(id, status) {
+        $.ajax({
+            type: "post",
+            url: 'advertise_type_status_edit',
+            data: {"id": id, "status": status},
+            success: function (data) {
+                if (data.code === 1) {
+                    layer.msg(data.msg, {icon: 6, time: 2000}, function () {
+                        location.reload();
+                    })
+                } else {
+                    layer.msg(data.msg, {icon: 2, time: 2000})
+                }
+            }
+        })
+    }
     function remove(id){
         layer.confirm('确定删除么？',{icon:3,title:'提示'},function (index) {
                 $.ajax({

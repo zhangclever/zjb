@@ -30,75 +30,81 @@
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet box green">
                         <div class="portlet-title">
-                            <div class="caption"><i class="icon-reorder"></i>会员信息</div>
+                            <div class="caption"><i class="icon-reorder"></i>经销商信息</div>
                             <div class="tools">
                                 <a href="javascript:;" class="collapse"></a>
                             </div>
                             <div class="tools" style="position: relative;right: 0;top: -9px;">
-                                <a href="{:url('Member/member_list')}">
+                                <a href="{:url('Dealer/dealer_list')}">
                                     <button type="button" class="btn blue" style="margin-right: 10px;">返回</button>
                                 </a>
                             </div>
                         </div>
                         <div class="portlet-body form ">
                             <!-- BEGIN FORM-->
-                            {volist name='member_info' id='mi'}
-                            <form action="{:url('Member/member_info_add')}" id="form_sample_2" method="post"
+                            {volist name='dealer_info' id='di'}
+                            <form action="{:url('Dealer/dealer_info_add')}" id="form_sample_2" method="post"
                                   class="form-horizontal" enctype="multipart/form-data">
                                 <div class="control-group">
                                     <div class="controls" data-toggle="tooltip">
                                         <label class="control-label">会员姓名<span class="required">*</span></label>
                                         <input type="text" name="username" data-required="1" class="span4 m-wrap"
-                                               value="{$mi.username}" readonly/>
+                                               value="{$di.dname}" readonly/>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <div class="controls">
                                         <label class="control-label">性别<span class="required">*</span></label>
-                                        <input type="text" name="sex" class="span4 m-wrap" value="{$mi.sex==0 ? '男' : '女'}" readonly/>
+                                        <input type="text" name="dsex" class="span4 m-wrap"
+                                               value="{$di.dsex==0 ? '男' : '女'}" readonly/>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <div class="controls">
                                         <label class="control-label">正面照片<span class="required">*</span></label>
-                                        <img src="__PUBLIC__/{$mi.upath}/{$mi.uimg}" alt="" width="80"/>
+                                        <img src="__PUBLIC__/{$di.dpath}/{$di.dimg}" alt=""
+                                             width="80"/>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <div class="controls" data-toggle="tooltip">
                                         <label class="control-label">身份证号<span class="required">*</span></label>
                                         <input type="text" name="cardnum" data-required="1" class="span4 m-wrap"
-                                               value="{$mi.cardnum}" readonly/>
+                                               value="{$di.dcardnum}" readonly/>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <div class="controls">
                                         <label class="control-label">身份证<span class="required">*</span></label>
-                                        <img src="__PUBLIC__/{$mi.upath}/{$mi.ucdimg}" alt="" width="80" disabled="disabled"/>
+                                        <img src="__PUBLIC__/{$di.dpath}/{$di.dcdimg}" alt=""
+                                             width="80" disabled="disabled"/>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <div class="controls">
                                         <label class="control-label">手机号<span class="required">*</span></label>
-                                        <input name="mobel" type="text" class="span4 m-wrap" value="{$mi.mobel}" readonly/>
+                                        <input name="mobel" type="text" class="span4 m-wrap"
+                                               value="{$di.dmobel}" readonly/>
                                     </div>
                                 </div>
                                 <div class="control-group ">
                                     <div class="controls">
                                         <label class="control-label">所属地区<span class="required">*</span></label>
-                                        <input type="text" class="span4 m-wrap" value="{$mi.province}{$mi.city}{$mi.district}" readonly>
+                                        <input type="text" class="span4 m-wrap"
+                                               value="{$di.province}{$di.city}{$di.district}"
+                                               readonly>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <div class="controls">
-                                        <label class="control-label">所属经销商<span class="required">*</span></label>
-                                        <input type="text" class="span4 m-wrap" value="{$mi.dname}" readonly>
+                                        <label class="control-label">所属招商经理<span class="required">*</span></label>
+                                        <input type="text" class="span4 m-wrap" value="{$di.mname}" readonly>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <div class="controls">
-                                        <label class="control-label">会员等级<span class="required">*</span></label>
-                                        <input type="text" class="span4 m-wrap" value="{$mi.mleve}" readonly>
+                                        <label class="control-label">登入账号<span class="required">*</span></label>
+                                        <input type="text" class="span4 m-wrap" value="{$di.duname}" readonly>
                                     </div>
                                 </div>
                             </form>

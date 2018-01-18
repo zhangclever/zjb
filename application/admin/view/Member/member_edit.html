@@ -1,6 +1,5 @@
 {include file='public/link-css'}
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap-fileupload.css"/>
-<!--<link href="__PUBLIC__/css/main.css" rel="stylesheet">-->
 <!-- BEGIN BODY -->
 <body class="page-header-fixed">
 <!-- BEGIN HEADER -->
@@ -37,13 +36,15 @@
                         </div>
                         <div class="portlet-body form ">
                             <!-- BEGIN FORM-->
-                            <form action="{:url('Member/member_info_add')}" id="form_sample_2" method="post"
+                            {volist name='member_info' id='mi'}
+                            <form action="{:url('Member/member_info_edit')}" id="form_sample_2" method="post"
                                   class="form-horizontal" enctype="multipart/form-data">
                                 <div class="control-group">
                                     <div class="controls" data-toggle="tooltip">
                                         <label class="control-label">会员姓名<span class="required">*</span></label>
-                                        <input type="text" name="username" data-required="1" class="span6 m-wrap"
-                                               value="{$member_info.username}"/>
+                                        <input type="hidden" name="id" value="{$mi.id}">
+                                        <input type="text" name="username" data-required="1" class="span4 m-wrap"
+                                               value="{$mi.username}"/>
                                     </div>
                                 </div>
                                 <div class="control-group">
@@ -51,11 +52,11 @@
                                         <label class="control-label">性别<span class="required">*</span></label>
                                         <div class="controls controls-row" style="margin-left: 250px;">
                                             <label class="radio">
-                                                <input type="radio" name="sex" value="0" {$member_info.sex==0 ? 'checked':''} />
+                                                <input type="radio" name="sex" value="0" {$mi.sex==0 ? 'checked':''} />
                                                 男
                                             </label>
                                             <label class="radio">
-                                                <input type="radio" name="sex" value="1" {$member_info.sex==1 ? 'checked':''} style="margin-left: 50px"/>
+                                                <input type="radio" name="sex" value="1" {$mi.sex==1 ? 'checked':''} style="margin-left: 50px"/>
                                                 女
                                             </label>
                                         </div>
@@ -66,7 +67,7 @@
                                         <label class="control-label">正面照片<span class="required">*</span></label>
                                         <div class="fileupload fileupload-new" data-provides="fileupload">
                                             <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-                                                <img src="__PUBLIC__/{$member_info.upath}/{$member_info.uimg}" alt=""/>
+                                                <img src="__PUBLIC__/{$mi.upath}/{$mi.uimg}" alt=""/>
                                             </div>
                                             <div class="fileupload-preview fileupload-exists thumbnail"
                                                  style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
@@ -83,8 +84,8 @@
                                 <div class="control-group">
                                     <div class="controls" data-toggle="tooltip">
                                         <label class="control-label">身份证号<span class="required">*</span></label>
-                                        <input type="text" name="cardnum" data-required="1" class="span6 m-wrap"
-                                               value="{$member_info.cardnum}"/>
+                                        <input type="text" name="cardnum" data-required="1" class="span4 m-wrap"
+                                               value="{$mi.cardnum}"/>
                                     </div>
                                 </div>
                                 <div class="control-group">
@@ -92,7 +93,7 @@
                                         <label class="control-label">身份证<span class="required">*</span></label>
                                         <div class="fileupload fileupload-new" data-provides="fileupload">
                                             <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-                                                <img src="__PUBLIC__/{$member_info.upath}/{$member_info.ucdimg}" alt=""/>
+                                                <img src="__PUBLIC__/{$mi.upath}/{$mi.ucdimg}" alt=""/>
                                             </div>
                                             <div class="fileupload-preview fileupload-exists thumbnail"
                                                  style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
@@ -109,33 +110,37 @@
                                 <div class="control-group">
                                     <div class="controls">
                                         <label class="control-label">手机号<span class="required">*</span></label>
-                                        <input name="mobel" type="text" class="span6 m-wrap" value="{$member_info.mobel}"/>
+                                        <input name="mobel" type="text" class="span3 m-wrap" value="{$mi.mobel}"/>
                                     </div>
                                 </div>
-                                <div class="control-group ">
+                                <div class="control-group">
                                     <div class="controls">
-                                        <div id="distpicker">
-                                            <label class="control-label">所属地区<span class="required">*</span></label>
-                                            <select class="span2 m-wrap" id="province" name="province"
-                                                    data-province="{$member_info.province}"></select>
-                                            <select class="span2 m-wrap" id="city" data-city="{$member_info.city}" name="city"></select>
-                                            <select class="span2 m-wrap" id="district"
-                                                    data-district="正阳县" name="{$member_info.district}"></select>
-                                        </div>
+                                        <label class="control-label">所属地区<span class="required">*</span></label>
+                                        <select name="province" id="province" class="span2 m-wrap">
+                                            <option value="" class="span2 m-wrap">{$mi.province}</option></select>
+                                        <select name="city" id="city" class="span2 m-wrap">
+                                            <option value="" class="span2 m-wrap">{$mi.city}</option>
+                                        </select>
+                                        <select name="district" id="district" class="span2 m-wrap">
+                                            <option value="" class="span2 m-wrap">{$mi.district}</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <div class="controls">
                                         <label class="control-label">所属经销商<span class="required">*</span></label>
-                                        <select class="span6 m-wrap" name="did">
-
+                                        <select class="span2 m-wrap" name="did">
+                                            <option value="{$mi.did}">{$mi.dname}</option>
+                                            {volist name='member_cate' id='mc'}
+                                            <option value="{$mc.id}">{$mc.dname}</option>
+                                            {/volist}
                                         </select>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <div class="controls">
                                         <label class="control-label">会员等级<span class="required">*</span></label>
-                                        <select class="span6 m-wrap" name="mleve">
+                                        <select class="span2 m-wrap" name="mleve">
 
                                         </select>
                                     </div>
@@ -145,6 +150,7 @@
                                     <button type="button" class="btn default" id="back">取消</button>
                                 </div>
                             </form>
+                            {/volist}
                             <!-- END FORM-->
                         </div>
                     </div>
@@ -163,9 +169,7 @@
 </body>
 {include file='public/script-js'}
 <script type="text/javascript" src="__PUBLIC__/js/bootstrap-fileupload.js"></script>
-<script src="__PUBLIC__/js/distpicker.data.min.js"></script>
-<script src="__PUBLIC__/js/distpicker.min.js"></script>
-<script src="__PUBLIC__/js/main.js"></script>
+<script src="__PUBLIC__/js/address.js"></script>
 <script>
     $('#form_sample_2').submit(function () {         //使用ajax的submit提交方法进行表单提交
         $(this).ajaxSubmit(function (res) {
@@ -185,5 +189,41 @@
     $('#back').on('click', function () {
         location.href="{:url('Member/member_list')}";
     })
+</script>
+<script>
+    $(function () {
+        var html = "";
+        $("#city").append(html); $("#input_district").append(html);
+        $.each(pdata,function(idx,item){
+            if (parseInt(item.level) == 0) {
+                html += "<option value='" + item.names + "' exid='" + item.code + "'>" + item.names + "</option>";
+            }
+        });
+        $("#province").append(html);
+        $("#province").change(function(){
+            if ($(this).val() == "") return;
+            $("#city option").remove(); $("#district option").remove();
+            var code = $(this).find("option:selected").attr("exid"); code = code.substring(0,2);
+            var html = "<option value=''>--请选择--</option>"; $("#district").append(html);
+            $.each(pdata,function(idx,item){
+                if (parseInt(item.level) == 1 && code == item.code.substring(0,2)) {
+                    html += "<option value='" + item.names + "' exid='" + item.code + "'>" + item.names + "</option>";
+                }
+            });
+            $("#city").append(html);
+        });
+        $("#city").change(function(){
+            if ($(this).val() == "") return;
+            $("#district option").remove();
+            var code = $(this).find("option:selected").attr("exid"); code = code.substring(0,4);
+            var html = "<option value=''>--请选择--</option>";
+            $.each(pdata,function(idx,item){
+                if (parseInt(item.level) == 2 && code == item.code.substring(0,4)) {
+                    html += "<option value='" + item.names + "' exid='" + item.code + "'>" + item.names + "</option>";
+                }
+            });
+            $("#district").append(html);
+        });
+    });
 </script>
 </html>

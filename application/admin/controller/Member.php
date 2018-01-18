@@ -15,8 +15,7 @@ class Member extends Basic
 {
     public function member_list()
     {
-//        $member_list = Db::query('select m.*,l.*,d.dname from zjb_member as m , zjb_dealer as d ,zjb_leve AS l WHERE m.mleve=l.id AND m.did=d.id ORDER BY m.id ASC');
-        $member_list = Db::name('member')->select();
+        $member_list = Db::query('select m.*,d.dname from zjb_member as m,zjb_dealer as d WHERE m.did=d.id');
         $arr1 = new Page($member_list, 10);
         $this->assign(['mlist' => $arr1]);
         return view('Member/member_list');
@@ -24,8 +23,8 @@ class Member extends Basic
 
     public function member_add()
     {
-        $member_cate_list = Db::name('advertise_type')->select();
-        $this->assign('mclist', $member_cate_list);
+        $member_cate_list = Db::name('dealer')->select();
+        $this->assign('dlist', $member_cate_list);
         return view('Member/member_add');
     }
 
@@ -45,7 +44,7 @@ class Member extends Basic
         }
         $imgName = date('YmdHis') . rand(10000, 99999);
         $info = $file['userimg']
-            ->validate(['size' => 634880, 'ext' => 'jpg,png'])
+            ->validate(['size' => 5242880, 'ext' => 'jpg,png'])
             ->move(ROOT_PATH . 'public/static/admin' . DS . 'userInfo/userimg/' . date('Ymd'), $imgName);
         if ($info) {
             // 成功上传后 获取上传信息
@@ -55,7 +54,7 @@ class Member extends Basic
             $file['userimg']->getError();
         }
         $infoImg = $file['usercardimg']
-            ->validate(['size' => 634880, 'ext' => 'jpg,png'])
+            ->validate(['size' => 5242880, 'ext' => 'jpg,png'])
             ->move(ROOT_PATH . 'public/static/admin/userInfo' . DS . 'ucard/' . date('Ymd'), $imgName);
         if ($infoImg) {
             // 成功上传后 获取上传信
@@ -77,10 +76,7 @@ class Member extends Basic
     {
         $id = input();
         if ($id) {
-            $member_info = Db::name('member')->find($id);
-//            $member_info = Db::query('select m.*,d.name from zjb_video as v , zjb_advertise_type as a WHERE v.states=a.id AND v.id=' . $id['id']);
-///            var_dump($member_info[0]['vpath']);exit;
-//            $member_info[0]['vpath'] = substr($member_info[0]['vpath'], 9);
+            $member_info = Db::query('select m.*,d.dname from zjb_member as m ,zjb_dealer as d WHERE m.did=d.id AND m.id = '.$id['id']);
             $this->assign('member_info', $member_info);
         }
         return view('member_read');
@@ -90,11 +86,10 @@ class Member extends Basic
     {
         $id = input();
         if ($id) {
-//            $member_info = Db::query('select v.*,a.typename from zjb_video as v , zjb_advertise_type as a WHERE v.states=a.id AND v.id=' . $id['id']);
-            $member_info = Db::name('member')->find($id);
+            $member_info = Db::query('select m.*,d.dname from zjb_member as m ,zjb_dealer as d WHERE m.did=d.id AND m.id = '.$id['id']);
             $this->assign('member_info', $member_info);
-//            $member_cate = Db::name('advertise_type')->select();
-//            $this->assign('member_cate', $member_cate);
+            $member_cate = Db::name('dealer')->select();
+            $this->assign('member_cate', $member_cate);
         }
         return view('member_edit');
     }
@@ -103,38 +98,55 @@ class Member extends Basic
     {
         $data = $_POST;
         //获取上传的图片并进行路径修改和原图片的删除
-        $file = request()->file('vimg');
+        $file = request()->file();
         if (isset($file)) {//判断是否有图片信息上传更新
             //根据修改信息的id获取原图片地址
-            $link = Db::name('video')
+            $link = Db::name('member')
                 ->where('id', $data['id'])
-                ->field('vimgpath , vimgname')
+                ->field('upath , uimg , ucdimg')
                 ->find();//先获取原图片的地址
             /*为新图片命名*/
             $imgName = date('YmdHis') . rand(10000, 99999);
             /*对新图片进行验证，并进行添加*/
-            $info = $file->validate(['size' => 315000, 'ext' => 'jpg,png,gif'])
-                ->move(ROOT_PATH . 'public/static/admin/videos' . DS . 'vImg' . '/' . date('Ymd'), $imgName);
-            if ($info) {
-                //自定义图片存储路径
-                $data['vimgpath'] = 'vImg/' . date('Ymd');
-                //自定义存储的img名称
-                $data['vimgname'] = $info->getFilename();
-                /*更新成功删除原图片*/
-                $url = ROOT_PATH . 'public/static/admin/videos/' . $link['vimgpath'] . '/' . $link['vimgname'];
-                /*图片删除*/
-                unlink($url);
-            } else {
-                // 上传失败获取错误信息
-                $this->error('图片修改失败', url('Video/member_edit', 'id=' . $data['id']));
+            if(isset($file['userimg']))
+            {
+                $info = $file['userimg']->validate(['size' => 5242880, 'ext' => 'jpg,png'])
+                    ->move(ROOT_PATH . 'public/static/admin/userInfo' . DS . 'userimg' . '/' . date('Ymd'), $imgName);
+                if ($info) {
+                    //自定义存储的img名称
+                    $data['uimg'] = 'userimg'.'/'.date('Ymd') . '/' . $info->getSaveName();
+                    /*更新成功删除原图片*/
+                    $uimgurl = ROOT_PATH . 'public/static/admin/' . $link['upath'] . '/' . $link['uimg'];
+                    /*图片删除*/
+                    unlink($uimgurl);
+                } else {
+                    // 上传失败获取错误信息
+                    $this->error('图片修改失败', url('Member/member_edit', 'id=' . $data['id']));
+                }
+            }
+            if(isset($file['usercardimg']))
+            {
+                $cardImg = $file['usercardimg'] ->validate(['size' => 5242880, 'ext' => 'jpg,png'])
+                    ->move(ROOT_PATH . 'public/static/admin/userInfo' . DS . 'ucard' . '/' . date('Ymd'), $imgName);
+                if($cardImg){
+                    $data['ucdimg'] = 'ucard'.'/'.date('Ymd') . '/' . $cardImg->getSaveName();
+                    /*更新成功删除原图片*/
+                    $ucdurl = ROOT_PATH . 'public/static/admin/' . $link['upath'] . '/' . $link['ucdimg'];
+                    /*图片删除*/
+                    unlink($ucdurl);
+                }else {
+                    // 上传失败获取错误信息
+                    $this->error('图片修改失败', url('Member/member_edit', 'id=' . $data['id']));
+                }
             }
         }/*若未更新图片，直接进行商品信息的更新*/
+        $data['upath'] = 'userInfo';
         $arr = array_filter($data);
-        $res = Db::name('video')->where('id', $data['id'])->update($arr);
+        $res = Db::name('member')->where('id', $data['id'])->update($arr);
         if ($res) {
-            $this->success('修改成功', 'Video/member_list');
+            $this->success('修改成功', 'Member/member_list');
         } else {
-            $this->error('修改失败', url('Video/member_edit', 'id=' . $data['id']));
+            $this->error('修改失败', url('Member/member_edit', 'id=' . $data['id']));
         }
 
     }
@@ -142,31 +154,31 @@ class Member extends Basic
     public function member_del()
     {
         $id = input('id');
-        $img = Db::name('video')
+        $img = Db::name('member')
             ->where('id', $id)
-            ->field('vimgpath , vimgname , vpath')
+            ->field('upath , uimg , ucdimg')
             ->find();
-        $urlImg = ROOT_PATH . 'public/static/admin/videos/' . $img['vimgpath'] . '/' . $img['vimgname'];
+        $uimgurl = ROOT_PATH . 'public/static/admin/' . $img['upath'] . '/' . $img['uimg'];
         /*图片删除*/
-        unlink($urlImg);
-        $urlVideo = ROOT_PATH . 'public/static/admin/videos/' . $img['vpath'];
-        /*视频删除*/
-        unlink($urlVideo);
+        unlink($uimgurl);
+        $ucdurl = ROOT_PATH . 'public/static/admin/' . $img['upath'] . '/' . $img['ucdimg'];
+        /*图片删除*/
+        unlink($ucdurl);
         /*删除表中的信息*/
-        $res = Db::name('video')->delete($id);
+        $res = Db::name('member')->delete($id);
         if ($res) {
-            $this->success('删除成功', 'Video/member_list');
+            $this->success('删除成功', 'Member/member_list');
         } else {
-            $this->error('删除失败', 'Video/member_list');
+            $this->error('删除失败', 'Member/member_list');
         }
     }
 
     public function member_status_edit($id, $status)
     {
         if ($status == 0) {
-            $res = Db::name('video')->where('id', $id)->setField('status', 1);
+            $res = Db::name('member')->where('id', $id)->setField('status', 1);
         } else {
-            $res = Db::name('video')->where('id', $id)->setField('status', 0);
+            $res = Db::name('member')->where('id', $id)->setField('status', 0);
         }
         if ($res) {
             $this->success('修改成功');

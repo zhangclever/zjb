@@ -28,9 +28,9 @@
                     <!-- BEGIN EXAMPLE TABLE PORTLET-->
                     <div class="portlet box grey ">
                         <div class="portlet-title">
-                            <div class="caption"><i class="icon-user"></i>会员列表</div>
+                            <div class="caption"><i class="icon-user"></i>经销商列表</div>
                             <div class="actions">
-                                <a href="{:url('Member/member_add')}" class="btn blue"><i class="icon-pencil"></i>添加会员</a>
+                                <a href="{:url('Dealer/dealer_add')}" class="btn blue"><i class="icon-pencil"></i>添加经销商</a>
                             </div>
                         </div>
                         <div class="portlet-body">
@@ -38,33 +38,34 @@
                                    id="sample_2">
                                 <thead>
                                 <tr>
-                                    <th class="hidden-480" style="text-align: center;">会员名称</th>
-                                    <th class="hidden-480" style="text-align: center;">会员照片</th>
-                                    <th class="hidden-480" style="text-align: center;">会员等级</th>
-                                    <th class="hidden-480" style="text-align: center;">所属经销商</th>
+                                    <th class="hidden-480" style="text-align: center;">经销商账号</th>
+                                    <th class="hidden-480" style="text-align: center;">经销商姓名</th>
+                                    <th class="hidden-480" style="text-align: center;">经销商照片</th>
+                                    <th class="hidden-480" style="text-align: center;">所属招商经理</th>
                                     <th class="hidden-480" style="text-align: center;">是否激活</th>
                                     <th class="hidden-480" style="text-align: center;">操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {volist name='$mlist->data' id='zjb_mb' }
+                                {volist name='$dlist->data' id='zjb_di' }
                                 <tr class="odd gradeX ">
-                                    <td style="vertical-align: middle !important;text-align: center;">{$zjb_mb.username}
+                                    <td style="vertical-align: middle !important;text-align: center;">{$zjb_di.duname}
+                                    </td>
+                                    <td style="vertical-align: middle !important;text-align: center;">{$zjb_di.dname}
                                     </td>
                                     <td style="vertical-align: middle !important;text-align: center;">
-                                        <img src="__PUBLIC__/{$zjb_mb.upath}/{$zjb_mb.uimg}" alt="" width="80">
+                                        <img src="__PUBLIC__/{$zjb_di.dpath}/{$zjb_di.dimg}" alt="" width="80">
                                     </td>
-                                    <td style="vertical-align: middle !important;text-align: center;">{$zjb_mb.mleve}</td>
-                                    <td style="vertical-align: middle !important;text-align: center;">{$zjb_mb.dname}</td>
-                                    <td style="vertical-align: middle !important;text-align: center;">{$zjb_mb.ustate==0?'未激活':'已激活'}</td>
+                                    <td style="vertical-align: middle !important;text-align: center;">{$zjb_di.d_cid}</td>
+                                    <td style="vertical-align: middle !important;text-align: center;">{$zjb_di.d_state==0?'未激活':'已激活'}</td>
                                     <td style="vertical-align: middle !important;text-align: center;">
-                                        <a href="{:url('Member/member_read',array('id'=>$zjb_mb['id']))}"><i
+                                        <a href="{:url('Dealer/dealer_read',array('id'=>$zjb_di['id']))}"><i
                                                 class="icon-eye-open"></i>查看</a>
-                                        <a href="javascript:js_status({$zjb_mb['id']},{$zjb_mb['status']})"><i
-                                                class="{$zjb_mb['status']==0 ? 'icon-ban-circle' : 'icon-off'}"></i>{$zjb_mb['status']==0?'禁用':'启用'}</a>
-                                        <a href="{:url('Member/member_edit',array('id'=>$zjb_mb['id']))}"><i
+                                        <a href="javascript:js_status({$zjb_di['id']},{$zjb_di['d_manage_state']})"><i
+                                                class="{$zjb_di.d_manage_state==0 ? 'icon-ban-circle' : 'icon-off'}"></i>{$zjb_di.d_manage_state==0?'禁用':'启用'}</a>
+                                        <a href="{:url('Dealer/dealer_edit',array('id'=>$zjb_di['id']))}"><i
                                                 class="icon-pencil"></i>编辑</a>
-                                        <a href="javascript:del({$zjb_mb['id']})"><i class="icon-trash"></i>删除</a>
+                                        <a href="javascript:del({$zjb_di['id']})"><i class="icon-trash"></i>删除</a>
                                     </td>
                                 </tr>
                                 {/volist}
@@ -72,7 +73,7 @@
                             </table>
                             <div class="pagination pagination-right" style="margin-bottom: 0;">
                                 <ul>
-                                    <li class="active">{$mlist->render}</li>
+                                    <li class="active">{$dlist->render}</li>
                                 </ul>
                             </div>
                         </div>
@@ -96,7 +97,7 @@
     function js_status(id, status) {
         $.ajax({
             type: "post",
-            url: 'member_status_edit',
+            url: 'dealer_status_edit',
             data: {"id": id, "status": status},
             success: function (data) {
                 if (data.code === 1) {
@@ -114,7 +115,7 @@
         layer.confirm('确定删除么？', {icon: 3, title: '提示'}, function (index) {
             $.ajax({
                 type: "post",
-                url: 'member_del',
+                url: 'dealer_del',
                 data: {"id": id},
                 success: function (data) {
                     if (data.code === 1) {

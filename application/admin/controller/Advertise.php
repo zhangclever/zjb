@@ -240,6 +240,19 @@ class Advertise extends Basic{
             die("<script>alert('22');window.location.href='".url('Advertise/advertise_type_list')."';</script>");
         } 
     }
+    public function advertise_type_status_edit($id, $status)
+    {
+        if ($status == 0) {
+            $res = Db::name('advertise_type')->where('id', $id)->setField('status', 1);
+        } else {
+            $res = Db::name('advertise_type')->where('id', $id)->setField('status', 0);
+        }
+        if ($res) {
+            $this->success('修改成功');
+        } else {
+            $this->error('修改失败');
+        }
+    }
 
     public function advertise_type_delete(){
         //执行删除
