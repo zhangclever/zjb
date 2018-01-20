@@ -3,7 +3,7 @@ namespace app\admin\controller;
 
 use lib\Page;
 use think\Db;
-
+header('Content-Type: text/html; charset=utf-8');
 class Compensate extends Basic{
 
     public function compensate_list(){
@@ -76,9 +76,9 @@ class Compensate extends Basic{
 
         $res = Db::table('zjb_compensates')->where('id', $id)->update($data);
         if($res){
-            die("<script>alert('11');window.location.href='".url('Compensate/compensate_list')."';</script>");
+            die("<script>alert('修改成功');window.location.href='".url('Compensate/compensate_list')."';</script>");
         }else{
-            die("<script>alert('22');window.location.href='".url('Compensate/compensate_list')."';</script>");
+            die("<script>alert('修改失败');window.location.href='".url('Compensate/compensate_list')."';</script>");
         } 
     }
 

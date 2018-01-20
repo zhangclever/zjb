@@ -38,7 +38,7 @@
                         </div>
                         <div class="portlet-body form ">
                             <!-- BEGIN FORM-->
-                            <form action="{:url('Advertise/advertise_type_modify')}" enctype="multipart/form-data" method="post" class="form-horizontal">
+                            <form action="{:url('Advertise/advertise_type_modify')}" id="form_sample_2" enctype="multipart/form-data" method="post" class="form-horizontal">
                                 <div class="alert alert-error hide">
                                     <button class="close" data-dismiss="alert"></button>
                                     You have some form errors. Please check below.
@@ -77,4 +77,23 @@
 {include file='public/script-js'}
 </body>
 <!-- END BODY -->
+<script>
+    $('#form_sample_2').submit(function() {         //使用ajax的submit提交方法进行表单提交
+        $(this).ajaxSubmit(function(res) {
+            if(res.code ===1){
+                layer.msg(res.msg, {icon: 6, time: 2300}, function () {
+                    location.href = res.url;
+                })
+            }else{
+                layer.msg(res.msg, {icon: 2, time: 800}, function () {
+                     location.href = res.url;
+                })
+            }
+        });
+        return false; //阻止表单默认提交
+    });
+    $('#back').on('click',function () {
+         location.href="{:url('Goods/goods_list')}";
+    })
+</script>
 </html>

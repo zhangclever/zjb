@@ -3,7 +3,7 @@ namespace app\admin\controller;
 
 use lib\Page;
 use think\Db;
-
+header('Content-Type: text/html; charset=utf-8');
 class Article extends Basic{
 
     public function article_list(){
@@ -60,7 +60,6 @@ class Article extends Basic{
         $data = input();
         $id = input('id');
         $file = request()->file('images');
-        var_dump($data);die;
         if($file){
             $imgName = date('YmdHis').rand(10000,99999);
             $info = $file->validate(['size'=>3150000,'ext'=>'jpg,png,gif,rgb'])->move(ROOT_PATH . 'public/static/admin' . DS . 'uploads'.'/'.date('Ymd'),$imgName);
@@ -75,10 +74,10 @@ class Article extends Basic{
 
         $res = Db::table('zjb_news')->where('id', $id)->update($data);
         if($res){
-            $this->success('修改成功','Article/article_list');
+            die("<script>alert('修改成功');window.location.href='".url('Article/article_list')."';</script>");
         }else{
-            $this->error('修改失败','Article/article_list');
-        }
+            die("<script>alert('修改失败');window.location.href='".url('Article/article_list')."';</script>");
+        } 
     }
 
     public function article_delete(){

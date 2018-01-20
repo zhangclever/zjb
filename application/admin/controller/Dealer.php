@@ -15,9 +15,18 @@ class Dealer extends Basic
 {
     public function dealer_list()
     {
-        $dealer_list = Db::query('select d.*,ma.mname from zjb_dealer as d,zjb_manager as ma WHERE d.manager=ma.id');
-        $arr1 = new Page($dealer_list, 10);
-        $this->assign(['dlist' => $arr1]);
+        $title = input('title');
+        $search = ['query'=>[]];
+        $search['query']['title'] = $title;
+        $list = Db::table(['zjb_dealer'=>'d','zjb_manager'=>'ma'])
+            ->field('d.*,ma.mname')
+            ->where('d.manager=ma.id')
+            ->where('d.dname|ma.mname|d.duname|d.dcardnum|d.dmobel','like','%'.$title.'%')
+            ->order('d.id desc')
+            ->paginate(10,false,$search);
+
+        $this->assign('list',$list);
+        $this->assign('title',$title);
         return view('Dealer/dealer_list');
     }
 

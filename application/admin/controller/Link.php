@@ -77,9 +77,9 @@ class Link extends Basic{
 
         $res = Db::table('zjb_links')->where('id', $id)->update($data);
         if($res){
-            die("<script>alert('11');window.location.href='".url('Link/link_list')."';</script>");
+            $this->success('修改成功','Link/link_list');
         }else{
-            die("<script>alert('22');window.location.href='".url('Link/link_list')."';</script>");
+            $this->error('修改失败','Link/link_list');
         } 
     }
 

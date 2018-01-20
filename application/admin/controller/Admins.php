@@ -103,9 +103,7 @@ class Admins extends Basic{
         }else{
             $this->error('设置权限失败','Admins/admin_list');
         }
-    }
-
-    
+    }   
 
 
 }

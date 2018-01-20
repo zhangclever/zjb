@@ -9,9 +9,19 @@ class Video extends Basic
 {
     public function video_list()
     {
-        $video_list = Db::query('select v.*,a.typename from zjb_video as v , zjb_advertise_type as a WHERE v.states=a.id ORDER BY v.id ASC');
-        $arr = new Page($video_list, 5);
-        $this->assign(['vlist' => $arr]);
+        $title = input('title');
+        $search = ['query'=>[]];
+        $search['query']['title'] = $title;
+        /*----------搜索and or混合查询-----------*/
+        $list = Db::table(['zjb_video'=>'v','zjb_advertise_type'=>'a'])
+            ->field('v.*,a.typename')
+            ->where('v.states=a.id ')
+            ->where('v.vname|v.keyword','like','%'.$title.'%')
+            ->order('v.id desc')
+            ->paginate(10,false,$search);
+
+        $this->assign('list',$list);
+        $this->assign('title',$title);
         return view('Video/video_list');
     }
 

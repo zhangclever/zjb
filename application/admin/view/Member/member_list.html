@@ -33,6 +33,13 @@
                                 <a href="{:url('Member/member_add')}" class="btn blue"><i class="icon-pencil"></i>添加会员</a>
                             </div>
                         </div>
+                        <label>
+                            <form action="{:url('Member/member_list')}" enctype="multipart/form-data" method="post" class="form-horizontal">
+                                搜 索 :
+                                <input name="title" type="text" aria-controls="sample_1" value="{$title}">
+                                <button type="submit" class="btn blue">搜索</button>
+                            </form>
+                        </label>
                         <div class="portlet-body">
                             <table class="table table-striped table-bordered table-hover table-responsive"
                                    id="sample_2">
@@ -47,7 +54,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {volist name='$mlist->data' id='zjb_mb' }
+                                {volist name='$list' id='zjb_mb' }
                                 <tr class="odd gradeX ">
                                     <td style="vertical-align: middle !important;text-align: center;">{$zjb_mb.username}
                                     </td>
@@ -72,7 +79,7 @@
                             </table>
                             <div class="pagination pagination-right" style="margin-bottom: 0;">
                                 <ul>
-                                    <li class="active">{$mlist->render}</li>
+                                    <li class="active">{$list}</li>
                                 </ul>
                             </div>
                         </div>
