@@ -9,9 +9,19 @@ class Goods extends Basic
 {
     public function goods_list()
     {
-        $goods_list = Db::query('select g.*,c.catename from zjb_goods as g , zjb_goods_cate as c  WHERE g.cid=c.id ORDER BY g.id ASC');
-        $arr1 = new Page($goods_list, 10);
-        $this->assign(['glist' => $arr1]);
+        $title = input('title');
+        $search = ['query'=>[]];
+        $search['query']['title'] = $title;
+        /*----------搜索and or混合查询-----------*/
+        $list = Db::table(['zjb_goods'=>'g','zjb_goods_cate'=>'c'])
+            ->field('g.*,c.catename')
+            ->where('g.cid=c.id')
+            ->where('c.catename|g.name|g.number|g.keyword','like','%'.$title.'%')
+            ->order('g.id desc')
+            ->paginate(10,false,$search);
+
+        $this->assign('list',$list);
+        $this->assign('title',$title);
         return view('goods_list');
     }
 

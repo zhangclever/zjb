@@ -3,7 +3,7 @@ namespace app\admin\controller;
 
 use lib\Page;
 use think\Db;
-
+header('Content-Type: text/html; charset=utf-8');
 class Healthy extends Basic{
 
     public function healthy_list(){
@@ -76,9 +76,9 @@ class Healthy extends Basic{
 
         $res = Db::table('zjb_healthys')->where('id', $id)->update($data);
         if($res){
-            die("<script>alert('11');window.location.href='".url('Healthy/healthy_list')."';</script>");
+            die("<script>alert('修改成功');window.location.href='".url('Healthy/healthy_list')."';</script>");
         }else{
-            die("<script>alert('22');window.location.href='".url('Healthy/healthy_list')."';</script>");
+            die("<script>alert('修改失败');window.location.href='".url('Healthy/healthy_list')."';</script>");
         } 
     }
 

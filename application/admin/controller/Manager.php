@@ -15,9 +15,13 @@ class Manager extends Basic
 {
     public function manager_list()
     {
-        $manager_list = Db::name('manager')->select();
-        $arr = new Page($manager_list,10);
-        $this->assign(['malist'=>$arr]);
+        $mname = input('mname');
+        $search = ['query'=>[]];
+        $search['query']['mname'] = $mname;
+        $list = Db::table('zjb_manager')->where('mname','like','%'.$mname.'%')->order('id desc')->paginate(10,false,$search);
+        
+        $this->assign('list',$list);
+        $this->assign('mname',$mname);
         return view('Manager/manager_list');
     }
 

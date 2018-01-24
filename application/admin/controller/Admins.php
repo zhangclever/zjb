@@ -91,16 +91,18 @@ class Admins extends Basic{
 //        return view('admin_accredit');
 //    }
 
-    public function accredit_modify(){
+    public function accredit_modify()
+    {
         // 执行修改权限
         $data = input();
         $id = input('id');
         // var_dump($data);die;
         $res = Db::table('zjb_accredits')->where('admin_id', $id)->update($data);
-        if($res){
-            $this->success('设置权限成功','Admins/admin_list');
-        }else{
-            $this->error('设置权限失败','Admins/admin_list');
+        if ($res) {
+            $this->success('设置权限成功', 'Admins/admin_list');
+        } else {
+            $this->error('设置权限失败', 'Admins/admin_list');
         }
     }
+
 }

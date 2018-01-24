@@ -38,7 +38,7 @@
                         </div>
                         <div class="portlet-body form ">
                             <!-- BEGIN FORM-->
-                            <form action="{:url('Article/article_modify')}" id="form_sample_2" enctype="multipart/form-data" method="post" class="form-horizontal">
+                            <form action="{:url('Article/article_modify')}" enctype="multipart/form-data" method="post" class="form-horizontal">
                                 <div class="control-group">
                                     <label class="control-label">标题<span class="required">*</span></label>
                                     <div class="controls">
@@ -103,21 +103,5 @@
 <!-- END FOOTER -->
 {include file='public/script-js'}
 </body>
-<script>
-    $('#form_sample_2').submit(function() {         //使用ajax的submit提交方法进行表单提交
-        $(this).ajaxSubmit(function(res) {
-            if(res.code===1){
-                layer.msg(res.msg, {icon: 6, time: 2300}, function () {
-                    // location.href = res.url;
-                })
-            }else{
-                layer.msg(res.msg, {icon: 2, time: 2300}, function () {
-                    // location.href = res.url;
-                })
-            }
-        });
-        return false; //阻止表单默认提交
-    });
-</script>
 <!-- END BODY -->
 </html>

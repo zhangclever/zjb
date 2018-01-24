@@ -3,15 +3,24 @@ namespace app\admin\controller;
 
 use lib\Page;
 use think\Db;
-
+header('Content-Type: text/html; charset=utf-8');
 class Advertise extends Basic{
 
     public function advertise_list(){
     	//广告列表
-        $list = Db::query('select g.*,c.typename from zjb_advertises as g , zjb_advertise_type as c WHERE g.tid=c.id');
-        $arr = new Page($list,10);
-        $this->assign(['list'=>$arr]);
+        $title = input('title');
+        $search = ['query'=>[]];
+        $search['query']['title'] = $title;
+        /*----------搜索and or混合查询-----------*/
+        $list = Db::table(['zjb_advertises'=>'g','zjb_advertise_type'=>'c'])
+            ->field('g.*,c.typename')
+            ->where('g.tid=c.id')
+            ->where('g.title|c.typename','like','%'.$title.'%')
+            ->order('g.id desc')
+            ->paginate(10,false,$search);
 
+        $this->assign('list',$list);
+        $this->assign('title',$title);
         return view('advertise_list');
     }
 
@@ -106,9 +115,9 @@ class Advertise extends Basic{
 
         $res = Db::table('zjb_advertises')->where('id', $id)->update($data);
         if($res){
-            die("<script>alert('11');window.location.href='".url('Advertise/advertise_list')."';</script>");
+            die("<script>alert('修改成功');window.location.href='".url('Advertise/advertise_list')."';</script>");
         }else{
-            die("<script>alert('22');window.location.href='".url('Advertise/advertise_list')."';</script>");
+            die("<script>alert('修改失败');window.location.href='".url('Advertise/advertise_list')."';</script>");
         } 
     }
 
@@ -235,10 +244,10 @@ class Advertise extends Basic{
 
         $res = Db::table('zjb_advertise_type')->where('id', $id)->update($data);
         if($res){
-            die("<script>alert('11');window.location.href='".url('Advertise/advertise_type_list')."';</script>");
+            $this->success('修改成功','Advertise/advertise_type_list');
         }else{
-            die("<script>alert('22');window.location.href='".url('Advertise/advertise_type_list')."';</script>");
-        } 
+            $this->error('修改失败','Advertise/advertise_type_list');
+        }
     }
     public function advertise_type_status_edit($id, $status)
     {
@@ -268,18 +277,18 @@ class Advertise extends Basic{
         }
     }
 
-    public function advertise_type_search(){
-        // 搜索框
-        $typename = input('typename');
-        if(!empty($typename)){
-            $list = Db::table('zjb_advertise_type')->where('typename','like','%'.$typename.'%')->select();
-            $arr = new Page($list,10);
-        }else{
-            die("<script>alert('请填写搜索信息');window.location.href='".url('Advertise/advertise_type_list')."';</script>");
-        }
-        $this->assign(['list'=>$arr]);
+    // public function advertise_type_search(){
+    //     // 搜索框
+    //     $typename = input('typename');
+    //     if(!empty($typename)){
+    //         $list = Db::table('zjb_advertise_type')->where('typename','like','%'.$typename.'%')->select();
+    //         $arr = new Page($list,10);
+    //     }else{
+    //         die("<script>alert('请填写搜索信息');window.location.href='".url('Advertise/advertise_type_list')."';</script>");
+    //     }
+    //     $this->assign(['list'=>$arr]);
 
-        return view('advertise_type_list');
-    }
+    //     return view('advertise_type_list');
+    // }
 
 }

@@ -15,9 +15,19 @@ class Member extends Basic
 {
     public function member_list()
     {
-        $member_list = Db::query('select m.*,d.dname from zjb_member as m,zjb_dealer as d WHERE m.did=d.id');
-        $arr1 = new Page($member_list, 10);
-        $this->assign(['mlist' => $arr1]);
+        $title = input('title');
+        $search = ['query'=>[]];
+        $search['query']['title'] = $title;
+        /*----------搜索and or混合查询-----------*/
+        $list = Db::table(['zjb_member'=>'m','zjb_dealer'=>'d'])
+            ->field('m.*,d.dname')
+            ->where('m.did=d.id')
+            ->where('username|mobel|cardnum','like','%'.$title.'%')
+            ->order('m.id desc')
+            ->paginate(10,false,$search);
+
+        $this->assign('list',$list);
+        $this->assign('title',$title);
         return view('Member/member_list');
     }
 
