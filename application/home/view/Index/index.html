@@ -1,343 +1,322 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Home</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <!-- css -->
-    <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="__PUBLIC__/css/fancybox/jquery.fancybox.css" rel="stylesheet">
-    <link href="__PUBLIC__/css/jcarousel.css" rel="stylesheet" />
-    <link href="__PUBLIC__/css/flexslider.css" rel="stylesheet" />
-    <link href="__PUBLIC__/js/owl-carousel/owl.carousel.css" rel="stylesheet">
-    <link href="__PUBLIC__/css/style.css" rel="stylesheet" />
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-</head>
-<body>
-<div id="wrapper">
-    <!-- start header -->
-    <header>
-        <section class="contactInfo">
-            <div class="container">
-
-
-                <div class="col-md-12">
-                    <div class="contact-area">
-                        <ul>
-                            <li><i class="fa fa-phone-square"></i>400-8929755</li>
-                            <li><i class="fa fa-envelope-o"></i>info@mdeicalcare.com</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="{:url('Index/index')}"><img src="__PUBLIC__/img/logo.png" alt="logo"/></a>
-                </div>
-                <div class="navbar-collapse collapse ">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="{:url('Index/index')}">首页</a></li>
-                        <li><a href="about.html">关于我们</a></li>
-                        <li><a href="services.html">新闻资讯</a></li>
-                        <li><a href="portfolio.html">健保目录</a></li>
-                        <li><a href="pricing.html">保险专栏</a></li>
-                        <li><a href="contact.html">加入我们</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- end header -->
-    <section id="featured">
-
-        <!-- Slider -->
-        <div id="main-slider" class="flexslider">
-            <ul class="slides">
-                <li>
-                    <img src="__PUBLIC__/img/slides/1.jpg" alt="" />
-                    <div class="flex-caption">
-                        <h3>健康引领者</h3>
-                        <p>优秀的领导人</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="__PUBLIC__/img/slides/2.jpg" alt="" />
-                    <div class="flex-caption">
-                        <h3>我们的起点</h3>
-                        <p>梦开始的地方</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="__PUBLIC__/img/slides/3.jpg" alt="" />
-                    <div class="flex-caption">
-                        <h3>我们的家</h3>
-                        <p>实现梦的地方</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <!-- end slider -->
-
-    </section>
-    <section id="content">
-        <div class="container">
-            <div class="row">
-                {volist name='cOne' id='c'}
-                <div class="col-md-7"  {$aOne.status==0?'':'hidden'}>
-                    <!-- Heading and para -->
-                    <div class="block-heading-two">
-                        <h3><span>最新动态</span></h3>
-                    </div>
-                    <a href=""><p>{$c.title}</p></a>
-                    <p>{$c.content}</p>
-                </div>
-                {/volist}
-                <div class="col-xs-12 col-sm-12 col-md-5">
-                    <div class="latest-post-wrap pull-left">
-                        <h3><span>News Updates</span></h3>
-                        <!--Post item-->
-                        <div class="post-item-wrap pull-left col-sm-6 col-md-12 col-xs-12">
-                            <img src="__PUBLIC__/img/news-1.jpg" class="img-responsive post-author-img" alt="">
-                            <div class="post-content1 pull-left col-md-9 col-sm-9 col-xs-8">
-                                <div class="post-title pull-left"><a href="#">Lorem ipsum dolor sit ametfrfs</a></div>
-                                <div class="post-meta-top pull-left">
-                                    <ul>
-                                        <li><i class="fa fa-calendar"></i>22 DEC 2016</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="post-content2 pull-left">
-                                <p>Voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et eaque ipsa quae.<br>
-                                    <span class="post-meta-bottom"><a href="#">More...</a></span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-            </div>
-        </div>
-
-    </section>
-
-
-    <section id="service">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="block-top">
-                        <div class="service-header">
-                            <h3>What we take CARE</h3>
-                            <p>Duis bibendum diam non erat facilaisis tincidunt. Fusce leo neque, lacinia at tempor vitae, porta at arcu. <br> Vestibulum varius non dui at pulvinar. Ut egestas orci in quam sollicitudin aliquet.</p>
-                        </div>
-                    </div>
-                </div><!-- .col-md-12 close -->
-            </div><!-- row close -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="block-bottom">
-                        <div class="service-tab">
-                            <!-- Nav tabs -->
-                            <ul class="badhon-tab" role="tablist">
-                                <li class=""><a href="#home" aria-controls="home" role="tab" data-toggle="tab">
-                                    <i class="fa fa-ambulance"></i>
-                                    24/7 Ambulance
-                                </a></li>
-                                <li class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">
-                                    <i class="fa fa-medkit"></i>
-                                    Complete Medikit
-                                </a></li>
-                                <li><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">
-                                    <i class="fa fa-stethoscope"></i>
-                                    Spec Doctors
-                                </a></li>
-                                <li><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">
-                                    <i class="fa fa-heart-o"></i>
-                                    Get Well Soon
-                                </a></li>
-                            </ul>
-
-                            <!-- Tab panes -->
-                            <div class="tab-content edit-tab-content">
-                                <div class="tab-pane edit-tab" id="home">
-                                    <h3>Round the Clock Ambulance</h3>
-                                    <p>Sed ut perspiciaatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur. <br><br>Sed ut perspiciaatis iste natus error sit voluptatem probably haven't heard of them accusamus.</p>
-                                    <p>Voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo quasi architecto beatae vitae dicta sunt explicabo.</p>
-                                </div>
-                                <div class="tab-pane edit-tab active" id="profile">
-                                    <h3>A complete Medkit for you</h3>
-                                    <p>Sed ut perspiciaatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur. <br><br>Sed ut perspiciaatis iste natus error sit voluptatem probably haven't heard of them accusamus.</p>
-                                    <p>Voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo quasi architecto beatae vitae dicta sunt explicabo.</p>
-                                </div>
-                                <div class="tab-pane edit-tab" id="messages">
-                                    <h3>Specilized Doctors available</h3>
-                                    <p>Sed ut perspiciaatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur. <br><br>Sed ut perspiciaatis iste natus error sit voluptatem probably haven't heard of them accusamus.</p>
-                                    <p>Voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo quasi architecto beatae vitae dicta sunt explicabo.</p>
-                                </div>
-                                <div class="tab-pane edit-tab" id="settings">
-                                    <h3>Get well soon with our treatment</h3>
-                                    <p>Sed ut perspiciaatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur. <br><br>Sed ut perspiciaatis iste natus error sit voluptatem probably haven't heard of them accusamus.</p>
-                                    <p>Voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo quasi architecto beatae vitae dicta sunt explicabo.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- .col-md-12 close -->
-            </div><!-- row close -->
-        </div><!-- .container close -->
-    </section>
-
-    <div class="testimonial-area">
-        <div class="testimonial-solid">
-            <div class="container">
-                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carousel-example-generic" data-slide-to="0" class="">
-                            <a href="#"></a>
-                        </li>
-                        <li data-target="#carousel-example-generic" data-slide-to="1" class="">
-                            <a href="#"></a>
-                        </li>
-                        <li data-target="#carousel-example-generic" data-slide-to="2" class="active">
-                            <a href="#"></a>
-                        </li>
-                        <li data-target="#carousel-example-generic" data-slide-to="3" class="">
-                            <a href="#"></a>
-                        </li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="item">
-                            <p>Blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.</p>
-                            <p>
-                                <b>- Mark John -</b>
-                            </p>
-                        </div>
-                        <div class="item">
-                            <p>Blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.</p>
-                            <p>
-                                <b>- Jaison Warner -</b>
-                            </p>
-                        </div>
-                        <div class="item active">
-                            <p>Blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.</p>
-                            <p>
-                                <b>- Tony Antonio -</b>
-                            </p>
-                        </div>
-                        <div class="item">
-                            <p>Blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.</p>
-                            <p>
-                                <b>- Leena Doe -</b>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="widget">
-                        <h5 class="widgetheading">Our Contact</h5>
-                        <address>
-                            <strong>Target company Inc</strong><br>
-                            JC Main Road, Near Silnile tower<br>
-                            Pin-21542 NewYork US.</address>
-                        <p>
-                            <i class="icon-phone"></i> (123) 456-789 - 1255-12584 <br>
-                            <i class="icon-envelope-alt"></i> email@domainname.com
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="widget">
-                        <h5 class="widgetheading">Quick Links</h5>
-                        <ul class="link-list">
-                            <li><a href="#">Latest Events</a></li>
-                            <li><a href="#">Terms and conditions</a></li>
-                            <li><a href="#">Privacy policy</a></li>
-                            <li><a href="#">Career</a></li>
-                            <li><a href="#">Contact us</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="widget">
-                        <h5 class="widgetheading">Latest posts</h5>
-                        <ul class="link-list">
-                            <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-                            <li><a href="#">Pellentesque et pulvinar enim. Quisque at tempor ligula</a></li>
-                            <li><a href="#">Natus error sit voluptatem accusantium doloremque</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="widget">
-                        <h5 class="widgetheading">Recent News</h5>
-                        <ul class="link-list">
-                            <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-                            <li><a href="#">Pellentesque et pulvinar enim. Quisque at tempor ligula</a></li>
-                            <li><a href="#">Natus error sit voluptatem accusantium doloremque</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="sub-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="copyright">
-                            <p>
-                                Copyright &copy; 2016.Company name All rights reserved.<a target="_blank" href="http://www.17sucai.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <ul class="social-network">
-                            <li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
-                            <li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+{include file='Public/link_css'}
+<!-- PRELOAD -->
+<div id="preload" class="preload">
+    <div class="flat"></div>
+    <div class="square"></div>
+    <div class="square-2"></div>
+    <div class="square-3"></div>
+    <div class="square-4"></div>
 </div>
-<a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
-<!-- javascript
-    ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="__PUBLIC__/js/jquery.js"></script>
-<script src="__PUBLIC__/js/jquery.easing.1.3.js"></script>
-<script src="__PUBLIC__/js/bootstrap.min.js"></script>
-<script src="__PUBLIC__/js/jquery.fancybox.pack.js"></script>
-<script src="__PUBLIC__/js/jquery.fancybox-media.js"></script>
-<script src="__PUBLIC__/js/portfolio/jquery.quicksand.js"></script>
-<script src="__PUBLIC__/js/portfolio/setting.js"></script>
-<script src="__PUBLIC__/js/jquery.flexslider.js"></script>
-<script src="__PUBLIC__/js/animate.js"></script>
-<script src="__PUBLIC__/js/custom.js"></script>
-<script src="__PUBLIC__/js/owl-carousel/owl.carousel.js"></script>
-</body>
-</html>
+<!-- /END PRELOAD -->
+<!-- HEADER 1 -->
+<header class="header head4">
+    <div class="searchbar searchbar-light">
+        <div class="container">
+            <div class="input-group">
+                <span class="input-group-addon"><span class="fa fa-search"></span></span>
+                <input type="text" name="search" value="" placeholder="Search" />
+                <span class="input-group-btn"><button type="button" class="btn-close"></button></span>
+            </div><!-- /input-group -->
+        </div><!-- /container -->
+    </div><!-- /searchbar -->
+    <div class="main-header main-header-4">
+        <div class="container">
+            <!-- LOGO -->
+            <div class="logo">
+                <a href="index.html"><img src="__PUBLIC__/img/logo_white_txt.png" alt="logo" /></a>
+            </div><!-- /#logo -->
+            <!-- END / LOGO -->
+
+            <!-- MOBILE MENU -->
+            <div class="mobile-nav-menu" data-menu-number="4">
+                <span class="icon">&nbsp;</span>
+            </div><!-- /mobile-nav-menu -->
+            <!-- /END MOBILE MENU -->
+
+            <!-- SEARCH BUTTON -->
+            <div class="search-btn"><span class="fa fa-search"></span></div>
+            <!-- END / SEARCH BUTTON -->
+
+            <!-- NAVIGATION -->
+            <nav class="navigation nav4" data-menu-type="1199">
+                <ul class="nav text-uppercase">
+                    <li><a href="{:url('Index/index')}">首页</a></li>
+                    <li><a href="{:url('About/index')}">关于我们</a></li>
+                    <li><a href="{:url('Service/index')}">健保专栏</a></li>
+                    <li><a href="{:url('News/index')}">健保资讯</a></li>
+                    <li><a href="{:url('Goods/index')}">健保目录</a></li>
+                    <li><a href="{:url('Contact/index')}">加入我们</a></li>
+                </ul><!-- /nav -->
+            </nav>
+            <!-- END / NAVIGATION -->
+        </div><!-- /container -->
+    </div><!-- /main-header -->
+</header>
+
+<!-- END / HEADER 1 -->
+
+<div id="page-wrap">
+    <!-- HOME MEDIA -->
+   {include file='Public/banner'}
+    <!-- END / HOME MEDIA -->
+    <!-- SERVICE -->
+    <section class="section bg-white pt-50 pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="section-header">最新&nbsp;<span>活动</span></div>
+                    <div class="post-thumbnail hover-link">
+                        <img src="__PUBLIC__/img/service/1.jpg" alt="" />
+                        <a href="#" class="overlay"><i class="ilmosys-link-2"></i></a>
+                    </div><!--/ post-thumbnail -->
+                    <span class="lead">文章名称</span>
+                    <div class="mb-30">
+                        <a href=""><li class="list-unstyled">Lorem ipsum dolor sit amet, 4</li></a>
+                    </div>
+                    <a href="#" class="btn btn-primary radius mb-30 ">了解更多...</a>
+                </div><!-- /col -->
+
+                <div class="col-md-4">
+                    <div class="section-header">行业&nbsp;<span>动态</span></div>
+                    <div class="post-thumbnail hover-link">
+                        <img src="__PUBLIC__/img/service/2.jpg" alt="" />
+                        <a href="#" class="overlay"><i class="ilmosys-link-2"></i></a>
+                    </div><!--/ post-thumbnail -->
+                    <span class="lead">文章名称</span>
+                    <div class="mb-30">
+                        <a href=""><li class="list-unstyled">Lorem ipsum dolor sit amet, 4</li></a>
+                    </div>
+                    <a href="#" class="btn btn-primary radius mb-30 ">了解更多...</a>
+                </div><!-- /col -->
+
+                <div class="col-md-4">
+                    <div class="section-header">理赔&nbsp;<span>公告</span></div>
+                    <div class="post-thumbnail hover-link">
+                        <img src="__PUBLIC__/img/service/3.jpg" alt="" />
+                        <a href="#" class="overlay"><i class="ilmosys-link-2"></i></a>
+                    </div><!--/ post-thumbnail -->
+                    <span class="lead">文章名称</span>
+                    <div class="mb-30">
+                        <a href=""><li class="list-unstyled">Lorem ipsum dolor sit amet, 4</li></a>
+                    </div>
+                    <a href="#" class="btn btn-primary radius mb-30 ">了解更多...</a>
+                </div><!-- /col -->
+            </div><!-- /row -->
+        </div><!-- /container -->
+    </section>
+    <!-- END / SERVICE -->
+   <!--  ICON BOX
+    <section class="section bg-gray pt-20 pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-sm-3 col-xs-12 pt-70">
+                    <div class="shifa-icon">
+                        <i class="ilmosys-vpn"></i>
+                        <h5 class="title-bold">Online Q & A</h5>
+                        <p>A tradition of ethical and honest business conduct is the cornerstone of our business philosophy, and the foundation of our entire organization.</p>
+                    </div> /shifa-icon
+
+                    <div class="shifa-icon">
+                        <i class="ilmosys-doctor"></i>
+                        <h5 class="title-bold">Top Level Doctors</h5>
+                        <p>A tradition of ethical and honest business conduct is the cornerstone of our business philosophy, and the foundation of our entire organization.</p>
+                    </div> /shifa-icon
+                </div> /col
+
+                <div class="col-lg-4 col-sm-3 col-xs-12 pt-70">
+                    <div class="shifa-icon">
+                        <i class="ilmosys-wrench"></i>
+                        <h5 class="title-bold">24 Hour Service</h5>
+                        <p>A tradition of ethical and honest business conduct is the cornerstone of our business philosophy, and the foundation of our entire organization.</p>
+                    </div> /shifa-icon
+
+                    <div class="shifa-icon">
+                        <i class="ilmosys-medical-sign"></i>
+                        <h5 class="title-bold">dispense medicine</h5>
+                        <p>A tradition of ethical and honest business conduct is the cornerstone of our business philosophy, and the foundation of our entire organization.</p>
+                    </div> /shifa-icon
+                </div> /col
+
+                <div class="col-lg-4 col-sm-6 col-xs-12">
+                    <img src="__PUBLIC__/img/doctor.png" alt="" />
+                </div> /col
+            </div> /row
+        </div> /container
+    </section>
+     END / ICON BOX -->
+    <!-- OUR Team -->
+    <section class="section bg-white pt-60 pb-30">
+        <div class="container">
+            <div class="section-header" data-section-center="767">我们的&nbsp;<span>团队</span></div>
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="team-leader">
+                        <div class="avatar hover-link">
+                            <img src="__PUBLIC__/img/team/1.jpg" alt="" />
+                            <a href="#" class="overlay"><i class="ilmosys-link-2"></i></a>
+                        </div><!-- /avatar -->
+                        <h4 class="h5 title-bold">运营精英</h4>
+                        <h5>Ceo / Co-Founder</h5>
+                        <p class="mb-20" data-number-line="5">
+                            hklghg
+                        </p>
+                    </div><!-- /team-leader -->
+                </div><!-- /col -->
+                <!--<div class="clearfix visible-sm"></div>-->
+            </div><!-- /row -->
+        </div><!-- /container -->
+    </section>
+    <!-- END / OUR LEADERS -->
+    <!-- PORTFOLIO 1 -->
+    <section class="section bg-gray pt-60 pb-60">
+        <div class="bg-gray"></div>
+        <div class="container">
+            <div class="section-header" data-section-center="767">我们的<span>产品</span></div>
+            <!-- FILTER -->
+            <ul class="portfolio-selector filters" data-portfolio-type="991">
+                <li><a href="#" data-filter="*">All</a></li>
+                <li><a href="#" data-filter=".office">Doctor</a></li>
+                <li><a href="#" data-filter=".building">Checkup</a></li>
+                <li><a href="#" data-filter=".museum">Research</a></li>
+                <li><a href="#" data-filter=".urban">Laboratory</a></li>
+                <li><a href="#" data-filter=".house">Hospital</a></li>
+            </ul><!-- /portfolio-selector -->
+            <!-- END / FILTER -->
+
+            <div class="isotope-grid-wrapper" data-isotope-column="4" data-column-gap="30" data-column-md="3" data-column-sm="2" data-column-xs="1" data-column-tn="1">
+                <div class="isotope-grid-row">
+                    <div class="isotope-grid">
+                        <div class="grid-sizer"></div>
+                        <!-- <div class="gutter-sizer"></div> -->
+                        <div class="portfolio-item office">
+                            <div class="portfolio-media hover-link">
+                                <img src="__PUBLIC__/img/portfolio/1.jpg" alt="" />
+                                <a href="#" class="overlay"><i class="ilmosys-link-2"></i></a>
+                            </div><!-- /hover-link -->
+                        </div><!-- /portfolio-item -->
+                        <div class="portfolio-item building">
+                            <div class="portfolio-media hover-link">
+                                <img src="__PUBLIC__/img/portfolio/2.jpg" alt="" />
+                                <a href="#" class="overlay"><i class="ilmosys-link-2"></i></a>
+                            </div><!-- /hover-link -->
+                        </div><!-- /portfolio-item -->
+                        <div class="portfolio-item museum">
+                            <div class="portfolio-media hover-link">
+                                <img src="__PUBLIC__/img/portfolio/3.jpg" alt="" />
+                                <a href="#" class="overlay"><i class="ilmosys-link-2"></i></a>
+                            </div><!-- /hover-link -->
+                        </div><!-- /portfolio-item -->
+                        <div class="portfolio-item building">
+                            <div class="portfolio-media hover-link">
+                                <img src="__PUBLIC__/img/portfolio/4.jpg" alt="" />
+                                <a href="#" class="overlay"><i class="ilmosys-link-2"></i></a>
+                            </div><!-- /hover-link -->
+                        </div><!-- /portfolio-item -->
+                        <div class="portfolio-item urban">
+                            <div class="portfolio-media hover-link">
+                                <img src="__PUBLIC__/img/portfolio/5.jpg" alt="" />
+                                <a href="#" class="overlay"><i class="ilmosys-link-2"></i></a>
+                            </div><!-- /hover-link -->
+                        </div><!-- /portfolio-item -->
+                        <div class="portfolio-item museum">
+                            <div class="portfolio-media hover-link">
+                                <img src="__PUBLIC__/img/portfolio/6.jpg" alt="" />
+                                <a href="#" class="overlay"><i class="ilmosys-link-2"></i></a>
+                            </div><!-- /hover-link -->
+                        </div><!-- /portfolio-item -->
+                        <div class="portfolio-item urban">
+                            <div class="portfolio-media hover-link">
+                                <img src="__PUBLIC__/img/portfolio/7.jpg" alt="" />
+                                <a href="#" class="overlay"><i class="ilmosys-link-2"></i></a>
+                            </div><!-- /hover-link -->
+                        </div><!-- /portfolio-item -->
+                        <div class="portfolio-item house">
+                            <div class="portfolio-media hover-link">
+                                <img src="__PUBLIC__/img/portfolio/8.jpg" alt="" />
+                                <a href="#" class="overlay"><i class="ilmosys-link-2"></i></a>
+                            </div><!-- /hover-link -->
+                        </div><!-- /portfolio-item -->
+                    </div><!-- /isotope-grid -->
+                </div><!-- /isotope-grid-row -->
+            </div><!-- /isotope-grid-wrapper -->
+        </div><!-- /container -->
+    </section>
+    <!-- END / PORTFOLIO 1 -->
+    <!-- COUNTER 3 -->
+    <section class="section bg-white pt-60 pb-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="counter">
+                        <p class="count-number">429+</p>
+                        <h3>产品</h3>
+                    </div><!-- /counter -->
+                </div><!-- /col -->
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="counter">
+                        <p class="count-number">530+</p>
+                        <h3>合作伙伴</h3>
+                    </div><!-- /counter -->
+                </div><!-- /col -->
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="counter">
+                        <p class="count-number">1287+</p>
+                        <h3>合作店铺</h3>
+                    </div><!-- /counter -->
+                </div><!-- /col -->
+            </div><!-- /row -->
+        </div><!-- /container -->
+        <div class="stat-trigger"></div>
+    </section>
+    <!-- END / COUNTER 3 -->
+    <!-- TESTIMONIAL -->
+    <section class="section bg-gray pt-50 pb-50">
+        <div class="container">
+            <h2 class="section-header center">与你同在</h2>
+            <div class="row">
+                <div class="col-sm-12 col-xs-12">
+                    <div class="testimonial testimonial-slider" data-number-slide="2">
+                        <div class="item">
+                            <div class="testimonial-status"></div>
+                            <img src="__PUBLIC__/img/portfolio/1.jpg" alt="" width="40" height="30">
+                            <div class="testimonial-author clearfix">
+                                <h4 class="text-uppercase text-left ">视频名称</h4>
+                            </div><!-- /testimonial-author -->
+                        </div><!-- /item -->
+                    </div><!-- /testimonial -->
+                </div><!-- /col -->
+            </div><!-- /row -->
+        </div><!-- /container -->
+    </section>
+    <!-- END / TESTIMONIAL -->
+    <!-- NEWS -->
+    <section class="section bg-white pt-60 pb-20">
+        <div class="container">
+            <div class="section-header">行业 <span>动态</span></div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                    <article class="post post-style-2">
+                        <div class="post-thumbnail hover-link">
+                            <img src="__PUBLIC__/img/post/1.jpg" alt="" />
+                            <a href="news-single.html" class="overlay"><i class="ilmosys-link-2"></i></a>
+                        </div><!--/ post-thumbnail -->
+                        <header class="entry-header">
+                            <h2 class="entry-title title-bold h5" data-number-line="2"><a href="news-single.html">Your Medical Record Are Safe</a></h2>
+                        </header>
+                        <div class="entry-content">
+                            <p data-number-line="4">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, </p>
+                        </div><!-- /entry-content -->
+                        <footer class="entry-footer">
+                            <span class="posted-on"><i class="ilmosys-calendar-3"></i><a href="#">July 10, 2017</a></span>
+                            <span class="comments-link"><i class="ilmosys-up-4"></i><a href="#">No comment</a></span>
+                        </footer>
+                    </article><!-- /post -->
+                </div><!-- /col -->
+            </div><!-- /row -->
+        </div><!-- /container -->
+    </section>
+    <!-- END / NEWS -->
+{include file='Public/footer'}
+</div><!-- /page-wrap -->
+{include file='Public/script_js'}
+

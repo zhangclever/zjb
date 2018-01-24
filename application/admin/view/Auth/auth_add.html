@@ -1,0 +1,114 @@
+{include file='public/link-css'}
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap-fileupload.css" />
+<!-- BEGIN BODY -->
+<body class="page-header-fixed">
+<!-- BEGIN HEADER -->
+{include file='public/header'}
+<!-- END HEADER -->
+<!-- BEGIN CONTAINER -->
+<div class="page-container row-fluid">
+    <!-- BEGIN SIDEBAR -->
+    {include file='public/left-menu'}
+    <!-- END SIDEBAR -->
+    <!-- BEGIN PAGE -->
+    <div class="page-content">
+        <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+        <div id="portlet-config" class="modal hide">
+            <div class="modal-header">
+                <button data-dismiss="modal" class="close" type="button"></button>
+                <h3>Widget Settings</h3>
+            </div>
+            <div class="modal-body">
+                <p>Here will be a configuration form</p>
+            </div>
+        </div>
+        <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+                    <!-- BEGIN VALIDATION STATES-->
+                    <div class="portlet box green">
+                        <div class="portlet-title">
+                            <div class="caption"><i class="icon-reorder"></i>商品添加</div>
+                            <div class="tools">
+                                <a href="javascript:;" class="collapse"></a>
+                                <a href="javascript:;" class="reload"></a>
+                            </div>
+                        </div>
+                        <div class="portlet-body form ">
+                            <!-- BEGIN FORM-->
+                            <form action="{:url('Auth/auth_info_add')}" id="form_sample_2" method="post" class="form-horizontal" enctype="multipart/form-data" >
+                                <div class="control-group">
+                                    <div class="controls" data-toggle="tooltip" id="goodsName">
+                                        <label class="control-label">权限中文名称<span class="required">*</span></label>
+                                        <input type="text" name="title" data-required="1" class="span6 m-wrap"  value=""/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label">权限英文名<span class="required">*</span></label>
+                                        <input name="name" type="text" class="span6 m-wrap"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label">权限类型<span class="required">*</span></label>
+                                        <select class="span6 m-wrap" name="type">
+                                            <option value="1">项目</option>
+                                            <option value="2">模块</option>
+                                            <option value="3">操作</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="control-label">权限状态<span class="required">*</span></label>
+                                        <select class="small m-wrap" name="status">
+                                            <option value="1">启用</option>
+                                            <option value="0">禁用</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-actions text-center">
+                                    <button type="submit" class="btn green">保存</button>
+                                    <button type="button" class="btn default" id="back">取消</button>
+                                </div>
+                            </form>
+                            <!-- END FORM-->
+                        </div>
+                    </div>
+                    <!-- END VALIDATION STATES-->
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE CONTAINER-->
+    </div>
+    <!-- BEGIN PAGE -->
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+{include file='public/footer'}
+<!-- END FOOTER -->
+</body>
+{include file='public/script-js'}
+<script>
+    $('#form_sample_2').submit(function() {         //使用ajax的submit提交方法进行表单提交
+       $(this).ajaxSubmit(function(res) {
+           if(res.code ===1){
+               layer.msg(res.msg, {icon: 6, time: 2300}, function () {
+                   location.href = res.url;
+               })
+           }else{
+               layer.msg(res.msg, {icon: 2, time: 2300}, function () {
+                   location.href = res.url;
+               })
+           }
+
+       });
+       return false; //阻止表单默认提交
+   });
+    $('#back').on('click',function () {
+        location.assign('auth_list');
+    })
+</script>
+</html>

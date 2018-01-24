@@ -15,9 +15,5 @@ class Index extends Controller
         return view('Index/index');
     }
 
-//    public function al()
-//    {
-//
-//        return view('index');
-//    }
+
 }

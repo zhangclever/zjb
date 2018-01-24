@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+{include file='public/link-css'}
+<link href="__PUBLIC__/css/style-responsivess.css" rel="stylesheet" type="text/css"/>
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="span12">
+            <h4>正在为 <span style=";font-size:2em;color: orangered;">{$gname}</span>分配权限</h4>
+        </div>
+        <div class="span12">
+            <!-- BEGIN SAMPLE FORM PORTLET-->
+            <div class="portlet box blue tabbable">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-reorder"></i>
+                        <span class="hidden-480">授权</span>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                    <div class="tabbable portlet-tabs">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#portlet_tab1" data-toggle="tab">授权</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="portlet_tab1">
+                                <!-- BEGIN FORM-->
+                                <form action="{:url('Auth/auth_accredit_modify')}" id="form_sample_2"
+                                      enctype="multipart/form-data" method="post" class="form-horizontal">
+                                    <div class="control-group">
+                                        <div class="controls" style="margin-left: 70px;">
+                                            {volist name='rule' id='vo'}
+                                            <p style="margin-left:{$vo['type']*20}px;{$vo['type']==3?'float:left;':''}">
+                                                <label class="checkbox">
+                                                    {switch name='$vo.type'}
+                                                    {case value='1'}<input type="checkbox" name="name" value="{vo.id}" level="{$vo.type}"/>[项目]{$vo.title}{/case}
+                                                    {case value='2'}<input type="checkbox" name="name" value="{vo.id}" level="{$vo.type}"/>[模块]{$vo.title}{/case}
+                                                    {case value='3'}<input type="checkbox" name="name" value="{vo.id}" level="{$vo.type}"/>{$vo.title}{/case}
+                                                    {/switch}
+                                                </label>
+                                            </p>
+                                            {/volist}
+                                        </div>
+                                    </div>
+                                    <div class="form-actions">
+                                        <input class="form-control" type="hidden" name="id" value="{$rule[0]['id']}">
+                                        <button type="submit" class="btn blue"><i class="icon-ok"></i> 确认授权</button>
+                                        <!-- <button type="button" class="btn">Cancel</button> -->
+                                    </div>
+                                </form>
+                                <!-- END FORM-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END SAMPLE FORM PORTLET-->
+        </div>
+    </div>
+</div>
+
+</div>
+{include file='public/footer'}
+{include file='public/script-js'}
+<script>
+    $('#form_sample_2').submit(function () {         //使用ajax的submit提交方法进行表单提交
+        $(this).ajaxSubmit(function (res) {
+            if (res.code === 1) {
+                layer.msg(res.msg, {icon: 6, time: 2300}, function () {
+                    parent.location.href = res.url;
+                })
+            } else {
+                layer.msg(res.msg, {icon: 2, time: 800}, function () {
+                    parent.location.href = res.url;
+                })
+            }
+        });
+        return false; //阻止表单默认提交
+    });
+</script>
+</html>

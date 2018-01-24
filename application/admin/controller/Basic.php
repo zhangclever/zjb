@@ -13,6 +13,7 @@ class Basic extends Controller
         if (!session('id')) {
             return $this->error('请先登录系统', url('Login/login'));
         }
+
     }
 
 }

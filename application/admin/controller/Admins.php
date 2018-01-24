@@ -1,7 +1,6 @@
 <?php
 namespace app\admin\controller;
 
-use lib\Page;
 use think\Db;
 
 class Admins extends Basic{
@@ -76,21 +75,21 @@ class Admins extends Basic{
         return view('admin_see');
     }
 
-    public function admin_accredit(){
-        // echo '授权页面';
-        $id = input('id');
-        //查询是否这个  admin_id这条数据
-        $count = Db::table('zjb_accredits')->where('admin_id',$id)->count();
-        //判断 没有的化，就添加这个数据到权限表zjb_accredits
-        if($count == 0){
-            $admin_id['admin_id'] = $id;
-            $res = Db::table('zjb_accredits')->insert($admin_id);
-        }
-        $data = Db::table('zjb_accredits')->where('admin_id',$id)->find();
-        $this->assign('id',$id);
-        $this->assign('data',$data);
-        return view('admin_accredit');
-    }
+//    public function admin_accredit(){
+//        // echo '授权页面';
+//        $id = input('id');
+//        //查询是否这个  admin_id这条数据
+//        $count = Db::table('zjb_accredits')->where('admin_id',$id)->count();
+//        //判断 没有的化，就添加这个数据到权限表zjb_accredits
+//        if($count == 0){
+//            $admin_id['admin_id'] = $id;
+//            $res = Db::table('zjb_accredits')->insert($admin_id);
+//        }
+//        $data = Db::table('zjb_accredits')->where('admin_id',$id)->find();
+//        $this->assign('id',$id);
+//        $this->assign('data',$data);
+//        return view('admin_accredit');
+//    }
 
     public function accredit_modify(){
         // 执行修改权限
@@ -104,8 +103,4 @@ class Admins extends Basic{
             $this->error('设置权限失败','Admins/admin_list');
         }
     }
-
-    
-
-
 }

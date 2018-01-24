@@ -93,7 +93,7 @@
                                         <a href="{:url('Admins/admin_see','id='.$vo['id'])}"><i class="icon-ban-circle"></i>查看</a>
                                         <a href="{:url('Admins/admin_edit','id='.$vo['id'])}"><i class="icon-pencil"></i>修改</a>
                                         <a href="javascript:remove({$vo['id']})"><i class="icon-trash"></i>删除</a>
-                                        <a href="javascript:accredit({$vo['id']})"><i class="icon-trash"></i>授权</a>
+                                        <!--<a href="javascript:accredit({$vo['id']})"><i class="icon-trash"></i>授权</a>-->
                                      </td>
                                 </tr>
                     {/volist}
@@ -140,21 +140,6 @@
                 })
             layer.close(index);
         })
-    }
-
-    function accredit(id){
-        layer.open({
-              type: 2,
-              shade: false,
-              area: ['60%' , '90%'],
-              maxmin: true,
-              content: ['{:url("Admins/admin_accredit")}'+"?id="+id],
-              zIndex: layer.zIndex, //重点1
-              success: function(res){
-                   
-                   
-              }
-            });
     }
 </script>
 </html>
