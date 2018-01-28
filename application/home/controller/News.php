@@ -16,4 +16,9 @@ class News extends Controller
     {
         return $this->view->fetch('News/news');
     }
+
+    public function news()
+    {
+        return $this->view->fetch('News/news-single');
+    }
 }

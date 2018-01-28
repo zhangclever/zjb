@@ -3,6 +3,7 @@ namespace app\admin\controller;
 
 use lib\Page;
 use think\Db;
+
 header('Content-Type: text/html; charset=utf-8');
 class Advertise extends Basic{
 

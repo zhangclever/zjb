@@ -9,11 +9,15 @@
 namespace app\home\controller;
 
 use think\Controller;
-
+use think\Db;
 class Service extends Controller
 {
     public function index()
     {
-        return $this->view->fetch('Service/service');
+    	//健保专栏 排序21个  7行
+    	$healthy = Db::name('healthys')->where('status',0)->order('id desc')->limit(21)->select();
+    	
+    	$this->assign('healthy',$healthy);
+        return view('Service/service');
     }
 }

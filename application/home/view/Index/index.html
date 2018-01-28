@@ -64,42 +64,45 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <div class="section-header">最新&nbsp;<span>活动</span></div>
+                    <div class="section-header">新闻&nbsp;<span>中心</span></div>
+                {volist name="article" id="vo"}
                     <div class="post-thumbnail hover-link">
-                        <img src="__PUBLIC__/img/service/1.jpg" alt="" />
-                        <a href="#" class="overlay"><i class="ilmosys-link-2"></i></a>
+                        <img src="/static/admin/uploads/{$vo.images}" alt="" />
+                        <a href="{:url('Article/content','id='.$vo['id'])}" class="overlay"><i class="ilmosys-link-2"></i></a>
                     </div><!--/ post-thumbnail -->
-                    <span class="lead">文章名称</span>
+                    <span class="lead"><a href="{:url('Article/content','id='.$vo['id'])}">{$vo.title}</a></span>
                     <div class="mb-30">
-                        <a href=""><li class="list-unstyled">Lorem ipsum dolor sit amet, 4</li></a>
                     </div>
-                    <a href="#" class="btn btn-primary radius mb-30 ">了解更多...</a>
+                {/volist}
+                    <a href="{:url('Article/index')}" class="btn btn-primary radius mb-30 ">了解更多...</a>
                 </div><!-- /col -->
 
                 <div class="col-md-4">
-                    <div class="section-header">行业&nbsp;<span>动态</span></div>
+                {volist name="dynamic" id="vo"}
+                    <div class="section-header">最新&nbsp;<span>动态</span></div>
                     <div class="post-thumbnail hover-link">
-                        <img src="__PUBLIC__/img/service/2.jpg" alt="" />
-                        <a href="#" class="overlay"><i class="ilmosys-link-2"></i></a>
+                        <img src="/static/admin/uploads/{$vo.images}" alt="" />
+                        <a href="{:url('Dynamic/content','id='.$vo['id'])}" class="overlay"><i class="ilmosys-link-2"></i></a>
                     </div><!--/ post-thumbnail -->
-                    <span class="lead">文章名称</span>
+                    <span class="lead"><a href="{:url('Dynamic/content','id='.$vo['id'])}">{$vo.title}</a></span>
                     <div class="mb-30">
-                        <a href=""><li class="list-unstyled">Lorem ipsum dolor sit amet, 4</li></a>
                     </div>
-                    <a href="#" class="btn btn-primary radius mb-30 ">了解更多...</a>
+                    <a href="{:url('Dynamic/index')}" class="btn btn-primary radius mb-30 ">了解更多...</a>
+                {/volist}
                 </div><!-- /col -->
 
                 <div class="col-md-4">
-                    <div class="section-header">理赔&nbsp;<span>公告</span></div>
+                {volist name="notice" id="vo"}
+                    <div class="section-header">通知&nbsp;<span>公告</span></div>
                     <div class="post-thumbnail hover-link">
-                        <img src="__PUBLIC__/img/service/3.jpg" alt="" />
-                        <a href="#" class="overlay"><i class="ilmosys-link-2"></i></a>
+                        <img src="/static/admin/uploads/{$vo.images}" alt="" />
+                        <a href="{:url('Notice/content','id='.$vo['id'])}" class="overlay"><i class="ilmosys-link-2"></i></a>
                     </div><!--/ post-thumbnail -->
-                    <span class="lead">文章名称</span>
+                    <span class="lead"><a href="{:url('Notice/content','id='.$vo['id'])}">{$vo.title}</a></span>
                     <div class="mb-30">
-                        <a href=""><li class="list-unstyled">Lorem ipsum dolor sit amet, 4</li></a>
                     </div>
-                    <a href="#" class="btn btn-primary radius mb-30 ">了解更多...</a>
+                    <a href="{:url('Notice/index')}" class="btn btn-primary radius mb-30 ">了解更多...</a>
+                {/volist}
                 </div><!-- /col -->
             </div><!-- /row -->
         </div><!-- /container -->
@@ -147,21 +150,23 @@
     <!-- OUR Team -->
     <section class="section bg-white pt-60 pb-30">
         <div class="container">
-            <div class="section-header" data-section-center="767">我们的&nbsp;<span>团队</span></div>
+            <div class="section-header" data-section-center="767">理赔&nbsp;<span>通知</span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{:url('Compensate/index')}" class="more-link">更多...</a></div> 
             <div class="row">
+            {volist name="compensate" id="vo"}
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="team-leader">
                         <div class="avatar hover-link">
-                            <img src="__PUBLIC__/img/team/1.jpg" alt="" />
-                            <a href="#" class="overlay"><i class="ilmosys-link-2"></i></a>
+                            <img src="/static/admin/uploads/{$vo.images}" alt="" />
+                            <a href="{:url('Compensate/content','id='.$vo['id'])}" class="overlay"><i class="ilmosys-link-2"></i></a>
                         </div><!-- /avatar -->
-                        <h4 class="h5 title-bold">运营精英</h4>
-                        <h5>Ceo / Co-Founder</h5>
+                        <h4 class="h5 title-bold">{$vo.title}</h4>
+                        <h5>意外出险原因:{$vo.accident}</h5>
                         <p class="mb-20" data-number-line="5">
-                            hklghg
+                            {$vo.name}
                         </p>
                     </div><!-- /team-leader -->
                 </div><!-- /col -->
+                {/volist}
                 <!--<div class="clearfix visible-sm"></div>-->
             </div><!-- /row -->
         </div><!-- /container -->
@@ -171,15 +176,13 @@
     <section class="section bg-gray pt-60 pb-60">
         <div class="bg-gray"></div>
         <div class="container">
-            <div class="section-header" data-section-center="767">我们的<span>产品</span></div>
+            <div class="section-header" data-section-center="767">我们的<span>产品[推荐]</span></div>
             <!-- FILTER -->
             <ul class="portfolio-selector filters" data-portfolio-type="991">
-                <li><a href="#" data-filter="*">All</a></li>
-                <li><a href="#" data-filter=".office">Doctor</a></li>
-                <li><a href="#" data-filter=".building">Checkup</a></li>
-                <li><a href="#" data-filter=".museum">Research</a></li>
-                <li><a href="#" data-filter=".urban">Laboratory</a></li>
-                <li><a href="#" data-filter=".house">Hospital</a></li>
+            <li><a href="#" data-filter="*">全部推荐</a></li>
+            {volist name="goods_cate" id="vo"}
+                <li><a href="#" data-filter=".{$vo.id}">{$vo.catename}</a></li>
+            {/volist}
             </ul><!-- /portfolio-selector -->
             <!-- END / FILTER -->
 
@@ -188,54 +191,15 @@
                     <div class="isotope-grid">
                         <div class="grid-sizer"></div>
                         <!-- <div class="gutter-sizer"></div> -->
-                        <div class="portfolio-item office">
+                    {volist name="goods" id="vo"}
+                        <div class="portfolio-item {$vo.cid}">
                             <div class="portfolio-media hover-link">
-                                <img src="__PUBLIC__/img/portfolio/1.jpg" alt="" />
+                                <img src="/static/admin/uploads/{$vo.imgpath}/{$vo.imgname}" alt="" />
+                                <p>{$vo.name}</p>
                                 <a href="#" class="overlay"><i class="ilmosys-link-2"></i></a>
                             </div><!-- /hover-link -->
                         </div><!-- /portfolio-item -->
-                        <div class="portfolio-item building">
-                            <div class="portfolio-media hover-link">
-                                <img src="__PUBLIC__/img/portfolio/2.jpg" alt="" />
-                                <a href="#" class="overlay"><i class="ilmosys-link-2"></i></a>
-                            </div><!-- /hover-link -->
-                        </div><!-- /portfolio-item -->
-                        <div class="portfolio-item museum">
-                            <div class="portfolio-media hover-link">
-                                <img src="__PUBLIC__/img/portfolio/3.jpg" alt="" />
-                                <a href="#" class="overlay"><i class="ilmosys-link-2"></i></a>
-                            </div><!-- /hover-link -->
-                        </div><!-- /portfolio-item -->
-                        <div class="portfolio-item building">
-                            <div class="portfolio-media hover-link">
-                                <img src="__PUBLIC__/img/portfolio/4.jpg" alt="" />
-                                <a href="#" class="overlay"><i class="ilmosys-link-2"></i></a>
-                            </div><!-- /hover-link -->
-                        </div><!-- /portfolio-item -->
-                        <div class="portfolio-item urban">
-                            <div class="portfolio-media hover-link">
-                                <img src="__PUBLIC__/img/portfolio/5.jpg" alt="" />
-                                <a href="#" class="overlay"><i class="ilmosys-link-2"></i></a>
-                            </div><!-- /hover-link -->
-                        </div><!-- /portfolio-item -->
-                        <div class="portfolio-item museum">
-                            <div class="portfolio-media hover-link">
-                                <img src="__PUBLIC__/img/portfolio/6.jpg" alt="" />
-                                <a href="#" class="overlay"><i class="ilmosys-link-2"></i></a>
-                            </div><!-- /hover-link -->
-                        </div><!-- /portfolio-item -->
-                        <div class="portfolio-item urban">
-                            <div class="portfolio-media hover-link">
-                                <img src="__PUBLIC__/img/portfolio/7.jpg" alt="" />
-                                <a href="#" class="overlay"><i class="ilmosys-link-2"></i></a>
-                            </div><!-- /hover-link -->
-                        </div><!-- /portfolio-item -->
-                        <div class="portfolio-item house">
-                            <div class="portfolio-media hover-link">
-                                <img src="__PUBLIC__/img/portfolio/8.jpg" alt="" />
-                                <a href="#" class="overlay"><i class="ilmosys-link-2"></i></a>
-                            </div><!-- /hover-link -->
-                        </div><!-- /portfolio-item -->
+                    {/volist}   
                     </div><!-- /isotope-grid -->
                 </div><!-- /isotope-grid-row -->
             </div><!-- /isotope-grid-wrapper -->
@@ -248,19 +212,19 @@
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="counter">
-                        <p class="count-number">429+</p>
+                        <p class="count-number">{$goods_c}+</p>
                         <h3>产品</h3>
                     </div><!-- /counter -->
                 </div><!-- /col -->
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="counter">
-                        <p class="count-number">530+</p>
+                        <p class="count-number">{$dealer_c}+</p>
                         <h3>合作伙伴</h3>
                     </div><!-- /counter -->
                 </div><!-- /col -->
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="counter">
-                        <p class="count-number">1287+</p>
+                        <p class="count-number">{$dealer_c * 5}+</p>
                         <h3>合作店铺</h3>
                     </div><!-- /counter -->
                 </div><!-- /col -->
@@ -276,13 +240,15 @@
             <div class="row">
                 <div class="col-sm-12 col-xs-12">
                     <div class="testimonial testimonial-slider" data-number-slide="2">
+                    {volist name="video" id="vo"}
                         <div class="item">
                             <div class="testimonial-status"></div>
-                            <img src="__PUBLIC__/img/portfolio/1.jpg" alt="" width="40" height="30">
+                            <img src="/static/admin/videos/{$vo.vimgpath}/{$vo.vimgname}" alt="" width="40" height="30">
                             <div class="testimonial-author clearfix">
-                                <h4 class="text-uppercase text-left ">视频名称</h4>
+                                <h4 class="text-uppercase text-left "><a href="{:url('Video/content','id='.$vo['id'])}">{$vo.vname}</a></h4>
                             </div><!-- /testimonial-author -->
                         </div><!-- /item -->
+                    {/volist}
                     </div><!-- /testimonial -->
                 </div><!-- /col -->
             </div><!-- /row -->
@@ -292,26 +258,27 @@
     <!-- NEWS -->
     <section class="section bg-white pt-60 pb-20">
         <div class="container">
-            <div class="section-header">行业 <span>动态</span></div>
+            <div class="section-header">健康 <span>资讯</span></div>
             <div class="row">
+            {volist name="healthy" id="vo"}
                 <div class="col-md-4 col-sm-12 col-xs-12">
                     <article class="post post-style-2">
                         <div class="post-thumbnail hover-link">
-                            <img src="__PUBLIC__/img/post/1.jpg" alt="" />
-                            <a href="news-single.html" class="overlay"><i class="ilmosys-link-2"></i></a>
+                            <img src="/static/admin/uploads/{$vo.images}" alt="" />
+                            <a href="{:url('Healthy/content','id='.$vo['id'])}" class="overlay"><i class="ilmosys-link-2"></i></a>
                         </div><!--/ post-thumbnail -->
                         <header class="entry-header">
-                            <h2 class="entry-title title-bold h5" data-number-line="2"><a href="news-single.html">Your Medical Record Are Safe</a></h2>
+                            <h2 class="entry-title title-bold h5" data-number-line="2"><a href="news-single.html">{$vo.title}</a></h2>
                         </header>
                         <div class="entry-content">
-                            <p data-number-line="4">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, </p>
+                            <p data-number-line="4">{$vo.content}</p>
                         </div><!-- /entry-content -->
                         <footer class="entry-footer">
-                            <span class="posted-on"><i class="ilmosys-calendar-3"></i><a href="#">July 10, 2017</a></span>
-                            <span class="comments-link"><i class="ilmosys-up-4"></i><a href="#">No comment</a></span>
+                            <span class="posted-on"><i class="ilmosys-calendar-3"></i>{$vo.ctimes}</span>
                         </footer>
-                    </article><!-- /post -->
-                </div><!-- /col -->
+                    </article>
+                </div>
+            {/volist}
             </div><!-- /row -->
         </div><!-- /container -->
     </section>

@@ -1,4 +1,7 @@
 <!-- CLIENT -->
+<?php
+$obj = new app\home\controller\Index();
+?>
 <section class="section bg-gray bd-b pt-60 pb-60">
     <div class="container">
         <div class="client-slider">
@@ -54,7 +57,7 @@
                         <div class="logo">
                             <a href="#"><img src="__PUBLIC__/img/logo_white_txt.png" alt="logo" /></a>
                         </div><!-- /#logo -->
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                        <p>健保卡的全称是全民健康保障卡（又称全民健康保障一卡通），是中健保健康管理中心发行的社会福利保障卡。健保卡集补贴、保健、保障、保险、体检、疾病筛查等功能与服务。</p>
                         <ul class="social-list-2">
                             <li><a href="#"><span class="fa fa-facebook"></span></a></li>
                             <li><a href="#"><span class="fa fa-twitter"></span></a></li>
@@ -68,27 +71,29 @@
 
                 <div class="col-md-4  col-sm-6 col-xs-12">
                     <aside class="widget widget_contact">
-                        <h3 class="footer-title widget-title">Get in <span>Touch</span></h3>
+                        <h3 class="footer-title widget-title">友情 <span>链接</span></h3>
                         <ul>
-                            <li><i class="ilmosys-map2"></i>1_ABCD, near abc city, New Country, Near ABC State</li>
-                            <li><i class="ilmosys-telephone"></i>+(123) 45678910</li>
+                            {volist name="$obj->links()" id="vo"}
+                            <li><a href="{$vo.url}">{$vo.name}<a href="#"></li>
+                            {/volist}
+                            <!--<li><i class="ilmosys-telephone"></i>+(123) 45678910</li>
                             <li><i class="ilmosys-mail-2"></i><a href="#">info@yourdomain.com</a></li>
                             <li><i class="ilmosys-smartphone-2"></i>+(123) 45678910</li>
-                            <li><i class="ilmosys-split-horizontal"></i>www.yourdomain.com</li>
+                            <li><i class="ilmosys-split-horizontal"></i>www.yourdomain.com</li>-->
                         </ul>
                     </aside><!-- /widget_contact -->
                 </div><!-- /col -->
 
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <aside class="widget widget_infomation">
-                        <h3 class="footer-title widget-title">Working <span>Hours</span></h3>
+                        <h3 class="footer-title widget-title">工作 <span>时间</span></h3>
                         <ul class="list-style">
-                            <li><a href="#">Monday: 09:00-02:00</a></li>
-                            <li><a href="#">Tuesday: 09:00-02:00</a></li>
-                            <li><a href="#">Wednesday: 09:00-02:00</a></li>
-                            <li><a href="#">Thursday: 09:00-02:00</a></li>
-                            <li><a href="#">Friday: 09:00-02:00</a></li>
-                            <li><a href="#">Saturday: 09:00-02:00</a></li>
+                            <li><a href="#">星期一: 09:00-17:30</a></li>
+                            <li><a href="#">星期二: 09:00-17:30</a></li>
+                            <li><a href="#">星期三: 09:00-17:30</a></li>
+                            <li><a href="#">星期四: 09:00-17:30</a></li>
+                            <li><a href="#">星期五: 09:00-17:30</a></li>
+                            <li><a href="#">星期六: 09:00-17:30</a></li>
                         </ul>
                     </aside><!-- /widget_infomation -->
                 </div><!-- /col -->

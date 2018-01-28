@@ -1,0 +1,123 @@
+﻿{include file='Public/link_css'}
+<!-- PRELOAD -->
+<div id="preload" class="preload">
+    <div class="flat"></div>
+    <div class="square"></div>
+    <div class="square-2"></div>
+    <div class="square-3"></div>
+    <div class="square-4"></div>
+</div>
+<!-- /END PRELOAD -->
+<!-- HEADER 3 -->
+{include file='Public/header'}<!-- /header -->
+<!-- END / HEADER 4 -->
+<div id="page-wrap">
+    <!-- SUB HEADER -->
+    <section id="sub-header" class="section bg-parallax pt-80 pb-0" data-background="">
+        <div class="bg-overlay-black bg-overlay-5"></div>
+        <div class="container">
+            <div class="sub-wrapper">
+                <h1>健保专栏</h1>
+                <h4>少时诵诗书是</h4>
+                <!--<div class="breadcrumb-container clearfix">-->
+                    <!--<span> </span>-->
+                    <!--<ul class="breadcrumb">-->
+                        <!--<li><a href="#">Home</a></li>-->
+                        <!--<li><a href="#">Page</a></li>-->
+                        <!--<li>News</li>-->
+                    <!--</ul>-->
+                </div><!-- /breadcrumb -->
+            </div><!-- /sub-wrapper -->
+        </div><!-- /container -->
+    </section>
+    <!-- END / SUB HEADER -->
+    <!-- CONTENT -->
+    <section class="section bg-white pt-70 pb-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 col-sm-12 col-xs-12">
+                    <div id="content" class="site-content">
+                        <main id="main">
+                            
+                    {volist name='$list' id='vo'}
+                            <article class="post format-standard">
+                                <div class="post-thumbnail">
+                                    <img src="/static/admin/uploads/{$vo.images}" alt="" />
+                                    <a href="{:url('Healthy/content','id='.$vo['id'])}" class="overlay"></a>
+                                </div><!--/ post-thumbnail -->
+
+                                <header class="entry-header">
+                                    <h2 class="entry-title h4"><a href="{:url('Healthy/content','id='.$vo['id'])}">{$vo.title}</a></h2>
+                                    <span class="byline">发表<a href="#">中建宝</a> - </span>
+                                    <span class="posted-on"><a href="#">{$vo.ctimes}</a> - </span>
+                                    <span>张贴<a href="#">在动态中心</a>, <a href="#">重要信息</a></span>
+                                </header><!-- /header -->
+
+                                <div class="entry-content">
+                                    <p>{$vo.content}...<a href="{:url('Healthy/content','id='.$vo['id'])}" class="more-link">Read more</a></p>
+                                </div><!-- /entry-content -->
+
+                                <footer class="entry-footer">
+                                    <span class="favourite"><i class="ilmosys-heart"></i> {$vo.clicks} 点击量</span>
+                                    <!-- <span class="comments-link"><i class="ilmosys-right-4"></i> <a href="#">12 评论</a></span>
+                                    <span class="share-link"><i class="ilmosys-share-window"></i> <a href="#">分享</a></span> -->
+                                </footer><!-- /entry-footer -->
+                            </article><!-- /post -->
+                    {/volist}
+                            <!-- PAGENAVI -->
+                            <nav class="pager">
+                                <ul class="pagination">
+                                    <li class="active">{$list}</li>
+                                </ul>
+                            </nav>
+                            <!-- END / PAGENAVI -->
+                        </main>
+                    </div><!-- /site-content -->
+                </div><!-- /col -->
+
+                <div class="col-md-3 col-sm-12 col-xs-12">
+                    <div id="sidebar" class="sidebar">
+                        <div id="widget-area">
+                            <aside class="widget widget_search">
+                                <form action="#" method="post">
+                                    <div class="input-group">
+                                        <input type="search" class="search-field" placeholder="Search..." value="" name="s" title="Search for:">
+                                        <span class="input-group-btn"><button type="submit" class="btn"><span class="fa fa-search"></span></button></span>
+                                    </div>
+                                </form>
+                            </aside><!-- /widget_search -->
+
+                            <aside class="widget widget_categories">
+                                <h3 class="widget-title h5"><a href="{:url('Healthy/index')}">健保专栏</a></h3>
+                                <ul>
+                                    <li class="cat-item">
+                                        <ul class="children">
+                                            <li class="cat-item">
+                                                <a href="{:url('Healthy/index','state=0')}">健康资讯</a>
+                                            </li>
+                                            <li class="cat-item">
+                                                <a href="{:url('Healthy/index','state=1')}">养生宝典</a>
+                                            </li>
+                                            <li class="cat-item">
+                                                <a href="{:url('Healthy/index','state=2')}">家庭医生</a>
+                                            </li>
+                                            <li class="cat-item">
+                                                <a href="{:url('Healthy/index','state=3')}">疾病筛查</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </aside>
+                        </div><!-- /widget-area -->
+                    </div><!-- /sidebar -->
+                </div><!-- /col -->
+            </div><!-- /row -->
+        </div><!-- /container -->
+    </section>
+    <!-- END / CONTENT -->
+
+    <!-- FOOTER -->
+    {include file='Public/footer'}
+    <!-- END / FOOTER -->
+</div><!-- /page-wrap -->
+{include file='Public/script_js'}
